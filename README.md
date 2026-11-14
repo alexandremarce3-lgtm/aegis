@@ -25,4 +25,4 @@
 
 1. Cloner le dépôt :
    ```bash
-   git clone https://github.com/alexandremarcce3-lgtm/aegis.git
+   git clone  https://alexandremarce3-lgtm.github.io/aegis/

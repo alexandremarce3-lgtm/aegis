@@ -80,7 +80,7 @@ function chercher(q) {
 const lienSituation = (s) => `#/fiche/${s.fiche}${s.ancre ? '/' + encodeURIComponent(s.ancre) : ''}`;
 
 function vueAccueil() {
-  titre('Premiers secours', false);
+  titre('Aegis — premiers secours', false);
   const Reco = window.SpeechRecognition || window.webkitSpeechRecognition;
   vue.innerHTML = `
     <p class="avant"><b>Urgence ?</b> Alertez d’abord les secours avec les boutons rouges en bas de l’écran.</p>
@@ -208,7 +208,7 @@ function vueApropos() {
 }
 
 /* ---------- Navigation ---------- */
-function titre(t, retour) { $('#titre').textContent = t; $('#back').hidden = !retour; document.title = t + ' — Premiers secours'; }
+function titre(t, retour) { $('#titre').textContent = t; $('#back').hidden = !retour; document.title = t === 'Aegis — premiers secours' ? t : t + ' — Aegis'; }
 $('#back').addEventListener('click', () => (history.length > 1 ? history.back() : (location.hash = '#/')));
 function route() {
   const [, page, a, b] = location.hash.split('/');

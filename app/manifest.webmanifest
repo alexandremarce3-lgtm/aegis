@@ -1,1 +1,1 @@
-{ "name": "Premiers secours — aide-mémoire PSC", "short_name": "Secours", "start_url": "./", "display": "standalone", "background_color": "#c8102e", "theme_color": "#c8102e", "lang": "fr", "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }] }
+{ "name": "Aegis — premiers secours", "short_name": "Aegis", "start_url": "./", "display": "standalone", "background_color": "#c8102e", "theme_color": "#c8102e", "lang": "fr", "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }] }

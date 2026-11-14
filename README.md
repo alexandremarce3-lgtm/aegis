@@ -17,7 +17,7 @@
 
 ## 🚀 Stack Technique
 
-*   *À compléter selon ce que tu codes avec Claude (ex: React Native, Flutter, Tailwind CSS, Node.js, etc.)*
+*  
 
 ---
 

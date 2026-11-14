@@ -1,0 +1,26 @@
+// Portes d'entrée de l'appli : libellés et mots-clés de recherche uniquement.
+// Le contenu affiché vient toujours de fiches.js (texte officiel), jamais d'ici.
+window.SITUATIONS = [
+  { id: 'etouffement', label: 'Étouffement', icon: '😮', fiche: 'obstruction-des-voies-aeriennes',
+    mots: ['etouff', 'etrangl', 'avale de travers', 'fausse route', 'coince dans la gorge', 'gorge', 'ne peut plus parler', 'ne peut plus respirer', 'tousse', 'obstruction'] },
+  { id: 'saignement', label: 'Saignement abondant', icon: '🩸', fiche: 'hemorragies',
+    mots: ['saigne', 'sang', 'hemorragi', 'garrot', 'pisse le sang'] },
+  { id: 'arret', label: 'Ne répond pas, ne respire pas', icon: '💔', fiche: 'arret-cardiaque',
+    mots: ['ne respire pas', 'ne respire plus', 'respire plus', 'respire pas', 'arret cardiaque', 'coeur', 'massage', 'inanime', 'defibrillateur', 'mort'] },
+  { id: 'inconscient', label: 'Ne répond pas, mais respire', icon: '😴', fiche: 'perte-de-connaissance',
+    mots: ['inconscient', 'evanoui', 'ne repond pas', 'ne repond plus', 'ne reagit pas', 'ne reagit plus', 'dans les pommes', 'perdu connaissance', 'perte de connaissance', 'pls', 'ne se reveille pas'] },
+  { id: 'malaise', label: 'Malaise', icon: '🥴', fiche: 'malaises',
+    mots: ['malaise', 'pas bien', 'douleur dans la poitrine', 'mal a la poitrine', 'vertige', 'avc', 'paralys', 'bouche de travers', 'mal a la tete', 'diabet', 'chaleur', 'canicule', 'pale', 'sueur', 'tourne de l oeil', 'crise cardiaque', 'mal a respirer', 'asthme', 'allergi'] },
+  { id: 'plaie', label: 'Plaie', icon: '🩹', fiche: 'plaies',
+    mots: ['plaie', 'coupure', 'coupe', 'ecorchure', 'egratignure', 'eraflure', 'morsure', 'mordu', 'couteau', 'verre', 'ampute', 'amputation', 'arrache'] },
+  { id: 'brulure', label: 'Brûlure', icon: '🔥', fiche: 'brulures',
+    mots: ['brul', 'ebouillant', 'eau bouillante', 'huile', 'feu', 'four', 'produit chimique', 'acide', 'electrocut', 'electri', 'coup de soleil', 'cloque'] },
+  { id: 'trauma', label: 'Chute, coup, fracture', icon: '🦴', fiche: 'traumatismes',
+    mots: ['chute', 'tombe', 'fracture', 'casse', 'entorse', 'cheville', 'coup', 'choc', 'bosse', 'dos', 'nuque', 'accident', 'luxation', 'foulure'] },
+  { id: 'nez', label: 'Saignement de nez', icon: '👃', fiche: 'hemorragies', ancre: 'La victime saigne du nez',
+    mots: ['nez', 'saigne du nez', 'saignement de nez'] },
+  { id: 'alerter', label: 'Alerter les secours', icon: '📞', fiche: 'alerte',
+    mots: ['alerte', 'appeler', 'numero', 'secours', 'pompiers', 'samu'] },
+  { id: 'proteger', label: 'Protéger d’un danger', icon: '⚠️', fiche: 'protection',
+    mots: ['danger', 'proteger', 'protection', 'degagement', 'attentat', 'incendie'] },
+];

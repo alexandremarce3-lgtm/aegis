@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#c8102e">
+<title>Premiers secours — aide-mémoire PSC</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <button id="back" class="back" aria-label="Retour" hidden>‹</button>
+  <h1 id="titre">Premiers secours</h1>
+</header>
+
+<main id="vue" tabindex="-1"></main>
+
+<nav class="appels" aria-label="Numéros d'urgence">
+  <a href="tel:15"><b>15</b><span>SAMU</span></a>
+  <a href="tel:18"><b>18</b><span>Pompiers</span></a>
+  <a href="tel:112"><b>112</b><span>Europe</span></a>
+  <a href="tel:114" class="discret"><b>114</b><span>SMS / visio</span></a>
+</nav>
+<nav class="onglets" aria-label="Sections">
+  <a href="#/" data-tab="intervenir">Intervenir</a>
+  <a href="#/fiches" data-tab="fiches">Fiches</a>
+  <a href="#/dae" data-tab="dae">Défibrillateurs</a>
+  <a href="#/apropos" data-tab="apropos">À propos</a>
+</nav>
+
+<script src="fiches.js"></script>
+<script src="situations.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,17 +1,17 @@
 # 🛡️ Aegis - Secours Protecteur
 
-> **Soyez prêt. Sauvez des vies.**[cite: 3]
+> **Soyez prêt. Sauvez des vies.**
 
-**Aegis** est une application mobile / web d'assistance et d'intervention d'urgence conçue pour guider pas à pas les citoyens face aux situations critiques (arrêts cardiaques, étouffements, hémorragies, etc.)[cite: 3].
+**Aegis** est une application mobile / web d'assistance et d'intervention d'urgence conçue pour guider pas à pas les citoyens face aux situations critiques (arrêts cardiaques, étouffements, hémorragies, etc.).
 
 ---
 
 ## 📱 Fonctionnalités clés
 
-*   **Intervention Pas à Pas** : Instructions visuelles et audio claires pour réagir rapidement face à une urgence[cite: 3].
-*   **Contact Urgences** : Bouton d'alerte direct vers les services compétents (15, 18, 112) avec partage de géolocalisation[cite: 3].
-*   **Localisation Défibrillateurs (DAE)** : Carte interactive pour trouver les défibrillateurs les plus proches en cas de besoin[cite: 3].
-*   **Quizz de Rappel** : Modules d'entraînement pour entretenir et tester ses connaissances régulièrement[cite: 3].
+*   **Intervention Pas à Pas** : Instructions visuelles et audio claires pour réagir rapidement face à une urgence.
+*   **Contact Urgences** : Bouton d'alerte direct vers les services compétents (15, 18, 112) avec partage de géolocalisation.
+*   **Localisation Défibrillateurs (DAE)** : Carte interactive pour trouver les défibrillateurs les plus proches en cas de besoin.
+*   **Quizz de Rappel** : Modules d'entraînement pour entretenir et tester ses connaissances régulièrement.
 
 ---
 

@@ -76,23 +76,53 @@
         </div>
 
         <!-- Section Téléchargement / QR Code -->
-        <section id="telecharger" class="mt-24 bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-10 rounded-3xl shadow-2xl text-center max-w-3xl mx-auto">
+        <section id="telecharger" class="mt-24 bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-10 rounded-3xl shadow-2xl text-center max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold text-white mb-4">Installer Aegis sur mobile</h2>
-            <p class="text-slate-300 mb-8 max-w-lg mx-auto">Scannez ce QR code avec l'appareil photo de votre smartphone pour ouvrir directement la Web App et l'ajouter à votre écran d'accueil.</p>
+            <p class="text-slate-300 mb-8 max-w-lg mx-auto">Scannez ce QR code avec l'appareil photo de votre smartphone pour ouvrir directement la Web App.</p>
             
             <!-- QR code pointant vers /app/ -->
             <div class="inline-block p-4 bg-white rounded-2xl shadow-inner mb-8 border border-slate-200">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://alexandremarce3-lgtm.github.io/aegis/app/" alt="QR Code Aegis Web App" class="mx-auto rounded-lg">
             </div>
 
-            <div class="flex flex-wrap justify-center gap-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
                 <a href="https://alexandremarce3-lgtm.github.io/aegis/app/" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition-all duration-200">
                     <span>📱 Ouvrir la Web App</span>
                 </a>
-                <a href="https://github.com/alexandremarce3-lgtm/aegis/releases" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-semibold px-6 py-3 rounded-xl transition-all duration-200">
+                <a href="https://github.com/alexandremarce3-lgtm.github.io/aegis/releases" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-semibold px-6 py-3 rounded-xl transition-all duration-200">
                     <span>📦 Releases GitHub</span>
                 </a>
             </div>
+
+            <!-- Guide d'installation rapide -->
+            <div class="border-t border-slate-700/80 pt-8 text-left grid md:grid-cols-2 gap-6">
+                <!-- Android -->
+                <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-700/50">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-2xl">🤖</span>
+                        <h3 class="font-bold text-white text-base">Sur Android (Chrome)</h3>
+                    </div>
+                    <ol class="text-slate-400 text-sm space-y-2 list-decimal list-inside">
+                        <li>Ouvrez le lien de la Web App.</li>
+                        <li>Appuyez sur les <strong class="text-slate-200">trois petits points</strong> en haut à droite du navigateur.</li>
+                        <li>Sélectionnez <strong class="text-slate-200">"Ajouter à l'écran d'accueil"</strong> ou <strong class="text-slate-200">"Installer l'application"</strong>.</li>
+                    </ol>
+                </div>
+
+                <!-- iOS -->
+                <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-700/50">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-2xl">🍏</span>
+                        <h3 class="font-bold text-white text-base">Sur iPhone / iPad (Safari)</h3>
+                    </div>
+                    <ol class="text-slate-400 text-sm space-y-2 list-decimal list-inside">
+                        <li>Ouvrez le lien de la Web App dans Safari.</li>
+                        <li>Appuyez sur le bouton <strong class="text-slate-200">Partager</strong> (le carré avec une flèche vers le haut).</li>
+                        <li>Faites défiler et choisissez <strong class="text-slate-200">"Sur l'écran d'accueil"</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+
         </section>
     </main>
 

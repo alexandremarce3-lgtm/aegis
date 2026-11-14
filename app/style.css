@@ -62,3 +62,21 @@ details.comprendre summary { cursor: pointer; padding: 10px 0; font-weight: 650;
 .dae b { display: block; } .dae span { display: block; font-size: 14px; color: var(--doux); }
 .liste .dae { display: block; padding: 12px 14px; }
 .fiche h3 { scroll-margin-top: 64px; }
+
+.top h1 { flex: 1; }
+.info { color: #fff; text-decoration: none; font-size: 22px; padding: 0 2px; }
+.jeune { background: var(--carte); border: 2px solid var(--rouge); border-radius: 16px; padding: 4px 16px 12px; margin-bottom: 16px; }
+.jeune h2 { border: 0; padding: 0; margin: 14px 0 6px; font-size: 15px; text-transform: uppercase; letter-spacing: .05em; color: var(--doux); }
+.jeune .geste { font-size: 24px; font-weight: 700; line-height: 1.3; margin: 4px 0 10px; }
+.jeune ul { font-size: 18px; }
+.jeune .source { border: 0; margin-top: 12px; }
+.niveau { background: var(--carte); border: 1px solid var(--trait); border-radius: 14px; padding: 14px; margin-bottom: 6px; }
+.niveau b { font-size: 20px; }
+.barre { height: 10px; border-radius: 5px; background: var(--trait); overflow: hidden; margin: 8px 0 4px; }
+.barre i { display: block; height: 100%; background: var(--rouge); }
+.liste small.ok { color: #1a7f37; font-weight: 700; }
+.question { font-size: 20px; font-weight: 700; line-height: 1.3; margin: 6px 0 14px; }
+.choix { display: block; width: 100%; text-align: left; font: inherit; background: var(--carte); color: var(--texte); border: 2px solid var(--trait); border-radius: 12px; padding: 13px 14px; margin: 0 0 10px; cursor: pointer; }
+.choix.bon { border-color: #1a7f37; background: rgba(26,127,55,.12); }
+.choix.faux { border-color: var(--rouge); background: rgba(200,16,46,.10); }
+.retour { font-weight: 650; margin: 6px 0 12px; }

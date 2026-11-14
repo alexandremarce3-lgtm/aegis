@@ -1,6 +1,6 @@
 // Mode hors ligne : toutes les fiches sont disponibles sans connexion.
-const CACHE = 'psc-2026-07-v1';
-const FICHIERS = ['./', 'index.html', 'style.css', 'app.js', 'fiches.js', 'situations.js', 'manifest.webmanifest', 'icon.svg'];
+const CACHE = 'aegis-v2';
+const FICHIERS = ['./', 'index.html', 'style.css', 'app.js', 'fiches.js', 'situations.js', 'jeune.js', 'formation.js', 'manifest.webmanifest', 'icon.svg'];
 self.addEventListener('install', (e) => e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FICHIERS)).then(() => self.skipWaiting())));
 self.addEventListener('activate', (e) => e.waitUntil(caches.keys().then((k) => Promise.all(k.filter((x) => x !== CACHE).map((x) => caches.delete(x)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', (e) => {

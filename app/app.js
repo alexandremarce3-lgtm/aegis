@@ -85,13 +85,20 @@ function chercher(q) {
 }
 const lienSituation = (s) => `#/s/${s.id}`;
 
+// Étouffement : deux cas très différents. Les légendes sont les intertitres de la fiche officielle.
+function deuxCas(s) {
+  const h3 = (debut) => (fiche(s.fiche).blocks.find((b) => b.k === 'h3' && b.t.startsWith(debut)) || {}).t || '';
+  const cas = [['etouffement_son', h3('Si la victime peut parler')], ['etouffement_muet', h3('Si la victime ne peut plus parler')]];
+  return `<div class="deuxcas">${cas.map(([d, t]) => `<a href="#" data-ancre="${norm(t).replace(/ /g, '-')}">${DESSINS[d]}<span>${esc(t)}</span></a>`).join('')}</div>`;
+}
+
 function vueSituation(id) {
   const s = SITUATIONS.find((x) => x.id === id);
   if (!s) return vueAccueil();
   if (profil !== 'jeune') return vueFiche(s.fiche, s.ancre);
   const gestes = APS.gestes[s.id] || [];
   const avant = `<section class="jeune">
-    ${DESSINS[s.id] || ''}
+    ${s.id === 'etouffement' ? deuxCas(s) : DESSINS[s.id] || ''}
     ${gestes.length ? `<h2>Le geste</h2>${gestes.map((g) => `<p class="geste">${esc(g)}</p>`).join('')}` : ''}
     <h2>Alerter</h2><ul>${APS.alerter.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>
     ${'speechSynthesis' in window ? '<button class="btn" id="lire">🔊 Écouter</button>' : ''}
@@ -99,6 +106,7 @@ function vueSituation(id) {
   </section>`;
   vueFiche(s.fiche, gestes.length ? null : s.ancre, { avant, replie: gestes.length > 0, apres: () => {
     $('#titre').textContent = s.label;
+    vue.querySelectorAll('[data-ancre]').forEach((l) => l.addEventListener('click', (e) => { e.preventDefault(); document.getElementById(l.dataset.ancre)?.scrollIntoView({ behavior: 'smooth' }); }));
     const b = $('#lire');
     if (b) b.addEventListener('click', () => { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance([...gestes, ...APS.alerter].join('. ')); u.lang = 'fr-FR'; u.rate = 0.9; speechSynthesis.speak(u); });
   } });

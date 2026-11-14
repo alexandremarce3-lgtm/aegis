@@ -127,3 +127,7 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 .mode-jeune .barre { height: 14px; border-radius: 7px; }
 .mode-jeune .barre i { background: linear-gradient(90deg, #f1b90f, #ff8a3d); }
 @media (prefers-reduced-motion: reduce) { .fete .piece, .confettis i, .gain, .choix.bon, .fete .carton { animation: none; } .confettis { display: none; } }
+
+.deuxcas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 4px; }
+.deuxcas a { text-decoration: none; color: var(--texte); font-weight: 700; font-size: 15px; line-height: 1.25; text-align: center; }
+.deuxcas svg.dessin { margin: 0 0 6px; }

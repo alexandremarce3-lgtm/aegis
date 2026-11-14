@@ -1,78 +1,99 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aegis - Secours Protecteur</title>
-    <!-- Tailwind CSS pour un design propre et rapide -->
+    <title>Aegis - Application de Premiers Secours</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-red-500 selection:text-white">
 
     <!-- En-tête / Hero Section -->
-    <header class="bg-red-600 text-white py-16 px-4 text-center">
-        <div class="max-w-3xl mx-auto">
-            <span class="bg-red-700 text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full">Application de Premiers Secours</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold mt-4">🛡️ Aegis</h1>
-            <p class="text-xl mt-3 font-medium opacity-90">Soyez prêt. Sauvez des vies.</p>
-            <p class="mt-4 text-red-100 max-w-xl mx-auto">Guide d'intervention d'urgence instantané, Aegis est votre allié face aux situations critiques. L'application vous accompagne pas à pas pour les gestes de premiers secours et vous aide à réagir avec confiance et efficacité.</p>
+    <header class="relative overflow-hidden bg-gradient-to-b from-red-950 via-slate-900 to-slate-900 py-20 px-4 text-center border-b border-slate-800">
+        <div class="max-w-4xl mx-auto relative z-10">
             
-            <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <a href="https://github.com/alexandremarce3-lgtm/aegis" target="_blank" rel="noopener noreferrer" class="bg-white text-red-600 font-bold px-6 py-3 rounded-lg shadow hover:bg-red-50 transition">
-                    Voir sur GitHub
+            <!-- Logo Aegis -->
+            <div class="mb-6 flex justify-center">
+                <img src="icon-512.png" alt="Logo Aegis" class="w-28 h-28 md:w-36 md:h-36 drop-shadow-[0_10px_25px_rgba(239,68,68,0.3)] rounded-3xl p-2 bg-slate-900/60 border border-red-500/30">
+            </div>
+
+            <span class="inline-block bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
+                🛡️ Secours Protecteur
+            </span>
+            
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-6">
+                Sauvez des vies avec <span class="text-red-500">Aegis</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
+                Guide d'intervention d'urgence instantané. L'application mobile qui vous accompagne pas à pas face aux situations critiques pour réagir avec sang-froid et efficacité.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#telecharger" class="bg-red-600 hover:bg-red-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-red-600/30 transition-all duration-200 transform hover:-translate-y-0.5">
+                    Télécharger l'application
                 </a>
-                <a href="#telecharger" class="bg-red-800 text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-red-900 transition">
-                    Télécharger l'app
+                <a href="https://github.com/alexandremarce3-lgtm/aegis" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-8 py-4 rounded-xl transition-all duration-200">
+                    Voir sur GitHub
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Fonctionnalités -->
-    <main class="max-w-4xl mx-auto px-4 py-16">
-        <h2 class="text-2xl font-bold text-center mb-12">Pourquoi utiliser Aegis ?</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                <div class="text-red-600 text-2xl mb-2">⚡</div>
-                <h3 class="font-bold text-lg mb-1">Intervention Pas à Pas</h3>
-                <p class="text-slate-600 text-sm">Instructions visuelles et audio claires pour la RCR, l'étouffement, les hémorragies, etc.</p>
+    <main class="max-w-6xl mx-auto px-4 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Pourquoi choisir Aegis ?</h2>
+            <p class="text-slate-400 max-w-xl mx-auto">Conçu pour être rapide, intuitif et vital dans les moments où chaque seconde compte.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Carte 1 -->
+            <div class="bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 p-6 rounded-2xl transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center text-xl font-bold mb-4 border border-red-500/20">⚡</div>
+                <h3 class="font-bold text-lg text-white mb-2">Intervention Pas à Pas</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Instructions claires pour la RCR, l'étouffement, les hémorragies et autres urgences vitales.</p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                <div class="text-red-600 text-2xl mb-2">📞</div>
-                <h3 class="font-bold text-lg mb-1">Contactez les Urgences</h3>
-                <p class="text-slate-600 text-sm">Bouton d'alerte direct vers le 15, 17, 18, 112, avec partage de géolocalisation.</p>
+            <!-- Carte 2 -->
+            <div class="bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 p-6 rounded-2xl transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center text-xl font-bold mb-4 border border-red-500/20">📞</div>
+                <h3 class="font-bold text-lg text-white mb-2">Appel d'Urgence Direct</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Boutons d'alerte rapides vers les services de secours (15, 17, 18, 112) avec géolocalisation.</p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                <div class="text-red-600 text-2xl mb-2">📍</div>
-                <h3 class="font-bold text-lg mb-1">Localisation Défibrillateurs (DAE)</h3>
-                <p class="text-slate-600 text-sm">Carte interactive des DAE à proximité pour intervenir sans perdre une seconde.</p>
+            <!-- Carte 3 -->
+            <div class="bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 p-6 rounded-2xl transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center text-xl font-bold mb-4 border border-red-500/20">📍</div>
+                <h3 class="font-bold text-lg text-white mb-2">Localisation des DAE</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Carte interactive répertoriant les défibrillateurs automatisés externes les plus proches.</p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                <div class="text-red-600 text-2xl mb-2">🧠</div>
-                <h3 class="font-bold text-lg mb-1">Quizz de Rappel</h3>
-                <p class="text-slate-600 text-sm">Entretenez vos connaissances régulièrement pour garder les bons réflexes.</p>
+            <!-- Carte 4 -->
+            <div class="bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 p-6 rounded-2xl transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center text-xl font-bold mb-4 border border-red-500/20">🧠</div>
+                <h3 class="font-bold text-lg text-white mb-2">Quizz de Rappel</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Entraînez-vous régulièrement pour maintenir vos connaissances et réflexes à jour.</p>
             </div>
         </div>
 
         <!-- Section Téléchargement / QR Code -->
-        <section id="telecharger" class="mt-20 bg-white p-8 rounded-2xl shadow-sm border border-slate-200 text-center">
-            <h2 class="text-2xl font-bold mb-4">Télécharger ou tester Aegis</h2>
-            <p class="text-slate-600 mb-6">Scannez ce QR code avec votre téléphone ou cliquez ci-dessous pour accéder au projet en ligne.</p>
+        <section id="telecharger" class="mt-24 bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-10 rounded-3xl shadow-2xl text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-4">Télécharger Aegis v1.0.0</h2>
+            <p class="text-slate-300 mb-8 max-w-lg mx-auto">Scannez ce QR code avec l'appareil photo de votre smartphone ou accédez directement aux versions publiées sur GitHub.</p>
             
-            <div class="inline-block p-4 bg-white border rounded-xl shadow-sm mb-6">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://alexandremarce3-lgtm.github.io/aegis" alt="QR Code Aegis" class="mx-auto">
+            <div class="inline-block p-4 bg-white rounded-2xl shadow-inner mb-8 border border-slate-200">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://alexandremarce3-lgtm.github.io/aegis" alt="QR Code Aegis" class="mx-auto rounded-lg">
             </div>
 
             <div>
-                <a href="https://github.com/alexandremarce3-lgtm/aegis/releases" target="_blank" rel="noopener noreferrer" class="inline-block bg-slate-900 text-white font-semibold px-6 py-3 rounded-lg hover:bg-slate-800 transition">
-                    Accéder aux versions (Releases)
+                <a href="https://github.com/alexandremarce3-lgtm/aegis/releases" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-red-600/30 transition-all duration-200">
+                    <span>📦 Accéder aux Releases GitHub</span>
                 </a>
             </div>
         </section>
     </main>
 
     <!-- Pied de page -->
-    <footer class="text-center py-8 text-slate-500 text-sm border-t border-slate-200 mt-12">
+    <footer class="text-center py-10 text-slate-500 text-sm border-t border-slate-800 mt-20">
         <p>© 2026 Aegis. Projet open-source sous licence MIT.</p>
     </footer>
 

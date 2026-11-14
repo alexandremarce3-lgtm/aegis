@@ -80,3 +80,50 @@ details.comprendre summary { cursor: pointer; padding: 10px 0; font-weight: 650;
 .choix.bon { border-color: #1a7f37; background: rgba(26,127,55,.12); }
 .choix.faux { border-color: var(--rouge); background: rgba(200,16,46,.10); }
 .retour { font-weight: 650; margin: 6px 0 12px; }
+
+/* --- Logo, dessins, récompenses --- */
+.logo { border-radius: 8px; display: block; }
+svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
+.tuile.illustree { padding: 8px 8px 12px; gap: 8px; text-align: center; }
+.jeune svg.dessin { margin: 12px 0 4px; }
+.question + .choix, svg.dessin + .question { margin-top: 12px; }
+.etoiles { color: #f1b90f; letter-spacing: 2px; font-size: 18px; }
+.etoiles i { font-style: normal; color: var(--trait); }
+.niveau.avecJeton { display: flex; gap: 14px; align-items: center; }
+.niveau.avecJeton > div:last-child { flex: 1; min-width: 0; }
+.niveau.resultat { text-align: center; font-size: 19px; }
+.niveau.resultat .etoiles { font-size: 40px; }
+.barre i { transition: width .6s ease; }
+.barre.fine { height: 6px; margin: 0 0 10px; }
+.jeton { width: 64px; height: 64px; flex: none; perspective: 400px; }
+.jeton .piece { width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #ffe58a, #f1b90f 60%, #c8930a); border: 3px solid #b8860b; box-shadow: 0 3px 8px rgba(0,0,0,.25); }
+.jeton svg { width: 100%; height: 100%; display: block; }
+.btn.lien { text-decoration: none; display: inline-block; }
+.btn.clair { background: none; color: var(--texte); border: 2px solid var(--trait); }
+.gain { display: inline-block; background: #f1b90f; color: #3b2a00; border-radius: 999px; padding: 2px 10px; margin-right: 6px; animation: saut .6s ease; }
+@keyframes saut { 0% { transform: scale(.3) translateY(10px); opacity: 0; } 60% { transform: scale(1.25); } 100% { transform: scale(1); opacity: 1; } }
+.choix.bon { animation: valide .4s ease; }
+@keyframes valide { 50% { transform: scale(1.03); } }
+.fete { position: fixed; inset: 0; z-index: 20; background: rgba(0,0,0,.6); display: grid; place-items: center; padding: 20px; }
+.fete .carton { background: var(--carte); color: var(--texte); border-radius: 22px; padding: 26px 22px; text-align: center; max-width: 320px; width: 100%; animation: saut .5s ease; position: relative; }
+.fete .jeton { width: 130px; height: 130px; margin: 0 auto 8px; }
+.fete .piece { animation: tourne 1.6s cubic-bezier(.3,.6,.3,1) 1, flotte 2.4s ease-in-out 1.6s infinite; }
+.fete .grand { font-size: 30px; font-weight: 800; margin: 6px 0; color: var(--rouge); }
+@keyframes tourne { from { transform: rotateY(0) scale(.4); } to { transform: rotateY(1080deg) scale(1); } }
+@keyframes flotte { 50% { transform: translateY(-6px) rotateY(18deg); } }
+.confettis { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.confettis i { position: absolute; top: -20px; width: 10px; height: 16px; border-radius: 3px; animation: tombe linear forwards; }
+@keyframes tombe { to { transform: translateY(110vh) rotate(720deg); } }
+/* --- Habillage « jeu » du mode moins de 12 ans --- */
+.mode-jeune { --fond: #fff6ea; }
+@media (prefers-color-scheme: dark) { .mode-jeune { --fond: #17151c; } }
+.mode-jeune .tuile { border-width: 2px; border-radius: 18px; box-shadow: 0 4px 0 var(--trait); font-size: 16px; }
+.mode-jeune .tuile:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--trait); }
+.mode-jeune .tuile.mission { align-items: center; text-align: center; min-height: 130px; }
+.mode-jeune .tuile.mission i { font-size: 40px; }
+.mode-jeune .choix { border-radius: 16px; font-size: 18px; box-shadow: 0 4px 0 var(--trait); }
+.mode-jeune .btn { border-radius: 16px; box-shadow: 0 4px 0 rgba(0,0,0,.25); font-size: 18px; }
+.mode-jeune .niveau { border: 2px solid #f1b90f; border-radius: 18px; }
+.mode-jeune .barre { height: 14px; border-radius: 7px; }
+.mode-jeune .barre i { background: linear-gradient(90deg, #f1b90f, #ff8a3d); }
+@media (prefers-reduced-motion: reduce) { .fete .piece, .confettis i, .gain, .choix.bon, .fete .carton { animation: none; } .confettis { display: none; } }

@@ -7,7 +7,7 @@ const vue = $('#vue');
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const norm = (s) => s.toLowerCase().replace(/œ/g, 'oe').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 const fiche = (id) => FICHES.find((f) => f.id === id);
-const APS = window.APS;
+const APS = window.APS, DESSINS = window.DESSINS;
 const memo = { lire: (k, d) => { try { return JSON.parse(localStorage.getItem('aegis.' + k)) ?? d; } catch { return d; } }, ecrire: (k, v) => { try { localStorage.setItem('aegis.' + k, JSON.stringify(v)); } catch {} } };
 let profil = memo.lire('profil', null); // 'jeune' (moins de 12 ans) ou 'grand'
 
@@ -91,6 +91,7 @@ function vueSituation(id) {
   if (profil !== 'jeune') return vueFiche(s.fiche, s.ancre);
   const gestes = APS.gestes[s.id] || [];
   const avant = `<section class="jeune">
+    ${DESSINS[s.id] || ''}
     ${gestes.length ? `<h2>Le geste</h2>${gestes.map((g) => `<p class="geste">${esc(g)}</p>`).join('')}` : ''}
     <h2>Alerter</h2><ul>${APS.alerter.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>
     ${'speechSynthesis' in window ? '<button class="btn" id="lire">🔊 Écouter</button>' : ''}
@@ -114,7 +115,7 @@ function vueAccueil() {
     </div>
     <p class="etat" id="etat" aria-live="polite"></p>
     <div id="resultats"></div>
-    <div class="grille" id="grille">${SITUATIONS.map((s) => `<a class="tuile" href="${lienSituation(s)}"><i>${s.icon}</i>${esc(s.label)}</a>`).join('')}</div>`;
+    <div class="grille" id="grille">${SITUATIONS.map((s) => (profil === 'jeune' && DESSINS[s.id] ? `<a class="tuile illustree" href="${lienSituation(s)}">${DESSINS[s.id]}${esc(s.label)}</a>` : `<a class="tuile" href="${lienSituation(s)}"><i>${s.icon}</i>${esc(s.label)}</a>`)).join('')}</div>`;
   const q = $('#q'), out = $('#resultats'), etat = $('#etat');
   const maj = (auto) => {
     const r = chercher(q.value);
@@ -264,7 +265,8 @@ function vueProfil() {
 function titre(t, retour) { $('#titre').textContent = t; $('#back').hidden = !retour; document.title = t === 'Aegis — premiers secours' ? t : t + ' — Aegis'; }
 $('#back').addEventListener('click', () => (history.length > 1 ? history.back() : (location.hash = '#/')));
 function route() {
-  const [, page, a, b] = location.hash.split('/');
+  const [, page, a, b] = location.hash.split('?')[0].split('/');
+  document.body.classList.toggle('mode-jeune', profil === 'jeune');
   const onglet = { fiche: 'fiches', s: 'intervenir', quiz: 'former' }[page] || page || 'intervenir';
   document.querySelectorAll('.onglets a').forEach((x) => x.classList.toggle('actif', x.dataset.tab === onglet));
   if (!profil) return vueProfil();

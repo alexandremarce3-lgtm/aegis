@@ -13,8 +13,10 @@
   const etoiles = (m) => { const r = m ? m[0] / m[1] : 0; const n = r >= 1 ? 3 : r >= 0.8 ? 2 : r >= 0.5 ? 1 : 0; return `<span class="etoiles" aria-label="${n} étoile${n > 1 ? 's' : ''} sur 3">${'★'.repeat(n)}<i>${'★'.repeat(3 - n)}</i></span>`; };
   const jeton = (n) => `<div class="jeton" aria-hidden="true"><div class="piece"><svg viewBox="0 0 100 100"><path d="M50 14l28 10v24c0 19-12 31-28 38c-16-7-28-19-28-38V24z" fill="#fff" opacity=".9"/><text x="50" y="64" text-anchor="middle" font-size="34" font-weight="800" fill="#b8860b" font-family="system-ui,sans-serif">${n}</text></svg></div></div>`;
   let banque = null;
+  // Débuts des mots du titre d'une fiche (« Brûlures » → « brul ») : une phrase qui les contient donne la réponse.
+  const racines = (titre) => norm(titre).split(' ').filter((m) => m.length >= 5).map((m) => m.slice(0, 4));
   // Actions communes à presque toutes les situations : elles ne permettent pas de distinguer une fiche d'une autre.
-  const COMMUN = /^(protéger|surveiller|faire alerter|alerter|en cas d[’']aggravation|rassurer|réchauffer|desserrer|demander de l[’']aide|se laver|se protéger)/i;
+  const COMMUN = /^(protéger|surveiller|faire alerter|alerter|en cas d[’']aggravation|rassurer|réchauffer|desserrer|demander de l[’']aide|se laver|se protéger|installer la victime en position|allonger confortablement)/i;
 
   // --- Banque de phrases officielles, propres à une seule fiche ---
   function construire() {
@@ -27,12 +29,20 @@
       actions[f.id] = [];
       for (const b of f.blocks.slice(debutAction(f))) {
         if (b.k === 'h2') contexte = '';
-        else if (b.k === 'h3') contexte = b.t + ' → ';
-        else if (b.k === 'li' && b.l === 1 && b.t.length >= 20 && !/:$/.test(b.t.trim()) && !COMMUN.test(b.t)) actions[f.id].push({ nu: b.t, t: contexte + b.t });
+        else if (b.k === 'h3') contexte = b.t;
+        else if (b.k === 'li' && b.l === 1 && b.t.length >= 20 && !/:$/.test(b.t.trim()) && !COMMUN.test(b.t)) actions[f.id].push({ nu: b.t, cas: contexte, trahit: racines(f.title).some((r) => (' ' + norm(b.t)).includes(' ' + r)) });
       }
       for (const t of new Set(actions[f.id].map((x) => cle(x.nu)))) vues[t] = (vues[t] || 0) + 1;
     }
-    for (const f of PR) actions[f.id] = actions[f.id].filter((x) => vues[cle(x.nu)] === 1).map((x) => x.t);
+    for (const f of PR) actions[f.id] = actions[f.id].filter((x) => vues[cle(x.nu)] === 1);
+    // Principe d'action de chaque procédure (paragraphe et éventuelle liste qui le suit).
+    const principes = {};
+    for (const f of PR) {
+      const i = f.blocks.findIndex((b) => b.k === 'h2' && /^Principe/.test(b.t));
+      const morceaux = [];
+      if (i >= 0) for (const b of f.blocks.slice(i + 1)) { if (b.k === 'h2' || b.k === 'h3') break; morceaux.push(b.t); }
+      principes[f.id] = morceaux.length ? [morceaux.join(' ')] : [];
+    }
     const vuesP = {};
     for (const f of FT) {
       const i = f.blocks.findIndex((b) => b.k === 'h2' && b.t === 'Points clés');
@@ -45,19 +55,22 @@
       for (const t of new Set(points[f.id].map(cle))) vuesP[t] = (vuesP[t] || 0) + 1;
     }
     for (const f of FT) points[f.id] = points[f.id].filter((t) => vuesP[cle(t)] === 1);
-    return { PR, FT, actions, points };
+    return { PR, FT, actions, points, principes };
   }
 
   const autres = (obj, sauf, n) => melanger(Object.entries(obj).filter(([k]) => !sauf.includes(k)).flatMap(([, v]) => v)).slice(0, n);
 
   function questionsAdulte(theme) {
-    const { PR, actions, points } = banque;
+    const { PR, actions, points, principes } = banque;
+    // Leurres : actions d'autres fiches, en écartant celles qui nomment leur propre situation.
+    const leurres = Object.fromEntries(PR.map((x) => [x.id, actions[x.id].filter((y) => !y.trahit).map((y) => y.nu)]));
     const q = [];
     for (const p of PR.filter((x) => theme === 'tout' || x.id === theme)) {
       for (const a of actions[p.id]) {
-        q.push({ fiche: p.id, texte: `Laquelle de ces actions fait partie de la conduite à tenir « ${p.title} » ?`, bon: a, choix: melanger([a, ...autres(actions, [p.id], 3)]) });
-        q.push({ fiche: p.id, texte: `« ${a} » — à quelle situation correspond cette action ?`, bon: p.title, choix: melanger([p.title, ...melanger(PR.filter((x) => x.id !== p.id).map((x) => x.title)).slice(0, 3)]) });
+        q.push({ fiche: p.id, texte: `Laquelle de ces actions fait partie de la conduite à tenir « ${p.title} »${a.cas ? `, cas « ${a.cas} »` : ''} ?`, bon: a.nu, choix: melanger([a.nu, ...autres(leurres, [p.id], 3)]) });
+        if (!a.trahit) q.push({ fiche: p.id, texte: `« ${a.nu} » — à quelle situation correspond cette action ?`, bon: p.title, choix: melanger([p.title, ...melanger(PR.filter((x) => x.id !== p.id).map((x) => x.title)).slice(0, 3)]) });
       }
+      for (const pr of principes[p.id]) q.push({ fiche: p.id, texte: `Quel est le principe d’action face à « ${p.title} » ?`, bon: pr, choix: melanger([pr, ...autres(principes, [p.id], 3)]) });
       for (const id of (LIES[p.id] || []).filter((x) => points[x] && points[x].length)) for (const pt of points[id]) {
         const ft = fiche(id);
         q.push({ fiche: id, texte: `Lequel de ces points clés concerne « ${ft.title} » ?`, bon: pt, choix: melanger([pt, ...autres(points, [id], 3)]) });

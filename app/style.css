@@ -131,3 +131,30 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 .deuxcas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 4px; }
 .deuxcas a { text-decoration: none; color: var(--texte); font-weight: 700; font-size: 15px; line-height: 1.25; text-align: center; }
 .deuxcas svg.dessin { margin: 0 0 6px; }
+
+/* --- Mode pas à pas --- */
+.pas .etape { font-size: 26px; font-weight: 750; line-height: 1.25; margin: 8px 0 10px; }
+.pas .etapePetite { font-size: 19px; font-weight: 650; line-height: 1.3; margin: 0 0 4px; }
+.pas .sous { font-size: 19px; }
+.pas .sous ul { padding-left: 20px; }
+.pas .item-groupe { background: var(--carte); border: 1px solid var(--trait); border-radius: 14px; padding: 12px 14px; margin: 0 0 10px; }
+.pas .repere { background: var(--note); border-radius: 12px; padding: 10px 14px; margin: 0 0 10px; }
+.choix-pas { display: grid; gap: 12px; margin: 6px 0 4px; }
+.option { font: inherit; font-size: 21px; font-weight: 700; line-height: 1.25; text-align: left; background: var(--carte); color: var(--texte); border: 2.5px solid var(--rouge); border-radius: 16px; padding: 18px 16px; cursor: pointer; }
+.option small { display: block; font-size: 14px; font-weight: 400; margin-top: 6px; color: var(--doux); }
+.geste-detail { background: var(--carte); border: 2px solid var(--trait); border-radius: 16px; padding: 4px 14px 8px; margin: 14px 0; font-size: 18.5px; }
+.geste-detail h3 { margin: 12px 0 8px; }
+.onglets-geste { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
+.onglets-geste button { font: inherit; font-size: 14.5px; font-weight: 650; text-align: left; background: none; color: var(--texte); border: 1.5px solid var(--trait); border-radius: 12px; padding: 8px 10px; cursor: pointer; }
+.onglets-geste button.actif { background: var(--rouge); border-color: var(--rouge); color: #fff; }
+.appel-etape { display: flex; gap: 8px; margin: 10px 0; }
+.appel-etape a { flex: 1; text-align: center; text-decoration: none; background: var(--rouge); color: #fff; font-weight: 800; font-size: 20px; border-radius: 14px; padding: 12px 4px; }
+.btn.outil { display: block; width: 100%; margin: 10px 0; background: var(--carte); color: var(--texte); border: 2px solid var(--texte); }
+.battement { display: block; width: 46px; height: 46px; border-radius: 50%; background: var(--rouge); margin: 4px auto 10px; opacity: .35; }
+.battement.bat { animation: bat .28s ease-out; }
+@keyframes bat { 0% { transform: scale(1.5); opacity: 1; } 100% { transform: scale(1); opacity: .35; } }
+.nav-pas { display: flex; gap: 10px; margin: 20px 0 8px; }
+.nav-pas .btn { flex: 1; font-size: 20px; padding: 16px 10px; text-align: center; }
+.nav-pas #suiv, .nav-pas a.btn { background: var(--rouge); color: #fff; flex: 2; }
+.outils-pas { font-size: 15px; color: var(--doux); text-align: center; }
+.lienbtn { font: inherit; background: none; border: 0; color: var(--lien); cursor: pointer; padding: 0; text-decoration: underline; }

@@ -95,7 +95,7 @@ function deuxCas(s) {
 function vueSituation(id) {
   const s = SITUATIONS.find((x) => x.id === id);
   if (!s) return vueAccueil();
-  if (profil !== 'jeune') return vueFiche(s.fiche, s.ancre);
+  if (profil !== 'jeune') return aParcours(s.id) ? vuePas(s.id) : vueFiche(s.fiche, s.ancre);
   const gestes = APS.gestes[s.id] || [];
   const avant = `<section class="jeune">
     ${s.id === 'etouffement' ? deuxCas(s) : DESSINS[s.id] || ''}

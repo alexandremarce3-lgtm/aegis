@@ -163,3 +163,13 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 .vers-accueil, .fin-pas { margin: 18px 0 4px; display: flex; gap: 10px; flex-wrap: wrap; }
 
 .ecoute-geste { font-size: 14px; font-weight: 400; margin-left: 6px; }
+
+/* --- Pas à pas des moins de 12 ans --- */
+.pas-jeune svg.dessin { margin: 6px 0 12px; }
+.pas-jeune .deuxcas { margin-bottom: 12px; }
+.pas-jeune .etape { font-size: 27px; }
+.ecouter-gros { display: block; width: 100%; font-size: 22px; padding: 16px; margin: 12px 0 0; background: var(--carte); color: var(--texte); border: 2.5px solid var(--texte); }
+.points { display: flex; gap: 6px; justify-content: center; margin: 0 0 10px; }
+.points i { width: 12px; height: 12px; border-radius: 50%; background: var(--trait); }
+.points i.fait { background: #3aa76d; }
+.points i.ici { background: var(--rouge); transform: scale(1.3); }

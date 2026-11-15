@@ -78,5 +78,15 @@
       <path d="M134 50q8 9 0 18M146 42q14 17 0 34M158 34q20 25 0 50" fill="none" stroke="#e67e22" stroke-width="3.5" stroke-linecap="round"/>`),
     etouffement_muet: cadre('#ffecec', `${son(14, 14, false)}${debout(120, '#4a90d9', { bouche: 'o' })}${bras(106, 82, 115, 69)}${bras(134, 82, 125, 69)}
       <path d="M146 30l6 -8M152 40h9M146 50l6 7" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>`),
+    aide: cadre('#f3ecff', `${debout(74, '#3aa76d', { cheveux: '#c0392b', bouche: 'o' })}${bras(88, 84, 114, 86)}
+      <path d="M104 40l7 -9M112 48h11" stroke="#e67e22" stroke-width="3.5" stroke-linecap="round"/>
+      <g transform="translate(172 130) scale(1.3) translate(-172 -130)">${debout(172, '#9b6bd3', { cheveux: '#444' })}</g>`),
+    dire: cadre('#eaf7ef', `${appelant(62)}
+      <path d="M128 34h86a10 10 0 0 1 10 10v48a10 10 0 0 1 -10 10h-62l-16 14v-14h-8a10 10 0 0 1 -10 -10v-48a10 10 0 0 1 10 -10z" fill="#fff" stroke="${T}" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="144" cy="56" r="8" fill="${PEAU}" stroke="${T}" stroke-width="2"/><path d="M160 52h46M160 62h34" stroke="#9aa3ad" stroke-width="4" stroke-linecap="round"/>
+      <path d="M136 78h70M136 90h52" stroke="#9aa3ad" stroke-width="4" stroke-linecap="round"/>`),
+    lieu: cadre('#fff3e6', `${appelant(62)}
+      <ellipse cx="176" cy="118" rx="26" ry="7" fill="#e3d6c3"/>
+      <path d="M176 116c-20 -26 -30 -38 -30 -52a30 30 0 0 1 60 0c0 14 -10 26 -30 52z" fill="#c8102e" stroke="${T}" stroke-width="2.5" stroke-linejoin="round"/><circle cx="176" cy="64" r="11" fill="#fff"/>`),
   };
 })();

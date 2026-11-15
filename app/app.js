@@ -141,20 +141,7 @@ function vueSituation(id) {
   const s = SITUATIONS.find((x) => x.id === id);
   if (!s) return vueAccueil();
   if (profil !== 'jeune') return aParcours(s.id) ? vuePas(s.id) : vueFiche(s.fiche, s.ancre);
-  const gestes = APS.gestes[s.id] || [];
-  const avant = `<section class="jeune">
-    ${s.id === 'etouffement' ? deuxCas(s) : DESSINS[s.id] || ''}
-    ${gestes.length ? `<h2>Le geste</h2>${gestes.map((g) => `<p class="geste">${esc(g)}</p>`).join('')}` : ''}
-    <h2>Alerter</h2><ul>${APS.alerter.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>
-    <button class="btn" id="lire">🔊 Écouter</button>
-    <p class="source">Formulations du guide ${APS.source}.${gestes.length ? '' : ' Ce guide ne prévoit pas de geste pour cette situation : la conduite à tenir complète est affichée ci-dessous.'}</p>
-  </section>`;
-  vueFiche(s.fiche, gestes.length ? null : s.ancre, { avant, replie: gestes.length > 0, apres: () => {
-    $('#titre').textContent = s.label;
-    vue.querySelectorAll('[data-ancre]').forEach((l) => l.addEventListener('click', (e) => { e.preventDefault(); document.getElementById(l.dataset.ancre)?.scrollIntoView({ behavior: 'smooth' }); }));
-    const b = $('#lire');
-    if (b) b.addEventListener('click', () => parler([...gestes, ...APS.alerter]));
-  } });
+  vuePasJeune(s);
 }
 
 function vueAccueil() {

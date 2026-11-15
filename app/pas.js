@@ -5,7 +5,7 @@
   const haut = (cadres) => cadres[cadres.length - 1];
   const courante = () => { const c = haut(etat.cadres); return c.etapes[c.i]; };
   const copie = () => etat.cadres.map((c) => ({ etapes: c.etapes, i: c.i }));
-  const stopOutils = () => { clearInterval(minuterie); clearInterval(batteur); minuterie = batteur = null; if ('speechSynthesis' in window) speechSynthesis.cancel(); };
+  const stopOutils = () => { clearInterval(minuterie); clearInterval(batteur); minuterie = batteur = null; taire(); };
 
   // Texte principal d'une action : la phrase officielle, ses sous-points, ses notes.
   const corpsAction = (e, grand) => {
@@ -13,7 +13,7 @@
     return `<p class="${grand ? 'etape' : 'etapePetite'}">${esc(tete.t)}</p>${(tete.n || []).map((x) => `<span class="note">ⓘ ${esc(x)}</span>`).join('')}${sous.length ? `<div class="sous">${rendre(sous)}</div>` : ''}`;
   };
   const blocInfo = (info) => info.map((b) => `<div class="repere">${corpsAction({ blocs: b }, false)}</div>`).join('');
-  const blocGestes = (e) => e.gestes.map((g, k) => `<section class="geste-detail"><h3>${esc(g.titre)}</h3>
+  const blocGestes = (e) => e.gestes.map((g, k) => `<section class="geste-detail"><h3>${esc(g.titre)} <button class="lienbtn ecoute-geste" data-g="${k}">🔊 Écouter</button></h3>
       ${g.onglets.length > 1 ? `<div class="onglets-geste">${g.onglets.map((o, j) => `<button data-g="${k}" data-o="${j}" class="${j === 0 ? 'actif' : ''}">${esc(o.t)}</button>`).join('')}</div>` : (g.onglets[0].t ? `<p class="meta">${esc(g.onglets[0].t)}</p>` : '')}
       <div class="contenu-geste" data-g="${k}">${rendre(g.onglets[0].blocs)}</div>
       <p class="meta"><a href="#/fiche/${g.fiche}">Fiche technique complète</a></p></section>`).join('');
@@ -42,7 +42,7 @@
         ${etat.hist.length ? '<button class="btn clair" id="prec">← Retour</button>' : ''}
         ${e && e.type !== 'choix' ? (e.lien ? `<a class="btn lien" href="#/s/${e.lien}">Continuer →</a>` : dernier ? '<button class="btn" id="suiv">Terminer</button>' : '<button class="btn" id="suiv">Suivant →</button>') : ''}
       </div>
-      <p class="outils-pas">${e && 'speechSynthesis' in window ? '<button class="lienbtn" id="lire">🔊 Écouter</button> · ' : ''}<a href="#/fiche/${p.fiche}">Voir la fiche complète</a> · <a href="#/">Accueil</a></p>
+      <p class="outils-pas">${e ? '<button class="lienbtn" id="lire">🔊 Écouter</button> · ' : ''}<a href="#/fiche/${p.fiche}">Voir la fiche complète</a> · <a href="#/">Accueil</a></p>
     </article>`;
     scrollTo(0, 0);
     brancher(e);
@@ -75,6 +75,10 @@
       const g = e.gestes[+b.dataset.g];
       b.parentNode.querySelectorAll('button').forEach((x) => x.classList.toggle('actif', x === b));
       vue.querySelector(`.contenu-geste[data-g="${b.dataset.g}"]`).innerHTML = rendre(g.onglets[+b.dataset.o].blocs);
+    }));
+    vue.querySelectorAll('.ecoute-geste').forEach((b) => b.addEventListener('click', () => {
+      const g = e.gestes[+b.dataset.g], actif = vue.querySelector(`.onglets-geste button.actif[data-g="${b.dataset.g}"]`);
+      parler(g.onglets[actif ? +actif.dataset.o : 0].blocs.filter((x) => x.k !== 'h2').map((x) => x.t));
     }));
     $('#lire')?.addEventListener('click', () => {
       const blocs = !e ? [] : e.type === 'choix' ? e.options.map((o) => ({ t: o.t })) : e.type === 'groupe' ? e.items.flatMap((x) => x.blocs) : e.blocs;

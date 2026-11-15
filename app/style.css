@@ -161,3 +161,5 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 
 .maison { color: #fff; text-decoration: none; font-size: 14px; font-weight: 700; border: 1.5px solid rgba(255,255,255,.7); border-radius: 999px; padding: 4px 11px; white-space: nowrap; }
 .vers-accueil, .fin-pas { margin: 18px 0 4px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+.ecoute-geste { font-size: 14px; font-weight: 400; margin-left: 6px; }

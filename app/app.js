@@ -22,20 +22,36 @@ function choisirVoix() {
   return (voixChoisie = fr.sort((a, b) => note(b) - note(a))[0]);
 }
 if ('speechSynthesis' in window) { choisirVoix(); speechSynthesis.addEventListener?.('voiceschanged', choisirVoix); }
-// Le texte lu est celui affiché ; seuls la ponctuation de liste et les sigles sont adaptés pour l'oreille.
-const pourOreille = (t) => t.replace(/\s*;/g, '.').replace(/\s*:\s*$/g, '.').replace(/\bRCP\b/g, 'R C P').replace(/\bDAE\b/g, 'D A E').replace(/\bPLS\b/g, 'P L S');
-function parler(phrases) {
-  if (!('speechSynthesis' in window)) return;
-  speechSynthesis.cancel();
-  // Une phrase par énoncé : la voix marque une vraie pause entre deux consignes.
-  for (const p of phrases.filter(Boolean)) {
-    const u = new SpeechSynthesisUtterance(pourOreille(p));
-    const v = voixChoisie || choisirVoix();
-    if (v) { u.voice = v; u.lang = v.lang; } else u.lang = 'fr-FR';
-    u.rate = 0.95; u.pitch = 1.05;
-    speechSynthesis.speak(u);
-  }
+// Lecture : on joue d'abord le fichier audio préenregistré de la phrase (même voix sur tous les téléphones).
+// S'il manque ou ne se charge pas, on retombe sur la voix de synthèse de l'appareil.
+let lecteur = null, aLire = [];
+function taire() {
+  aLire = [];
+  if (lecteur) { lecteur.onended = lecteur.onerror = null; lecteur.pause(); lecteur = null; }
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
 }
+function synthese(p) {
+  if (!('speechSynthesis' in window)) return suivante();
+  const u = new SpeechSynthesisUtterance(pourOreille(p));
+  const v = voixChoisie || choisirVoix();
+  if (v) { u.voice = v; u.lang = v.lang; } else u.lang = 'fr-FR';
+  u.rate = 0.95; u.pitch = 1.05;
+  u.onend = u.onerror = suivante;
+  speechSynthesis.speak(u);
+}
+function suivante() {
+  const p = aLire.shift();
+  if (!p) return;
+  if (!(window.VOIX_IDS && VOIX_IDS.has(idVoix(p)))) return synthese(p);
+  let secours = false;
+  const repli = () => { if (!secours) { secours = true; lecteur = null; synthese(p); } };
+  lecteur = new Audio('voix/' + idVoix(p) + '.mp3');
+  lecteur.onended = suivante;
+  lecteur.onerror = repli;
+  lecteur.play().catch(repli);
+}
+function parler(phrases) { taire(); aLire = phrases.filter(Boolean); suivante(); }
+addEventListener('hashchange', taire);
 
 let profil = memo.lire('profil', null); // 'jeune' (moins de 12 ans) ou 'grand'
 
@@ -130,7 +146,7 @@ function vueSituation(id) {
     ${s.id === 'etouffement' ? deuxCas(s) : DESSINS[s.id] || ''}
     ${gestes.length ? `<h2>Le geste</h2>${gestes.map((g) => `<p class="geste">${esc(g)}</p>`).join('')}` : ''}
     <h2>Alerter</h2><ul>${APS.alerter.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>
-    ${'speechSynthesis' in window ? '<button class="btn" id="lire">🔊 Écouter</button>' : ''}
+    <button class="btn" id="lire">🔊 Écouter</button>
     <p class="source">Formulations du guide ${APS.source}.${gestes.length ? '' : ' Ce guide ne prévoit pas de geste pour cette situation : la conduite à tenir complète est affichée ci-dessous.'}</p>
   </section>`;
   vueFiche(s.fiche, gestes.length ? null : s.ancre, { avant, replie: gestes.length > 0, apres: () => {
@@ -284,6 +300,8 @@ function vueApropos() {
     <p><a href="#/fiche/alerte">Voir la fiche « Alerte »</a> : 15, 18, 112 et 114.</p>
     <h3>Vie privée</h3>
     <p>Pas de compte, pas de publicité, rien n’est collecté. Votre position sert seulement à afficher les défibrillateurs proches et ne quitte pas votre téléphone. Le micro passe par la reconnaissance vocale de votre navigateur.</p>
+    <h3>Voix</h3>
+    <p>Les consignes sont lues par une voix de synthèse libre : Piper, modèle fr_FR-siwis-medium, entraîné sur le corpus SIWIS (licence CC BY 4.0).</p>
   </article>`;
   $('#changer').addEventListener('click', () => { profil = null; memo.ecrire('profil', null); route(); });
   scrollTo(0, 0);

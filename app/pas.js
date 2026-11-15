@@ -27,7 +27,7 @@
     titre(s.label, true);
     let h = '';
     if (!e) {
-      h = `<p class="etape">Fin des étapes.</p><p><button class="btn" id="debut">Recommencer</button></p>`;
+      h = `<p class="etape">Fin des étapes.</p><p class="fin-pas"><a class="btn lien" href="#/">Retour à l’accueil</a> <button class="btn clair" id="debut">Recommencer</button></p>`;
     } else if (e.type === 'choix') {
       h = `${blocInfo(e.info)}<div class="choix-pas">${e.options.map((o, k) => `<button class="option" data-k="${k}">${esc(o.t)}${(o.notes || []).map((x) => `<small>ⓘ ${esc(x)}</small>`).join('')}</button>`).join('')}</div>`;
     } else if (e.type === 'groupe') {
@@ -42,7 +42,7 @@
         ${etat.hist.length ? '<button class="btn clair" id="prec">← Retour</button>' : ''}
         ${e && e.type !== 'choix' ? (e.lien ? `<a class="btn lien" href="#/s/${e.lien}">Continuer →</a>` : dernier ? '<button class="btn" id="suiv">Terminer</button>' : '<button class="btn" id="suiv">Suivant →</button>') : ''}
       </div>
-      <p class="outils-pas">${e && 'speechSynthesis' in window ? '<button class="lienbtn" id="lire">🔊 Écouter</button> · ' : ''}<a href="#/fiche/${p.fiche}">Voir la fiche complète</a></p>
+      <p class="outils-pas">${e && 'speechSynthesis' in window ? '<button class="lienbtn" id="lire">🔊 Écouter</button> · ' : ''}<a href="#/fiche/${p.fiche}">Voir la fiche complète</a> · <a href="#/">Accueil</a></p>
     </article>`;
     scrollTo(0, 0);
     brancher(e);
@@ -99,7 +99,7 @@
     $('#minut')?.addEventListener('click', (ev) => {
       const b = ev.currentTarget; let reste = +b.dataset.reste || e.minuteur;
       if (minuterie) { clearInterval(minuterie); minuterie = null; b.textContent = `⏱ Reprendre (${fmt(reste)})`; return; }
-      const tic = () => { b.dataset.reste = reste; b.textContent = reste > 0 ? `⏱ ${fmt(reste)} — toucher pour mettre en pause` : '⏱ Temps écoulé'; if (reste <= 0) { clearInterval(minuterie); minuterie = null; navigator.vibrate?.(600); } reste--; };
+      const tic = () => { b.dataset.reste = reste; b.textContent = reste > 0 ? `⏱ ${fmt(reste)} (toucher pour mettre en pause)` : '⏱ Temps écoulé'; if (reste <= 0) { clearInterval(minuterie); minuterie = null; navigator.vibrate?.(600); } reste--; };
       tic(); minuterie = setInterval(tic, 1000);
     });
   }

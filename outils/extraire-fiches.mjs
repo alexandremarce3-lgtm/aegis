@@ -120,6 +120,6 @@ for (const f of fiches) {
   delete f.srcLetters;
 }
 
-writeFileSync(out, '// Généré par outils/extraire-fiches.mjs — ne pas modifier à la main.\nwindow.FICHES = ' + JSON.stringify(fiches, null, 1) + ';\n');
+writeFileSync(out, '// Généré par outils/extraire-fiches.mjs - ne pas modifier à la main.\nwindow.FICHES = ' + JSON.stringify(fiches, null, 1) + ';\n');
 console.log(fiches.map((f) => `${f.code || '  --  '} ${f.type} ${f.maj} ${f.title} (${f.blocks.length} blocs)`).join('\n'));
 console.log(report.length ? '\n' + report.join('\n') : '\nContrôle : aucune lettre perdue, toutes les notes rattachées.');

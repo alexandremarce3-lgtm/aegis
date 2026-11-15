@@ -158,3 +158,6 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 .nav-pas #suiv, .nav-pas a.btn { background: var(--rouge); color: #fff; flex: 2; }
 .outils-pas { font-size: 15px; color: var(--doux); text-align: center; }
 .lienbtn { font: inherit; background: none; border: 0; color: var(--lien); cursor: pointer; padding: 0; text-decoration: underline; }
+
+.maison { color: #fff; text-decoration: none; font-size: 14px; font-weight: 700; border: 1.5px solid rgba(255,255,255,.7); border-radius: 999px; padding: 4px 11px; white-space: nowrap; }
+.vers-accueil, .fin-pas { margin: 18px 0 4px; display: flex; gap: 10px; flex-wrap: wrap; }

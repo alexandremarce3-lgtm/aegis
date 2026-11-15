@@ -68,7 +68,7 @@
     for (const p of PR.filter((x) => theme === 'tout' || x.id === theme)) {
       for (const a of actions[p.id]) {
         q.push({ fiche: p.id, texte: `Laquelle de ces actions fait partie de la conduite à tenir « ${p.title} »${a.cas ? `, cas « ${a.cas} »` : ''} ?`, bon: a.nu, choix: melanger([a.nu, ...autres(leurres, [p.id], 3)]) });
-        if (!a.trahit) q.push({ fiche: p.id, texte: `« ${a.nu} » — à quelle situation correspond cette action ?`, bon: p.title, choix: melanger([p.title, ...melanger(PR.filter((x) => x.id !== p.id).map((x) => x.title)).slice(0, 3)]) });
+        if (!a.trahit) q.push({ fiche: p.id, texte: `« ${a.nu} » : à quelle situation correspond cette action ?`, bon: p.title, choix: melanger([p.title, ...melanger(PR.filter((x) => x.id !== p.id).map((x) => x.title)).slice(0, 3)]) });
       }
       for (const pr of principes[p.id]) q.push({ fiche: p.id, texte: `Quel est le principe d’action face à « ${p.title} » ?`, bon: pr, choix: melanger([pr, ...autres(principes, [p.id], 3)]) });
       for (const id of (LIES[p.id] || []).filter((x) => points[x] && points[x].length)) for (const pt of points[id]) {
@@ -106,7 +106,7 @@
     const d = document.createElement('div');
     d.className = 'fete';
     d.innerHTML = `<div class="confettis">${confettis}</div><div class="carton" role="dialog" aria-label="Niveau ${n} atteint">${jeton(n)}
-      <p class="grand">Niveau ${n} !</p>${jeune() ? `<p>Tu deviens <b>${titreNiveau(n)}</b></p>` : '<p>Continuez, chaque révision compte.</p>'}
+      <p class="grand">Niveau ${n} !</p>${jeune() ? `<p>Tu deviens <b>${titreNiveau(n)}</b></p>` : '<p>Bien joué.</p>'}
       <button class="btn" id="fermerFete">Continuer</button></div>`;
     document.body.append(d);
     d.querySelector('#fermerFete').addEventListener('click', () => d.remove());
@@ -124,7 +124,7 @@
       ${jeune()
         ? `<div class="grille">${themes().map((t) => `<a class="tuile mission" href="#/quiz/${t.id}"><i>${t.icon}</i>${esc(t.label)}${etoiles(p.meilleurs[t.id])}</a>`).join('')}</div>`
         : `<ul class="liste">${themes().map((t) => { const m = p.meilleurs[t.id]; return `<li><a href="#/quiz/${t.id}"><span>${esc(t.label)}</span><small>${m ? `${m[0]}/${m[1]} ` : ''}${etoiles(m)}</small></a></li>`; }).join('')}</ul>`}
-      <p class="source">Les questions et les réponses sont tirées des textes officiels, sans réécriture. Ce module aide à réviser : il ne remplace pas une formation avec un formateur.</p>`;
+      <p class="source">Questions et réponses viennent des textes officiels, mot pour mot. Réviser ici ne remplace pas une formation avec un formateur.</p>`;
     scrollTo(0, 0);
   };
 
@@ -148,7 +148,7 @@
         vue.querySelectorAll('.choix').forEach((x) => { x.disabled = true; if (q.choix[+x.dataset.k] === q.bon) x.classList.add('bon'); });
         if (!juste) b.classList.add('faux');
         const lien = q.fiche ? `#/fiche/${q.fiche}` : q.situation ? `#/s/${q.situation}` : '';
-        $('#suite').innerHTML = `<p class="retour">${juste ? `<span class="gain">+${XP_PAR_REPONSE} XP</span> ✔ Bonne réponse` : '✘ Ce n’est pas ça : la bonne réponse est en vert.'}${lien ? ` · <a href="${lien}">Revoir la fiche</a>` : ''}</p>
+        $('#suite').innerHTML = `<p class="retour">${juste ? `<span class="gain">+${XP_PAR_REPONSE} XP</span> ✔ Bonne réponse` : '✘ Raté. La bonne réponse est en vert.'}${lien ? ` · <a href="${lien}">Revoir la fiche</a>` : ''}</p>
           <button class="btn" id="suivant">${i + 1 < questions.length ? 'Question suivante' : 'Voir mon résultat'}</button>`;
         $('#suivant').addEventListener('click', () => { i++; i < questions.length ? poser() : finir(); });
         $('#suivant').scrollIntoView({ block: 'nearest' });

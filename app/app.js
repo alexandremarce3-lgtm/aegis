@@ -1,4 +1,4 @@
-/* Aide-mémoire premiers secours — logique de l'appli. Le contenu vient de fiches.js. */
+/* Aide-mémoire premiers secours - logique de l'appli. Le contenu vient de fiches.js. */
 const FICHES = window.FICHES, SITUATIONS = window.SITUATIONS;
 const SOURCE = 'Références techniques nationales « Premiers Secours Citoyen » (PSC), DGSCGC, ministère de l’Intérieur, édition juillet 2026';
 const TYPES = { PR: 'Procédure', FT: 'Fiche technique', AC: 'Apport de connaissances' };
@@ -63,6 +63,7 @@ function vueFiche(id, ancre, opt = {}) {
     ${lies ? `<h2>Les gestes</h2><div class="gestes">${lies}</div>` : ''}
     ${d > 0 ? `<details class="comprendre"><summary>Comprendre : définition, signes, causes, risques</summary>${rendre(f.blocks.slice(0, d))}</details>` : ''}
     <p class="source"><b>${TYPES[f.type]}${f.code ? ' ' + f.code : ''} · mise à jour ${f.maj}</b><br>Texte reproduit sans modification. Source : ${SOURCE}.</p>
+    <p class="vers-accueil"><a class="btn lien" href="#/">Retour à l’accueil</a></p>
   </article>`;
   if (opt.apres) opt.apres();
   if (ancre) { const el = document.getElementById(norm(decodeURIComponent(ancre)).replace(/ /g, '-')); if (el) el.scrollIntoView(); }
@@ -113,7 +114,7 @@ function vueSituation(id) {
 }
 
 function vueAccueil() {
-  titre('Aegis — premiers secours', false);
+  titre('Aegis - premiers secours', false);
   const Reco = window.SpeechRecognition || window.webkitSpeechRecognition;
   vue.innerHTML = `
     <p class="avant"><b>Urgence ?</b> Alertez d’abord les secours avec les boutons rouges en bas de l’écran.</p>
@@ -131,7 +132,7 @@ function vueAccueil() {
     if (!q.value.trim()) { out.innerHTML = ''; return; }
     out.innerHTML = r.length
       ? `<ul class="liste">${r.map((x) => `<li><a href="${x.href}"><span>${x.icon} ${esc(x.label)}</span><small>${esc(x.sous)}</small></a></li>`).join('')}</ul>`
-      : '<p>Aucune fiche trouvée. Essayez un autre mot, ou choisissez dans la liste.</p>';
+      : '<p>Rien trouvé avec ces mots. Essayez-en un autre, ou choisissez ci-dessous.</p>';
     if (!r.length) $('#grille').hidden = false;
     // À la voix : ouvrir directement si un résultat domine nettement.
     if (auto && r.length && (r.length === 1 || r[0].score >= 1.5 * r[1].score)) location.hash = r[0].href;
@@ -140,9 +141,9 @@ function vueAccueil() {
   if (Reco) $('#micro').addEventListener('click', () => {
     const rec = new Reco(), b = $('#micro');
     rec.lang = 'fr-FR'; rec.interimResults = true; rec.maxAlternatives = 1;
-    b.classList.add('ecoute'); etat.textContent = 'Je vous écoute… décrivez ce qui se passe.';
+    b.classList.add('ecoute'); etat.textContent = 'Dites ce qui se passe.';
     rec.onresult = (e) => { const r = e.results[e.results.length - 1]; q.value = r[0].transcript; maj(r.isFinal); if (r.isFinal) etat.textContent = ''; };
-    rec.onerror = (e) => { etat.textContent = e.error === 'not-allowed' ? 'Micro refusé : autorisez-le ou tapez votre recherche.' : 'Je n’ai pas compris. Réessayez ou tapez votre recherche.'; };
+    rec.onerror = (e) => { etat.textContent = e.error === 'not-allowed' ? 'Micro bloqué. Autorisez-le, ou tapez votre recherche.' : 'Pas compris. Réessayez, ou tapez votre recherche.'; };
     rec.onend = () => b.classList.remove('ecoute');
     rec.start();
   });
@@ -153,8 +154,8 @@ function vueFiches() {
   titre('Toutes les fiches', false);
   const bloc = (t, l) => `<h2 class="section">${t}</h2><ul class="liste">${l.map((f) => `<li><a href="#/fiche/${f.id}"><span>${esc(f.title)}</span></a></li>`).join('')}</ul>`;
   const i = FICHES.findIndex((f) => f.code);
-  vue.innerHTML = bloc('Secourir une personne — procédures', FICHES.filter((f) => f.type === 'PR'))
-    + bloc('Les gestes — fiches techniques', FICHES.filter((f) => f.type === 'FT'))
+  vue.innerHTML = bloc('Secourir une personne', FICHES.filter((f) => f.type === 'PR'))
+    + bloc('Les gestes', FICHES.filter((f) => f.type === 'FT'))
     + bloc('Informations générales', FICHES.filter((f, k) => f.type === 'AC' && (k < i || true)))
     + `<p class="source">Source : ${SOURCE}.</p>`;
   scrollTo(0, 0);
@@ -200,7 +201,7 @@ function vueDae() {
     }).catch(() => { $('#carte').hidden = true; });
 
   async function autour(lat, lon) {
-    etat.textContent = 'Recherche des défibrillateurs autour de vous…';
+    etat.textContent = 'Recherche des défibrillateurs autour de vous...';
     // Zone de recherche élargie par paliers (environ 350 m, 900 m, puis 2,5 km) jusqu'à trouver assez d'appareils.
     let lignes = [];
     try {
@@ -211,17 +212,17 @@ function vueDae() {
         lignes = j.data || [];
         if (lignes.length >= 8) break;
       }
-    } catch { etat.textContent = 'Impossible de charger les défibrillateurs (pas de connexion ?). Demandez aux secours ou autour de vous.'; return; }
+    } catch { etat.textContent = 'Liste indisponible, sans doute faute de réseau. Demandez aux secours ou aux gens autour de vous.'; return; }
     lignes = lignes.filter((r) => r.c_etat_fonct !== 'Hors service' && r.c_etat !== 'Supprimé définitivement')
       .map((r) => ({ ...r, m: distance(lat, lon, r.c_lat_coor1, r.c_long_coor1) })).sort((a, b) => a.m - b.m).slice(0, 20);
     daeMemo = { lat, lon, lignes };
     afficher(lat, lon, lignes);
   }
   async function afficher(lat, lon, lignes) {
-    etat.textContent = lignes.length ? `Les ${lignes.length} défibrillateurs recensés les plus proches, du plus près au plus loin.` : 'Aucun défibrillateur recensé à moins d’environ 2 km.';
+    etat.textContent = lignes.length > 1 ? `Les ${lignes.length} défibrillateurs les plus proches, du plus près au plus loin.` : lignes.length ? 'Un seul défibrillateur connu dans les environs.' : 'Aucun défibrillateur connu à moins de 2 km environ.';
     const txt = (r) => [[r.c_adr_num, r.c_adr_voie].filter(Boolean).join(' '), r.c_com_nom].filter(Boolean).join(', ');
     const acces = (r) => [r.c_acc, r.c_acc_complt, r.c_dispo_horaires && r.c_dispo_horaires !== 'Mo-Su off' && (r.c_dispo_horaires === '24/7' ? 'Accessible 24 h/24' : 'Horaires : ' + r.c_dispo_horaires)].filter(Boolean).join(' · ');
-    $('#listeDae').innerHTML = lignes.map((r) => `<li><a class="dae" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${r.c_lat_coor1},${r.c_long_coor1}" target="_blank" rel="noopener"><b>${r.m} m — ${esc(r.c_nom || 'Défibrillateur')}</b><span>${esc(txt(r))}</span><span>${esc(acces(r))}</span></a></li>`).join('');
+    $('#listeDae').innerHTML = lignes.map((r) => `<li><a class="dae" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${r.c_lat_coor1},${r.c_long_coor1}" target="_blank" rel="noopener"><b>${r.m} m - ${esc(r.c_nom || 'Défibrillateur')}</b><span>${esc(txt(r))}</span><span>${esc(acces(r))}</span></a></li>`).join('');
     await pret;
     if (carte) {
       calque.clearLayers();
@@ -230,7 +231,7 @@ function vueDae() {
       carte.setView([lat, lon], 16);
     }
   }
-  const chercherIci = () => { etat.textContent = 'Localisation en cours…'; localiser((p) => autour(p.lat, p.lon), () => { etat.textContent = 'Localisation refusée ou impossible. Autorisez la localisation pour voir les défibrillateurs proches.'; }); };
+  const chercherIci = () => { etat.textContent = 'Localisation en cours...'; localiser((p) => autour(p.lat, p.lon), () => { etat.textContent = 'Localisation refusée ou impossible. Autorisez la localisation pour voir les défibrillateurs proches.'; }); };
   $('#loc').addEventListener('click', chercherIci);
   const siDeplace = (o) => localiser((p) => { if (distance(p.lat, p.lon, o.lat, o.lon) > 100) autour(p.lat, p.lon); });
   if (daeMemo) { afficher(daeMemo.lat, daeMemo.lon, daeMemo.lignes); siDeplace(daeMemo); }
@@ -247,14 +248,14 @@ function vueApropos() {
     <p>Cette application rappelle les conduites à tenir enseignées en formation « Premiers Secours Citoyen » (PSC, anciennement PSC1). Elle ne remplace ni une formation avec un formateur, ni l’appel aux secours.</p>
     <h3>D’où vient le contenu</h3>
     <p>Les ${FICHES.length} fiches reproduisent, sans réécriture, le texte des ${SOURCE}. Chaque fiche affiche sa référence et sa date de mise à jour. Les notes « ⓘ » sont les notes de bas de page du document officiel.</p>
-    <p>Seuls les noms des situations de l’écran d’accueil et les mots-clés de recherche ont été ajoutés pour retrouver rapidement la bonne fiche.</p>
+    <p>Les noms des situations sur l’écran d’accueil, les mots-clés de recherche et les dessins ont été ajoutés pour retrouver vite la bonne fiche. En mode pas à pas, chaque étape est une phrase de la fiche, affichée seule.</p>
     <p>En mode « moins de 12 ans », les gestes proposés reprennent les formulations du guide ${APS.source}.</p>
     <h3>Mon profil</h3>
     <p>Profil actuel : <b>${profil === 'jeune' ? 'moins de 12 ans' : '12 ans et plus'}</b>. <button class="btn" id="changer">Changer</button></p>
     <h3>Numéros d’urgence</h3>
     <p><a href="#/fiche/alerte">Voir la fiche « Alerte »</a> : 15, 18, 112 et 114.</p>
     <h3>Vie privée</h3>
-    <p>Aucun compte, aucune donnée enregistrée. Votre position n’est utilisée que sur votre appareil pour afficher les défibrillateurs proches. La recherche vocale utilise la reconnaissance vocale de votre navigateur.</p>
+    <p>Pas de compte, pas de publicité, rien n’est collecté. Votre position sert seulement à afficher les défibrillateurs proches et ne quitte pas votre téléphone. Le micro passe par la reconnaissance vocale de votre navigateur.</p>
   </article>`;
   $('#changer').addEventListener('click', () => { profil = null; memo.ecrire('profil', null); route(); });
   scrollTo(0, 0);
@@ -262,15 +263,15 @@ function vueApropos() {
 
 /* ---------- Choix du profil (premier lancement) ---------- */
 function vueProfil() {
-  titre('Aegis — premiers secours', false);
-  vue.innerHTML = `<h2 class="section">Bienvenue</h2><p>Pour adapter l’affichage, indique ton âge :</p>
+  titre('Aegis - premiers secours', false);
+  vue.innerHTML = `<h2 class="section">Bienvenue</h2><p>Qui utilise l’appli ?</p>
     <div class="grille"><a class="tuile" href="#" data-p="jeune"><i>🧒</i>J’ai moins de 12 ans</a><a class="tuile" href="#" data-p="grand"><i>🧑</i>J’ai 12 ans ou plus</a></div>
-    <p class="source">Ce choix reste sur cet appareil et se modifie dans « À propos ».</p>`;
+    <p class="source">Ce choix peut être changé à tout moment avec le bouton ⓘ en haut de l’écran.</p>`;
   vue.querySelectorAll('[data-p]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); profil = a.dataset.p; memo.ecrire('profil', profil); route(); }));
 }
 
 /* ---------- Navigation ---------- */
-function titre(t, retour) { $('#titre').textContent = t; $('#back').hidden = !retour; document.title = t === 'Aegis — premiers secours' ? t : t + ' — Aegis'; }
+function titre(t, retour) { $('#titre').textContent = t; $('#back').hidden = !retour; $('#maison').hidden = !retour; document.title = t === 'Aegis - premiers secours' ? t : t + ' - Aegis'; }
 $('#back').addEventListener('click', () => (history.length > 1 ? history.back() : (location.hash = '#/')));
 function route() {
   const [, page, a, b] = location.hash.split('?')[0].split('/');

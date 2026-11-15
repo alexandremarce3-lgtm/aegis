@@ -1,4 +1,4 @@
-// Généré par outils/extraire-fiches.mjs — ne pas modifier à la main.
+// Généré par outils/extraire-fiches.mjs - ne pas modifier à la main.
 window.FICHES = [
  {
   "code": null,

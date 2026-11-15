@@ -9,6 +9,34 @@ const norm = (s) => s.toLowerCase().replace(/œ/g, 'oe').normalize('NFD').replac
 const fiche = (id) => FICHES.find((f) => f.id === id);
 const APS = window.APS, DESSINS = window.DESSINS;
 const memo = { lire: (k, d) => { try { return JSON.parse(localStorage.getItem('aegis.' + k)) ?? d; } catch { return d; } }, ecrire: (k, v) => { try { localStorage.setItem('aegis.' + k, JSON.stringify(v)); } catch {} } };
+/* ---------- Lecture à voix haute ----------
+   On prend la meilleure voix française installée sur l'appareil plutôt que la voix par défaut :
+   les voix « naturelles » ou « améliorées » d'abord, puis les voix Google, puis les autres. */
+const PREFERENCES_VOIX = [/natural|neural|naturelle/i, /enhanced|premium|améliorée|amelioree/i, /google/i, /denise|vivienne|eloise|amélie|amelie|audrey|aurélie|aurelie|marie|thomas|henri/i];
+let voixChoisie = null;
+function choisirVoix() {
+  if (!('speechSynthesis' in window)) return null;
+  const fr = speechSynthesis.getVoices().filter((v) => /^fr/i.test(v.lang));
+  if (!fr.length) return null;
+  const note = (v) => { const k = PREFERENCES_VOIX.findIndex((r) => r.test(v.name)); return (k < 0 ? 0 : 10 * (PREFERENCES_VOIX.length - k)) + (/fr[-_]FR/i.test(v.lang) ? 2 : 0) + (v.localService ? 1 : 0); };
+  return (voixChoisie = fr.sort((a, b) => note(b) - note(a))[0]);
+}
+if ('speechSynthesis' in window) { choisirVoix(); speechSynthesis.addEventListener?.('voiceschanged', choisirVoix); }
+// Le texte lu est celui affiché ; seuls la ponctuation de liste et les sigles sont adaptés pour l'oreille.
+const pourOreille = (t) => t.replace(/\s*;/g, '.').replace(/\s*:\s*$/g, '.').replace(/\bRCP\b/g, 'R C P').replace(/\bDAE\b/g, 'D A E').replace(/\bPLS\b/g, 'P L S');
+function parler(phrases) {
+  if (!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  // Une phrase par énoncé : la voix marque une vraie pause entre deux consignes.
+  for (const p of phrases.filter(Boolean)) {
+    const u = new SpeechSynthesisUtterance(pourOreille(p));
+    const v = voixChoisie || choisirVoix();
+    if (v) { u.voice = v; u.lang = v.lang; } else u.lang = 'fr-FR';
+    u.rate = 0.95; u.pitch = 1.05;
+    speechSynthesis.speak(u);
+  }
+}
+
 let profil = memo.lire('profil', null); // 'jeune' (moins de 12 ans) ou 'grand'
 
 // Gestes liés : les fiches qui suivent une procédure jusqu'à la procédure suivante.
@@ -109,7 +137,7 @@ function vueSituation(id) {
     $('#titre').textContent = s.label;
     vue.querySelectorAll('[data-ancre]').forEach((l) => l.addEventListener('click', (e) => { e.preventDefault(); document.getElementById(l.dataset.ancre)?.scrollIntoView({ behavior: 'smooth' }); }));
     const b = $('#lire');
-    if (b) b.addEventListener('click', () => { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance([...gestes, ...APS.alerter].join('. ')); u.lang = 'fr-FR'; u.rate = 0.9; speechSynthesis.speak(u); });
+    if (b) b.addEventListener('click', () => parler([...gestes, ...APS.alerter]));
   } });
 }
 

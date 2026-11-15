@@ -77,9 +77,8 @@
       vue.querySelector(`.contenu-geste[data-g="${b.dataset.g}"]`).innerHTML = rendre(g.onglets[+b.dataset.o].blocs);
     }));
     $('#lire')?.addEventListener('click', () => {
-      speechSynthesis.cancel();
       const blocs = !e ? [] : e.type === 'choix' ? e.options.map((o) => ({ t: o.t })) : e.type === 'groupe' ? e.items.flatMap((x) => x.blocs) : e.blocs;
-      const u = new SpeechSynthesisUtterance(blocs.map((b) => b.t).join('. ')); u.lang = 'fr-FR'; u.rate = 0.95; speechSynthesis.speak(u);
+      parler(blocs.map((x) => x.t));
     });
     // Métronome : 110 battements par minute (la fiche demande entre 100 et 120).
     $('#metro')?.addEventListener('click', (ev) => {

@@ -286,7 +286,8 @@ function vueApropos() {
     <h3>Numéros d’urgence</h3>
     <p><a href="#/fiche/alerte">Voir la fiche « Alerte »</a> : 15, 18, 112 et 114.</p>
     <h3>Vie privée</h3>
-    <p>Pas de compte, pas de publicité, rien n’est collecté. Votre position sert seulement à afficher les défibrillateurs proches et ne quitte pas votre téléphone. Le micro passe par la reconnaissance vocale de votre navigateur.</p>
+    <p>Pas de compte, pas de publicité, et Aegis n’enregistre rien sur vous.</p>
+    <p>Deux fonctions ont besoin d’un service extérieur. Pour afficher les défibrillateurs, l’appli envoie la zone où vous vous trouvez (un carré de quelques centaines de mètres) à data.gouv.fr, et le fond de carte vient d’OpenStreetMap. Le micro utilise la reconnaissance vocale de votre navigateur, qui peut envoyer votre voix à son éditeur (Google ou Apple) pour la transcrire. Si vous n’utilisez ni la carte ni le micro, rien ne sort de votre téléphone.</p>
     <h3>Voix</h3>
     <p>Les consignes sont lues par une voix de synthèse libre : Piper, modèle fr_FR-siwis-medium, entraîné sur le corpus SIWIS (licence CC BY 4.0).</p>
   </article>`;

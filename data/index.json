@@ -1,0 +1,139 @@
+{
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026"
+ },
+ "statut": "à valider par un formateur",
+ "avertissement": "Textes repris sans modification des RTN PSC. Aegis ne remplace pas une formation. En cas d’urgence : 15, 18 ou 112.",
+ "conduites": [
+  {
+   "id": "protection",
+   "titre": "Protection",
+   "fiche": null,
+   "mise_a_jour": "12-2023"
+  },
+  {
+   "id": "alerte",
+   "titre": "Alerte",
+   "fiche": null,
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "hemorragies",
+   "titre": "Hémorragies",
+   "fiche": "02PR01",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "obstruction-des-voies-aeriennes",
+   "titre": "Obstruction des voies aériennes",
+   "fiche": "02PR02",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "arret-cardiaque",
+   "titre": "Arrêt cardiaque",
+   "fiche": "02PR03",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "perte-de-connaissance",
+   "titre": "Perte de connaissance",
+   "fiche": "02PR04",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "malaises",
+   "titre": "Malaises",
+   "fiche": "02PR05",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "plaies",
+   "titre": "Plaies",
+   "fiche": "02PR06",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "brulures",
+   "titre": "Brûlures",
+   "fiche": "02PR07",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "traumatismes",
+   "titre": "Traumatismes",
+   "fiche": "02PR08",
+   "mise_a_jour": "07-2026"
+  }
+ ],
+ "gestes": [
+  {
+   "id": "compression",
+   "titre": "Compression",
+   "fiche": "02FT01",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "garrot",
+   "titre": "Garrot",
+   "fiche": "02FT02",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "desobstruction-par-des-claques-dans-le-dos",
+   "titre": "Désobstruction par des claques dans le dos",
+   "fiche": "02FT03",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "desobstruction-par-des-compressions-abdominales",
+   "titre": "Désobstruction par des compressions abdominales",
+   "fiche": "02FT04",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "desobstruction-par-des-compressions-thoraciques",
+   "titre": "Désobstruction par des compressions thoraciques",
+   "fiche": "02FT05",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "liberation-des-voies-aeriennes",
+   "titre": "Libération des voies aériennes",
+   "fiche": "02FT06",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "compressions-thoraciques",
+   "titre": "Compressions thoraciques",
+   "fiche": "02FT07",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "insufflations",
+   "titre": "Insufflations",
+   "fiche": "02FT08",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "defibrillation",
+   "titre": "Défibrillation",
+   "fiche": "02FT09",
+   "mise_a_jour": "12-2023"
+  },
+  {
+   "id": "position-laterale-de-securite-pls",
+   "titre": "Position latérale de sécurité - PLS",
+   "fiche": "02FT10",
+   "mise_a_jour": "07-2026"
+  },
+  {
+   "id": "manoeuvres-physiques",
+   "titre": "Manœuvres physiques",
+   "fiche": "02FT11",
+   "mise_a_jour": "07-2023"
+  }
+ ]
+}

@@ -1,0 +1,345 @@
+{
+ "id": "arret-cardiaque",
+ "titre": "Arrêt cardiaque",
+ "type": "procédure",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02PR03",
+  "titre_fiche": "Arrêt cardiaque",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "definition",
+   "titre_rtn": "Définition"
+  },
+  {
+   "cle": "signes",
+   "titre_rtn": "Signes"
+  },
+  {
+   "cle": "causes",
+   "titre_rtn": "Causes"
+  },
+  {
+   "cle": "risques",
+   "titre_rtn": "Risques"
+  },
+  {
+   "cle": "principes_action",
+   "titre_rtn": "Principe d’action"
+  },
+  {
+   "cle": "etapes",
+   "titre_rtn": "Conduite à tenir"
+  }
+ ],
+ "situation": [
+  {
+   "type": "paragraphe",
+   "texte": "Une personne est en arrêt cardiaque lorsque son cœur ne fonctionne plus ou fonctionne d’une façon anarchique, ne permettant plus d’assurer l’oxygénation du cerveau."
+  }
+ ],
+ "signes": [
+  {
+   "type": "paragraphe",
+   "texte": "Une victime est considérée comme étant en arrêt cardiaque lorsqu’elle ne répond pas, ne réagit pas, et :"
+  },
+  {
+   "type": "puce",
+   "texte": "ne respire pas : aucun mouvement de la poitrine n’est visible et aucun bruit ou souffle n’est perçu ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "ou présente une respiration anormale avec des mouvements respiratoires lents, bruyants, difficiles et inefficaces (respiration agonique).",
+   "niveau": 1
+  }
+ ],
+ "causes": [
+  {
+   "type": "paragraphe",
+   "texte": "Chez l’adulte, l’arrêt cardiaque est le plus souvent causé par certaines maladies du cœur ; la principale est l’infarctus du myocarde. Il survient brutalement et est lié à une anomalie de fonctionnement électrique du cœur : la fibrillation ventriculaire. Chez l’enfant, l’arrêt cardiaque est le plus souvent d’origine respiratoire. L’arrêt cardiaque peut aussi être consécutif à une détresse circulatoire (hémorragie, brûlure grave), à une obstruction des voies aériennes, une intoxication, un traumatisme ou une noyade."
+  }
+ ],
+ "risques": [
+  {
+   "type": "paragraphe",
+   "texte": "Le risque d’un arrêt cardiaque est la mort de la victime en quelques minutes. En effet, l’apport d’oxygène est indispensable, en particulier au niveau du cerveau et du cœur, pour assurer sa survie. Au cours d’un arrêt cardiaque, les lésions du cerveau, consécutives au manque d’oxygène, surviennent dès la première minute."
+  }
+ ],
+ "principes_action": [
+  {
+   "type": "paragraphe",
+   "texte": "Le secouriste doit réaliser une série d’actions pour augmenter les chances de survie de la victime :"
+  },
+  {
+   "type": "puce",
+   "texte": "ALERTER : alerter de façon précoce les secours ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "MASSER : pratiquer une réanimation cardio-pulmonaire (RCP) précoce ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "DEFIBRILLER : assurer la mise en œuvre d’une défibrillation précoce.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Ces différentes étapes constituent une chaîne de survie susceptible d’augmenter de 4 à 40% le taux de survie des victimes. Chaque minute gagnée dans la mise en place d’une RCP efficace peut augmenter de 10% les chances de survie de la victime. Installer sur son téléphone une application de sollicitation citoyenne (exemples : Staying Alive, SAUV Life, permis de sauver, etc.) permet d’être alerté et mobilisé par les services de secours en cas d’arrêt cardiaque à proximité et contribue à une prise en charge précoce en attendant leur arrivée."
+  }
+ ],
+ "etapes": [
+  {
+   "type": "paragraphe",
+   "texte": "Une courte période de mouvements saccadés de la victime, ressemblant à des convulsions, peut survenir au moment de l’arrêt cardiaque. Examiner la victime dès l’arrêt de ces mouvements."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Rechercher une perte de connaissance, pour cela :"
+  },
+  {
+   "type": "puce",
+   "texte": "poser des questions simples (exemples : « Comment ça va ? », « Vous m’entendez ? ») ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "secouer doucement les épaules ou lui prendre la main et demander d’exécuter un ordre simple (exemple : « Serrez-moi la main ») ;",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si la victime répond ou réagit, il convient d’adopter la conduite à tenir adaptée au malaise."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si la victime ne répond pas et ne réagit pas, il convient de :"
+  },
+  {
+   "type": "puce",
+   "texte": "demander de l’aide, si vous êtes seul ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "l’allonger sur le dos, quelle que soit sa position initiale ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "libérer les voies aériennes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "rechercher la respiration sur 10 secondes au plus. Pour cela :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "maintenir la libération des voies aériennes ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "se pencher sur la victime, oreille et joue du secouriste au-dessus de la bouche et du nez de la victime pour :",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "regarder si le ventre et la poitrine se soulèvent ;",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "écouter d’éventuels sons provoqués par la respiration ;",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "sentir un éventuel flux d’air à l’expiration.",
+   "niveau": 3
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si la victime respire, appliquer la conduite à tenir face à une perte de connaissance."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si la victime ne respire pas ou si la respiration est anormale, débuter une réanimation cardio-pulmonaire :",
+   "notes": [
+    "Une respiration anormale (agonique) doit être considérée comme un arrêt cardiaque."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "si aucun tiers n’est présent :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "alerter les secours :",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "avec un téléphone portable, si vous disposez du mode haut-parleur, l’activer et débuter immédiatement la RCP en même temps que vous alertez ;",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "en l’absence de téléphone ou de réseau, quitter la victime pour aller alerter puis revenir auprès de la victime.",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "si un DAE est proche :",
+   "niveau": 2,
+   "notes": [
+    "Le secouriste récupère lui-même le DAE s’il est à proximité, facilement accessible, et qu’il peut se le procurer immédiatement sans quitter la victime plus de 10 secondes. Dans le cas contraire, le secouriste réalise la RCP jusqu’à ce qu’on lui apporte le DAE."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "le mettre en œuvre le plus tôt possible et suivre ses indications vocales ;",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "interrompre le massage cardiaque le moins possible.",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "si un tiers est présent, lui demander d’alerter les secours, et de ramener et installer un DAE",
+   "niveau": 1,
+   "notes": [
+    "Le service de secours appelé pourra aider le secouriste à la réalisation de la RCP, en donnant des instructions téléphoniques."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "débuter immédiatement une RCP en répétant des cycles de :",
+   "niveau": 1,
+   "notes": [
+    "Toute action entreprise par le secouriste ne doit pas retarder, empêcher ou interrompre la RCP."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "adulte : 30 compressions thoraciques / 2 insufflations ;",
+   "niveau": 2,
+   "notes": [
+    "Si les insufflations ne peuvent pas être effectuées (maladie infectieuse et contagieuse, vomissements, traumatisme majeur de la face, répulsion, etc.), il faut réaliser uniquement les compressions thoraciques en continu à un rythme de 100 à 120 compressions par minute."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "enfant et nourrisson : 15 compressions thoraciques / 2 insufflations².",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "si un DAE est installé, reprendre la RCP immédiatement après la délivrance, ou non, d'un choc électrique par le DAE, sans attendre ses instructions vocales.",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "poursuivre la RCP jusqu’à une demande d’interruption par le DAE ou le relais par les services de secours.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si plusieurs intervenants formés sont présents, et si possible, se relayer pour la RCP lors des analyses du DAE ou toutes les 2 minutes environ. Dans le but de garantir l’efficacité des manœuvres, un de ces intervenants formés peut assurer le rôle de « coach » en guidant, encourageant et corrigeant les gestes effectués par les autres."
+  },
+  {
+   "type": "cas",
+   "texte": "En période d’épidémie, adapter la conduite à tenir comme suit",
+   "notes": [
+    "Lors d’une épidémie engendrant une maladie infectieuse contagieuse par transmission respiratoire."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "se protéger, si possible, avec un masque ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "rechercher la respiration de la victime en regardant si son ventre et sa poitrine se soulèvent ;",
+   "niveau": 1,
+   "notes": [
+    "Ne pas procéder à la bascule de la tête de la victime en arrière, ne pas tenter de lui ouvrir la bouche, ne pas se pencher au-dessus de la face de la victime et ne pas mettre son oreille et sa joue au-dessus de la bouche et du nez de la victime."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "si possible, placer un tissu, une serviette ou un masque sur la bouche et le nez de la victime ;",
+   "niveau": 1,
+   "notes": [
+    "Avant de procéder aux compressions thoraciques et à la défibrillation."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "effectuer seulement des compressions thoraciques ;",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Concernant le bouche-à-bouche, deux situations sont laissées à l’appréciation du secouriste :"
+  },
+  {
+   "type": "puce",
+   "texte": "le secouriste vit sous le même toit que la victime (risque de contamination déjà présent);",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "la victime est un enfant ou un nourrisson.",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "se tenir au pied de la victime lors de l’administration du choc ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "dès que possible, se laver soigneusement les mains à l’eau et au savon ou avec une solution hydroalcoolique ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "appliquer les consignes sanitaires nationales.",
+   "niveau": 1
+  }
+ ],
+ "cas_particuliers": [],
+ "gestes": [
+  "liberation-des-voies-aeriennes",
+  "compressions-thoraciques",
+  "insufflations",
+  "defibrillation"
+ ],
+ "points_cles": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

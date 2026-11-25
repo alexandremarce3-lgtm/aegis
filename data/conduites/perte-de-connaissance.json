@@ -1,0 +1,306 @@
+{
+ "id": "perte-de-connaissance",
+ "titre": "Perte de connaissance",
+ "type": "procédure",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02PR04",
+  "titre_fiche": "Perte de connaissance",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "definition_signes",
+   "titre_rtn": "Définition - Signes"
+  },
+  {
+   "cle": "causes",
+   "titre_rtn": "Causes"
+  },
+  {
+   "cle": "risques",
+   "titre_rtn": "Risques"
+  },
+  {
+   "cle": "principes_action",
+   "titre_rtn": "Principes d’action"
+  },
+  {
+   "cle": "etapes",
+   "titre_rtn": "Conduite à tenir"
+  },
+  {
+   "cle": "cas_particuliers",
+   "titre_rtn": "Cas particuliers"
+  }
+ ],
+ "situation": [
+  {
+   "type": "paragraphe",
+   "texte": "Une personne a perdu connaissance lorsqu'elle ne répond et ne réagit à aucune sollicitation verbale ou physique, mais respire."
+  }
+ ],
+ "signes": [
+  {
+   "type": "paragraphe",
+   "texte": "Une personne a perdu connaissance lorsqu'elle ne répond et ne réagit à aucune sollicitation verbale ou physique, mais respire."
+  }
+ ],
+ "causes": [
+  {
+   "type": "paragraphe",
+   "texte": "Les causes de cette perte de connaissance peuvent être d'origine traumatique, médicale ou toxique."
+  }
+ ],
+ "risques": [
+  {
+   "type": "paragraphe",
+   "texte": "Le risque de la perte de connaissance est d'évoluer vers l'arrêt respiratoire et l'arrêt cardiaque. En effet, la respiration n'est possible que si les voies aériennes permettent le passage de l'air sans encombre."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Une personne qui a perdu connaissance, laissée sur le dos, est toujours exposée à des difficultés respiratoires, du fait de l'encombrement ou de l'obstruction des voies aériennes par :"
+  },
+  {
+   "type": "puce",
+   "texte": "des liquides présents dans la gorge (salive, sang, liquide gastrique) ;",
+   "niveau": 1,
+   "notes": [
+    "Du fait d’une diminution des réflexes, en particulier de déglutition."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "la chute de la langue en arrière.",
+   "niveau": 1,
+   "notes": [
+    "Du fait d’une forte diminution du tonus musculaire. Cette obstruction peut empêcher toute respiration naturelle ou artificielle."
+   ]
+  }
+ ],
+ "principes_action": [
+  {
+   "type": "paragraphe",
+   "texte": "Le secouriste doit assurer la liberté des voies aériennes de la victime afin de permettre l'écoulement des liquides vers l'extérieur en attendant l'arrivée des secours."
+  }
+ ],
+ "etapes": [
+  {
+   "type": "paragraphe",
+   "texte": "Rechercher une perte de connaissance, pour cela :"
+  },
+  {
+   "type": "puce",
+   "texte": "poser des questions simples (exemples : « Comment ça va ? », « Vous m’entendez ? ») ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "secouer doucement les épaules ou lui prendre la main et demander d’exécuter un ordre simple (exemple : « Serrez-moi la main »).",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si la victime répond ou réagit, il convient d’adopter la conduite à tenir adaptée au malaise."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si la victime ne répond pas et ne réagit pas, il convient de :"
+  },
+  {
+   "type": "puce",
+   "texte": "demander de l’aide, si vous êtes seul ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "l’allonger sur le dos, quelle que soit sa position initiale ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "libérer les voies aériennes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "rechercher la respiration sur 10 secondes au plus. Pour cela :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "maintenir la libération des voies aériennes ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "se pencher sur la victime, oreille et joue du secouriste au-dessus de la bouche et du nez de la victime pour :",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "regarder si le ventre et la poitrine se soulèvent ;",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "écouter d’éventuels sons provoqués par la respiration ;",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "sentir un éventuel flux d’air à l’expiration.",
+   "niveau": 3
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si la victime ne répond pas et ne réagit pas et respire, appliquer la conduite à tenir suivante :"
+  },
+  {
+   "type": "cas",
+   "texte": "À la suite d’un évènement non traumatique"
+  },
+  {
+   "type": "puce",
+   "texte": "la placer en position stable sur le côté : en position latérale de sécurité (PLS) ;",
+   "niveau": 1,
+   "notes": [
+    "Le retournement sur le côté gauche de la femme enceinte, ou d’une victime obèse, permet d’éviter l’apparition d’une détresse par compression de certains vaisseaux sanguins de l’abdomen"
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "faire alerter ou alerter les secours ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la respiration de la victime, jusqu’à l’arrivée des secours. Pour cela :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "regarder si le ventre et la poitrine se soulèvent ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "écouter d’éventuels sons provoqués par la respiration ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "sentir, avec le plat de la main, les mouvements du ventre et de la poitrine.",
+   "niveau": 2
+  },
+  {
+   "type": "cas",
+   "texte": "À la suite d’un traumatisme ou d’un événement d’origine inconnue"
+  },
+  {
+   "type": "puce",
+   "texte": "laisser la victime sur le dos ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "faire alerter ou alerter les secours, respecter leurs consignes ;",
+   "niveau": 1,
+   "notes": [
+    "Il est possible que les services de secours demandent de mettre la victime en position latérale de sécurité."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la respiration de la victime jusqu’à l’arrivée des secours comme effectué lors de la recherche de la respiration ;",
+   "niveau": 1,
+   "notes": [
+    "Le maintien de la libération des voies aériennes permet de stabiliser le rachis cervical (limiter ses mouvements)."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "si la victime vomit ou régurgite, la mettre sur le côté en maintenant si possible l’axe tête-cou-tronc, en demandant de l’aide le cas échéant.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Dans tous les cas"
+  },
+  {
+   "type": "puce",
+   "texte": "protéger contre la chaleur, le froid ou les intempéries ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "si la respiration de la victime s’arrête ou devient anormale, il convient d’adopter la conduite à tenir face à un arrêt cardiaque et de prévenir les secours de l’évolution.",
+   "niveau": 1
+  }
+ ],
+ "cas_particuliers": [
+  {
+   "type": "cas",
+   "texte": "En période d’épidémie",
+   "notes": [
+    "Telle que la COVID19"
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "se protéger si possible avec un masque ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "questionner la victime et voir si elle réagit, sans la toucher ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "rechercher la respiration de la victime en regardant si son ventre et sa poitrine se soulèvent. Ne pas procéder à la bascule de la tête de la victime en arrière, ne pas tenter de lui ouvrir la bouche, ne pas se pencher au-dessus de la face de la victime et ne pas mettre son oreille et sa joue au-dessus de la bouche et du nez de la victime ;",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si la victime ne répond pas, ne réagit pas et respire :"
+  },
+  {
+   "type": "puce",
+   "texte": "laisser la victime dans la position où elle se trouve ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "faire alerter ou alerter les secours, respecter leurs consignes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la respiration de la victime en regardant son ventre et sa poitrine.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Dès que possible, se laver soigneusement les mains à l'eau et au savon ou se désinfecter les mains avec un gel à base d'alcool puis contacter les autorités sanitaires pour se renseigner sur la conduite à tenir."
+  }
+ ],
+ "gestes": [
+  "position-laterale-de-securite-pls"
+ ],
+ "points_cles": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

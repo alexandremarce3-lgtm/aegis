@@ -1,0 +1,213 @@
+{
+ "id": "desobstruction-par-des-compressions-thoraciques",
+ "titre": "Désobstruction par des compressions thoraciques",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02FT05",
+  "titre_fiche": "Désobstruction par des compressions thoraciques",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "quand",
+   "titre_rtn": "Indication"
+  },
+  {
+   "cle": "pourquoi",
+   "titre_rtn": "Justification"
+  },
+  {
+   "cle": "comment",
+   "titre_rtn": "Réalisation"
+  },
+  {
+   "cle": "points_cles",
+   "titre_rtn": "Points clés"
+  }
+ ],
+ "quand": [
+  {
+   "type": "paragraphe",
+   "texte": "Cette technique est indiquée en cas d’obstruction totale des voies aériennes par un corps étranger :"
+  },
+  {
+   "type": "puce",
+   "texte": "lorsqu’il est impossible d’encercler l’abdomen de la victime :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "personne obèse ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "femme enceinte ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "personne alitée ou allongée, difficilement mobilisable.",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "chez une victime qui peut tenir sur l’avant-bras du secouriste.",
+   "niveau": 1
+  }
+ ],
+ "comment": [
+  {
+   "type": "cas",
+   "texte": "Personne dont il est impossible d’encercler l’abdomen"
+  },
+  {
+   "type": "puce",
+   "texte": "se positionner derrière la victime ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "placer ses avant-bras sous les bras de la victime et encercler la poitrine de la victime ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "placer le poing fermé (dos de la main vers le ciel) au centre de la poitrine, sur la moitié inférieure du sternum, sans appuyer sur la pointe inférieure du sternum ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "placer l'autre main sur la première sans appuyer les avant-bras sur les côtes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "tirer franchement en exerçant une pression vers l'arrière ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "effectuer de 1 à 5 compressions successives, en relâchant complètement entre chacune.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Personne alitée ou allongée, difficilement mobilisable"
+  },
+  {
+   "type": "puce",
+   "texte": "effectuer des compressions thoraciques, comme pour une victime en arrêt cardiaque.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Chez la victime qui peut tenir sur l’avant-bras du secouriste",
+   "notes": [
+    "Si la victime est un nourrisson ou petit enfant"
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "placer l'avant-bras contre le dos du nourrisson, la main soutenant sa tête ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "tourner le nourrisson pour que sa face soit côté ciel ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "poser le nourrisson de telle sorte que :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "son dos et sa tête reposent directement sur les deux cuisses du secouriste ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "sa tête soit plus basse que le reste du corps.",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "comme pour les compressions thoraciques pour un arrêt cardiaque :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "entourer le thorax du nourrisson avec les mains ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "placer deux pouces, l’un sur l’autre, au centre de la poitrine, sur la moitié inférieure du sternum ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "effectuer de 1 à 5 compressions successives, en relâchant complètement entre chacune. La profondeur de compression est au-delà d’un tiers de la hauteur du thorax.",
+   "niveau": 1
+  }
+ ],
+ "pourquoi": [
+  {
+   "type": "paragraphe",
+   "texte": "Le but de cette technique est de comprimer l’air contenu dans les poumons de la victime et d’expulser le corps étranger par un effet de « piston »."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Suivant l’importance et la position du corps étranger, plusieurs pressions successives peuvent être nécessaires pour l’expulser."
+  }
+ ],
+ "materiel": [],
+ "risques": [],
+ "remarque_risques": "Pas de section « Risques » dans cette fiche RTN.",
+ "points_cles": [
+  {
+   "type": "paragraphe",
+   "texte": "Les compressions thoraciques doivent être réalisées :"
+  },
+  {
+   "type": "puce",
+   "texte": "au centre de la poitrine, sur la moitié inférieure du sternum ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "sans appuyer sur les côtes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "vers l'arrière.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Chez la victime qui peut tenir sur l’avant-bras du secouriste, elles doivent être également :"
+  },
+  {
+   "type": "puce",
+   "texte": "profondes.",
+   "niveau": 1
+  }
+ ],
+ "conduites": [
+  "obstruction-des-voies-aeriennes"
+ ],
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

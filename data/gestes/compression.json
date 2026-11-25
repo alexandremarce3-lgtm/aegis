@@ -1,0 +1,153 @@
+{
+ "id": "compression",
+ "titre": "Compression",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02FT01",
+  "titre_fiche": "Compression",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "quand",
+   "titre_rtn": "Indication"
+  },
+  {
+   "cle": "pourquoi",
+   "titre_rtn": "Justification"
+  },
+  {
+   "cle": "comment",
+   "titre_rtn": "Réalisation"
+  },
+  {
+   "cle": "points_cles",
+   "titre_rtn": "Points clés"
+  }
+ ],
+ "quand": [
+  {
+   "type": "paragraphe",
+   "texte": "La compression est indiquée sur toute plaie qui saigne abondamment."
+  }
+ ],
+ "comment": [
+  {
+   "type": "cas",
+   "texte": "Compression manuelle"
+  },
+  {
+   "type": "puce",
+   "texte": "appuyer fortement sur l’endroit qui saigne ;",
+   "niveau": 1,
+   "notes": [
+    "Si le secouriste ne peut lui-même maintenir la compression, par exemple s’il existe de nombreuses victimes, il peut demander à la victime ou à un témoin (en s’assurant de sa protection), s’il en est capable, d’appuyer.",
+    "Avec ce qui est efficace au regard de la situation et qu'on peut maintenir aisément : avec la ou les mains, si possible protégées par des gants à usage unique ou un sac plastique, voir si nécessaire le genou."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "interposer le plus tôt possible entre la main et la plaie une épaisseur de tissu (mouchoirs, torchons, vêtements, etc), si possible propre, pour augmenter la compression ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "maintenir la compression de la plaie jusqu’au relais par un pansement compressif.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Pansement compressif"
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Un pansement compressif est indiqué si :"
+  },
+  {
+   "type": "puce",
+   "texte": "la victime ne peut pas appuyer elle-même,",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "l’hémorragie est déjà contrôlée par la compression manuelle,",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "le secouriste doit se libérer (exemple : pour alerter, pour réaliser un geste vital, etc.),",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "et que l’endroit qui saigne n’est pas situé au cou, à la tête, au thorax ou à l’abdomen.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Ainsi que face à une amputation ou un arrachement d’une partie du corps."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Pour le réaliser :"
+  },
+  {
+   "type": "puce",
+   "texte": "recouvrir complètement la plaie par une épaisseur de tissu (mouchoirs, torchons, vêtements, etc.), si possible propre ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "fixer ce tissu à l’aide d’un lien large (ou une bande élastique) assez long ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "serrer suffisamment et maintenir ainsi l’arrêt du saignement.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si le saignement se poursuit après la mise en place d’un pansement compressif, reprendre la compression manuelle par-dessus le pansement compressif."
+  }
+ ],
+ "pourquoi": [
+  {
+   "type": "paragraphe",
+   "texte": "La compression des vaisseaux sanguins, au niveau d’une plaie, arrête le saignement."
+  }
+ ],
+ "materiel": [],
+ "risques": [],
+ "remarque_risques": "Pas de section « Risques » dans cette fiche RTN.",
+ "points_cles": [
+  {
+   "type": "paragraphe",
+   "texte": "La compression doit être :"
+  },
+  {
+   "type": "puce",
+   "texte": "suffisante pour arrêter le saignement ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "permanente.",
+   "niveau": 1
+  }
+ ],
+ "conduites": [
+  "hemorragies"
+ ],
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

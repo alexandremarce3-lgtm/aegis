@@ -1,0 +1,157 @@
+{
+ "id": "desobstruction-par-des-claques-dans-le-dos",
+ "titre": "Désobstruction par des claques dans le dos",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02FT03",
+  "titre_fiche": "Désobstruction par des claques dans le dos",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "quand",
+   "titre_rtn": "Indication"
+  },
+  {
+   "cle": "pourquoi",
+   "titre_rtn": "Justification"
+  },
+  {
+   "cle": "comment",
+   "titre_rtn": "Réalisation"
+  },
+  {
+   "cle": "points_cles",
+   "titre_rtn": "Points clés"
+  }
+ ],
+ "quand": [
+  {
+   "type": "paragraphe",
+   "texte": "Cette technique est indiquée en cas d’obstruction des voies aériennes par un corps étranger chez une victime consciente incapable de :"
+  },
+  {
+   "type": "puce",
+   "texte": "parler ou de tousser, ou dont la toux devient inefficace (adulte, adolescent, enfant) ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "pleurer fortement ou de reprendre sa respiration (nourrisson, jeune enfant), notamment lorsqu’elle est nourrie, qu’elle mange ou qu’elle jouait sans surveillance.",
+   "niveau": 1
+  }
+ ],
+ "comment": [
+  {
+   "type": "paragraphe",
+   "texte": "La technique de désobstruction des voies aériennes varie en fonction du gabarit de la victime."
+  },
+  {
+   "type": "cas",
+   "texte": "Chez l’adulte et le grand enfant"
+  },
+  {
+   "type": "puce",
+   "texte": "se placer sur le côté et légèrement en arrière de la victime ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "soutenir le thorax avec une main et pencher la victime vers l’avant ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "donner de 1 à 5 claques vigoureuses dans le dos, entre les omoplates, avec le talon de la main ouverte.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Chez la victime qui peut tenir sur la cuisse du secouriste"
+  },
+  {
+   "type": "puce",
+   "texte": "s'asseoir et basculer la victime sur sa cuisse, la face vers le bas ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "donner de 1 à 5 claques vigoureuses dans le dos, entre les omoplates, avec le talon de la main ouverte.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Chez la victime qui peut tenir sur l’avant-bras du secouriste",
+   "notes": [
+    "Si la victime est un nourrisson ou petit enfant"
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "maintenir sa tête avec les doigts, de part et d'autre de la bouche ;",
+   "niveau": 1,
+   "notes": [
+    "Le pouce d'un côté et un ou deux doigts de la même main de l'autre côté, placés au niveau de l'angle de la mâchoire inférieure sans appuyer sur la gorge"
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "coucher la victime à califourchon sur l'avant-bras, la face vers le sol ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "incliner la victime afin que la tête soit plus basse que le thorax ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "donner de 1 à 5 claques vigoureuses dans le dos, entre les omoplates, avec le talon de la main ouverte.",
+   "niveau": 1
+  }
+ ],
+ "pourquoi": [
+  {
+   "type": "paragraphe",
+   "texte": "Le but de cette technique est de provoquer un mouvement de toux pour débloquer et expulser le corps étranger qui obstrue les voies aériennes."
+  }
+ ],
+ "materiel": [],
+ "risques": [],
+ "remarque_risques": "Pas de section « Risques » dans cette fiche RTN.",
+ "points_cles": [
+  {
+   "type": "paragraphe",
+   "texte": "La claque doit être donnée :"
+  },
+  {
+   "type": "puce",
+   "texte": "entre les omoplates ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "avec le talon de la main ouverte ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "de façon vigoureuse.",
+   "niveau": 1
+  }
+ ],
+ "conduites": [
+  "obstruction-des-voies-aeriennes"
+ ],
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

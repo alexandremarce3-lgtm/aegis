@@ -1,0 +1,119 @@
+{
+ "id": "desobstruction-par-des-compressions-abdominales",
+ "titre": "Désobstruction par des compressions abdominales",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02FT04",
+  "titre_fiche": "Désobstruction par des compressions abdominales",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "quand",
+   "titre_rtn": "Indication"
+  },
+  {
+   "cle": "pourquoi",
+   "titre_rtn": "Justification"
+  },
+  {
+   "cle": "comment",
+   "titre_rtn": "Réalisation"
+  },
+  {
+   "cle": "points_cles",
+   "titre_rtn": "Points clés"
+  }
+ ],
+ "quand": [
+  {
+   "type": "paragraphe",
+   "texte": "Cette technique est indiquée en cas d’obstruction totale des voies aériennes par un corps étranger chez un adulte ou un enfant après une série de 5 claques dans le dos inefficaces, et si le secouriste peut se tenir debout ou à genou derrière elle."
+  }
+ ],
+ "comment": [
+  {
+   "type": "cas",
+   "texte": "Chez l’adulte ou l’enfant"
+  },
+  {
+   "type": "puce",
+   "texte": "pencher la victime vers l'avant ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "se placer debout ou à genoux (enfant) derrière la victime, contre son dos ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "passer ses bras, sous ceux de la victime, de part et d'autre de la partie supérieure de son abdomen ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "placer le poing fermé (dos de la main vers le ciel) juste au-dessus du nombril ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "placer la seconde main sur la première ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "tirer franchement en exerçant une pression vers l'arrière et vers le haut, , sans appuyer les avants bras sur les côtes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "effectuer de 1 à 5 compressions, en relâchant entre chacune.",
+   "niveau": 1
+  }
+ ],
+ "pourquoi": [
+  {
+   "type": "paragraphe",
+   "texte": "Le but de cette technique est de comprimer l’air contenu dans les poumons de la victime afin d’expulser le corps étranger par un effet de « piston ». Suivant l’importance et la position du corps étranger, plusieurs pressions successives peuvent être nécessaires pour l’expulser."
+  }
+ ],
+ "materiel": [],
+ "risques": [],
+ "remarque_risques": "Pas de section « Risques » dans cette fiche RTN.",
+ "points_cles": [
+  {
+   "type": "paragraphe",
+   "texte": "La compression doit être faite :"
+  },
+  {
+   "type": "puce",
+   "texte": "au creux de l'estomac ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "sans appuyer sur les côtes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "vers l’arrière et vers le haut",
+   "niveau": 1
+  }
+ ],
+ "conduites": [
+  "obstruction-des-voies-aeriennes"
+ ],
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

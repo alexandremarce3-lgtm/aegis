@@ -1,0 +1,112 @@
+{
+ "id": "liberation-des-voies-aeriennes",
+ "titre": "Libération des voies aériennes",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02FT06",
+  "titre_fiche": "Libération des voies aériennes",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "quand",
+   "titre_rtn": "Indication"
+  },
+  {
+   "cle": "pourquoi",
+   "titre_rtn": "Justification"
+  },
+  {
+   "cle": "comment",
+   "titre_rtn": "Réalisation"
+  },
+  {
+   "cle": "points_cles",
+   "titre_rtn": "Points clés"
+  }
+ ],
+ "quand": [
+  {
+   "type": "paragraphe",
+   "texte": "Cette technique doit être réalisée systématiquement avant de pouvoir rechercher la respiration chez une victime qui ne répond ou ne réagit à aucune sollicitation verbale ou physique."
+  }
+ ],
+ "comment": [
+  {
+   "type": "puce",
+   "texte": "placer la paume d’une main sur le front de la victime ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "placer 2 ou 3 doigts de l’autre main, juste sous la pointe du menton en prenant appui sur l’os.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Éventuellement s’aider du pouce pour saisir le menton."
+  },
+  {
+   "type": "cas",
+   "texte": "Chez l’adulte ou l’enfant"
+  },
+  {
+   "type": "puce",
+   "texte": "basculer doucement la tête de la victime en arrière en appuyant sur le front tout en élevant le menton pour libérer les voies aériennes.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Chez le nourrisson"
+  },
+  {
+   "type": "puce",
+   "texte": "amener doucement la tête du nourrisson en position neutre dans l'alignement du torse ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "élever le menton tout en évitant une bascule excessive susceptible de provoquer une extension du rachis cervical et une gêne de la ventilation.",
+   "niveau": 1
+  }
+ ],
+ "pourquoi": [
+  {
+   "type": "paragraphe",
+   "texte": "La bascule de la tête en arrière (chez l’adulte ou l’enfant) ou la mise en position neutre (chez le nourrisson) et l’élévation du menton entraînent la langue qui améliore le passage de l’air."
+  }
+ ],
+ "materiel": [],
+ "risques": [],
+ "remarque_risques": "Pas de section « Risques » dans cette fiche RTN.",
+ "points_cles": [
+  {
+   "type": "paragraphe",
+   "texte": "La position du secouriste doit être stable. La liberté des voies aériennes est assurée lorsque :"
+  },
+  {
+   "type": "puce",
+   "texte": "le menton est élevé ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "la tête est maintenue dans cette position.",
+   "niveau": 1
+  }
+ ],
+ "conduites": [
+  "arret-cardiaque"
+ ],
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

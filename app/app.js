@@ -53,7 +53,7 @@ function suivante() {
 function parler(phrases) { taire(); aLire = phrases.filter(Boolean); suivante(); }
 addEventListener('hashchange', taire);
 
-let profil = memo.lire('profil', null); // 'jeune' (moins de 12 ans) ou 'grand'
+let profil = memo.lire('profil', null); // 'jeune' (moins de 10 ans) ou 'grand'
 
 // Gestes liés : les fiches qui suivent une procédure jusqu'à la procédure suivante.
 const LIES = {};
@@ -64,18 +64,19 @@ function rendre(blocs) {
   let h = '', niveau = 0, dl = false;
   const fermer = (n) => { while (niveau > n) { h += '</li></ul>'; niveau--; } };
   const note = (b) => (b.n || []).map((n) => `<span class="note">ⓘ ${esc(n)}</span>`).join('');
+  const txt = (b) => (b.nouveau ? `<span class="nouveau">${esc(b.t)}<span class="sr"> (modifié en 2026)</span></span>` : esc(b.t));
   for (const b of blocs) {
     if (b.k !== 'def' && dl) { h += '</dl>'; dl = false; }
     if (b.k === 'li') {
       if (b.l > niveau) { while (niveau < b.l) { h += '<ul><li>'; niveau++; } h = h.replace(/<li>$/, ''); h += '<li>'; }
       else { fermer(b.l); h += '</li><li>'; }
-      h += esc(b.t) + note(b);
+      h += txt(b) + note(b);
     } else {
       fermer(0);
       if (b.k === 'h2') h += `<h2>${esc(b.t)}</h2>${note(b)}`;
-      else if (b.k === 'h3') h += `<h3 id="${norm(b.t).replace(/ /g, '-')}">${esc(b.t)}</h3>${note(b)}`;
+      else if (b.k === 'h3') h += `<h3 id="${norm(b.t).replace(/ /g, '-')}">${txt(b)}</h3>${note(b)}`;
       else if (b.k === 'def') { if (!dl) { h += '<dl>'; dl = true; } h += `<dt>${esc(b.t)}</dt><dd>${esc(b.d)}</dd>`; }
-      else h += `<p>${esc(b.t)}${note(b)}</p>`;
+      else h += `<p>${txt(b)}${note(b)}</p>`;
     }
   }
   fermer(0); if (dl) h += '</dl>';
@@ -92,9 +93,17 @@ function debutAction(f) {
   return i >= 0 ? i : 0;
 }
 
+// Passages modifiés en 2026 : blocs surlignés dans le PDF officiel (voir nouveautes.js).
+const modifies = (f) => new Set((window.NOUVEAUTES || {})[f.id] || []);
+function avecNouveautes(f) { const m = modifies(f); return { ...f, blocks: f.blocks.map((b) => (m.has(b.t) ? { ...b, nouveau: true } : b)) }; }
+const bandeauVersion = (f) => (modifies(f).size
+  ? `<p class="maj-2026">Mise à jour juillet 2026 : ${modifies(f).size} passage${modifies(f).size > 1 ? 's contiennent' : ' contient'} une modification (surligné${modifies(f).size > 1 ? 's' : ''} ci-dessous, note comprise). <a href="#/nouveautes">Toutes les nouveautés</a></p>`
+  : `<p class="maj-ok">Fiche à jour des RTN de juillet 2026 (dernière modification : ${f.maj}).</p>`);
+
 function vueFiche(id, ancre, opt = {}) {
-  const f = fiche(id);
-  if (!f) return vueAccueil();
+  const f0 = fiche(id);
+  if (!f0) return vueAccueil();
+  const f = avecNouveautes(f0);
   titre(f.title, true);
   const d = debutAction(f);
   const lies = (LIES[id] || []).map((x) => `<a href="#/fiche/${x}">${esc(fiche(x).title)}</a>`).join('');
@@ -102,11 +111,12 @@ function vueFiche(id, ancre, opt = {}) {
     ${opt.avant || ''}
     ${f.type === 'PR' && !opt.avant ? '<p class="avant">Mettez-vous en sécurité, puis alertez ou faites alerter les secours : <b>15</b>, <b>18</b> ou <b>112</b>.</p>' : ''}
     ${opt.replie ? '<details class="comprendre"><summary>La conduite à tenir complète (texte pour les plus grands, à lire avec un adulte)</summary>' : ''}
+    ${bandeauVersion(f)}
     <div class="agir">${rendre(f.blocks.slice(d))}</div>
     ${opt.replie ? '</details>' : ''}
     ${lies ? `<h2>Les gestes</h2><div class="gestes">${lies}</div>` : ''}
     ${d > 0 ? `<details class="comprendre"><summary>Comprendre : définition, signes, causes, risques</summary>${rendre(f.blocks.slice(0, d))}</details>` : ''}
-    <p class="source"><b>${TYPES[f.type]}${f.code ? ' ' + f.code : ''} · mise à jour ${f.maj}</b><br>Texte reproduit sans modification. Source : ${SOURCE}.</p>
+    <p class="source"><b>${TYPES[f.type]}${f.code ? ' ' + f.code : ''} · mise à jour ${f.maj}</b><br>Texte reproduit sans modification. Source : ${SOURCE}.<br>Contenu à valider par un formateur. Aegis ne remplace pas une formation.</p>
     <p class="vers-accueil"><a class="btn lien" href="#/">Retour à l’accueil</a></p>
   </article>`;
   if (opt.apres) opt.apres();
@@ -149,6 +159,7 @@ function vueAccueil() {
   const Reco = window.SpeechRecognition || window.webkitSpeechRecognition;
   vue.innerHTML = `
     <p class="avant"><b>Urgence ?</b> Alertez d’abord les secours avec les boutons rouges en bas de l’écran.</p>
+    ${profil === 'jeune' ? '' : '<p class="vers-bilan"><a class="btn clair" href="#/bilan">🧭 Bilan : que vérifier, dans quel ordre ?</a><a class="btn clair" href="#/relais">📝 Fiche relais : la remplir à la main</a></p>'}
     <div class="recherche">
       <input id="q" type="search" placeholder="Que se passe-t-il ?" autocomplete="off" aria-label="Décrire la situation">
       ${Reco ? '<button id="micro" class="micro" aria-label="Décrire la situation à la voix">🎤</button>' : ''}
@@ -183,12 +194,26 @@ function vueAccueil() {
 /* ---------- Toutes les fiches ---------- */
 function vueFiches() {
   titre('Toutes les fiches', false);
-  const bloc = (t, l) => `<h2 class="section">${t}</h2><ul class="liste">${l.map((f) => `<li><a href="#/fiche/${f.id}"><span>${esc(f.title)}</span></a></li>`).join('')}</ul>`;
+  const badge = (f) => (modifies(f).size ? '<small class="badge-2026">modifiée en 2026</small>' : '');
+  const bloc = (t, l) => `<h2 class="section">${t}</h2><ul class="liste">${l.map((f) => `<li><a href="#/fiche/${f.id}"><span>${esc(f.title)}</span>${badge(f)}</a></li>`).join('')}</ul>`;
   const i = FICHES.findIndex((f) => f.code);
   vue.innerHTML = bloc('Secourir une personne', FICHES.filter((f) => f.type === 'PR'))
     + bloc('Les gestes', FICHES.filter((f) => f.type === 'FT'))
     + bloc('Informations générales', FICHES.filter((f, k) => f.type === 'AC' && (k < i || true)))
-    + `<p class="source">Source : ${SOURCE}.</p>`;
+    + `<p class="source">Source : ${SOURCE}. <a href="#/nouveautes">Ce qui a changé en 2026</a></p>`;
+  scrollTo(0, 0);
+}
+
+/* ---------- Nouveautés des RTN de juillet 2026 ---------- */
+function vueNouveautes() {
+  titre('Nouveautés 2026', true);
+  const liste = FICHES.filter((f) => modifies(f).size);
+  vue.innerHTML = `<article class="fiche">
+    <p>Passages de l’édition de juillet 2026 des références techniques nationales PSC qui contiennent une modification (le document officiel la surligne en jaune ; elle peut ne porter que sur quelques mots ou sur une note). Les passages supprimés ne sont pas signalés par le document.</p>
+    ${liste.map((f) => `<h2><a href="#/fiche/${f.id}">${esc(f.title)}</a> <small class="meta">${f.code || ''} · ${f.maj}</small></h2>
+      <ul>${f.blocks.filter((b) => modifies(f).has(b.t)).map((b) => `<li>${esc(b.t)}</li>`).join('')}</ul>`).join('')}
+    <p class="source">Source : ${SOURCE}. Repérage automatique des surlignages du PDF officiel, à valider par un formateur.</p>
+  </article>`;
   scrollTo(0, 0);
 }
 
@@ -277,17 +302,20 @@ function vueApropos() {
   vue.innerHTML = `<article class="fiche">
     <h3>Un aide-mémoire, pas une formation</h3>
     <p>Cette application rappelle les conduites à tenir enseignées en formation « Premiers Secours Citoyen » (PSC, anciennement PSC1). Elle ne remplace ni une formation avec un formateur, ni l’appel aux secours.</p>
+    <h3>Portée des références techniques nationales</h3>
+    <p>Les fiches d’Aegis reprennent les références techniques nationales (RTN) « Premiers Secours Citoyen » de la DGSCGC, le texte national qui fixe les gestes enseignés au citoyen. Leur préface précise qu’elles peuvent produire des effets de droit, en particulier quand on examine la responsabilité de ceux qui ne les auraient pas respectées. C’est pourquoi Aegis les reprend mot pour mot et suit toujours leur édition la plus récente.</p>
     <h3>D’où vient le contenu</h3>
     <p>Les ${FICHES.length} fiches reproduisent, sans réécriture, le texte des ${SOURCE}. Chaque fiche affiche sa référence et sa date de mise à jour. Les notes « ⓘ » sont les notes de bas de page du document officiel.</p>
     <p>Les noms des situations sur l’écran d’accueil, les mots-clés de recherche et les dessins ont été ajoutés pour retrouver vite la bonne fiche. En mode pas à pas, chaque étape est une phrase de la fiche, affichée seule.</p>
-    <p>En mode « moins de 12 ans », les gestes proposés reprennent les formulations du guide ${APS.source}.</p>
+    <p>En mode « moins de 10 ans », les gestes proposés reprennent les formulations du guide ${APS.source}. Ce texte de l’Éducation nationale est écrit pour les enfants ; c’est la seule exception aux RTN dans Aegis.</p>
     <h3>Mon profil</h3>
-    <p>Profil actuel : <b>${profil === 'jeune' ? 'moins de 12 ans' : '12 ans et plus'}</b>. <button class="btn" id="changer">Changer</button></p>
+    <p>Profil actuel : <b>${profil === 'jeune' ? 'moins de 10 ans' : '10 ans et plus'}</b>. <button class="btn" id="changer">Changer</button></p>
     <h3>Numéros d’urgence</h3>
     <p><a href="#/fiche/alerte">Voir la fiche « Alerte »</a> : 15, 18, 112 et 114.</p>
     <h3>Vie privée</h3>
-    <p>Pas de compte, pas de publicité, et Aegis n’enregistre rien sur vous.</p>
+    <p>Pas de compte, pas de publicité : Aegis n’envoie rien vous concernant. Ce que vous saisissez (profil, quiz, fiche relais effacée après 24 heures) reste sur votre téléphone.</p>
     <p>Deux fonctions ont besoin d’un service extérieur. Pour afficher les défibrillateurs, l’appli envoie la zone où vous vous trouvez (un carré de quelques centaines de mètres) à data.gouv.fr, et le fond de carte vient d’OpenStreetMap. Le micro utilise la reconnaissance vocale de votre navigateur, qui peut envoyer votre voix à son éditeur (Google ou Apple) pour la transcrire. Si vous n’utilisez ni la carte ni le micro, rien ne sort de votre téléphone.</p>
+    <p><a href="#/legal/confidentialite">Politique de confidentialité complète</a> · <a href="#/legal/cgu">Conditions d’utilisation</a> · <a href="#/legal/mentions">Mentions légales</a> · <a href="#/legal/accessibilite">Accessibilité</a> · <a href="#/legal/licences">Licences</a></p>
     <h3>Voix</h3>
     <p>Les consignes sont lues par une voix de synthèse libre : Piper, modèle fr_FR-siwis-medium, entraîné sur le corpus SIWIS (licence CC BY 4.0).</p>
   </article>`;
@@ -299,7 +327,7 @@ function vueApropos() {
 function vueProfil() {
   titre('Aegis - premiers secours', false);
   vue.innerHTML = `<h2 class="section">Bienvenue</h2><p>Qui utilise l’appli ?</p>
-    <div class="grille"><a class="tuile" href="#" data-p="jeune"><i>🧒</i>J’ai moins de 12 ans</a><a class="tuile" href="#" data-p="grand"><i>🧑</i>J’ai 12 ans ou plus</a></div>
+    <div class="grille"><a class="tuile" href="#" data-p="jeune"><i>🧒</i>J’ai moins de 10 ans</a><a class="tuile" href="#" data-p="grand"><i>🧑</i>J’ai 10 ans ou plus</a></div>
     <p class="source">Ce choix peut être changé à tout moment avec le bouton ⓘ en haut de l’écran.</p>`;
   vue.querySelectorAll('[data-p]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); profil = a.dataset.p; memo.ecrire('profil', profil); route(); }));
 }
@@ -320,8 +348,21 @@ function route() {
   else if (page === 'fiches') vueFiches();
   else if (page === 'dae') vueDae();
   else if (page === 'apropos') vueApropos();
+  else if (page === 'bilan') vueBilan();
+  else if (page === 'nouveautes') vueNouveautes();
+  else if (page === 'relais') vueRelais(a);
+  else if (page === 'legal') vueLegal(a);
   else vueAccueil();
 }
 addEventListener('hashchange', route);
+RELAIS.purger(); // efface les fiches relais de plus de 24 heures
+// Les appels passés depuis l'appli sont notés dans le déroulé de la fiche relais.
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="tel:"]');
+  if (!a) return;
+  const num = a.getAttribute('href').slice(4), d = RELAIS.ouvrir();
+  if (!d.alerte.heure) { d.alerte.heure = RELAIS.hm(Date.now()); d.alerte.numero = num; RELAIS.ecrire(d); }
+  RELAIS.journal('Appel au ' + num);
+});
 route();
 if ('serviceWorker' in navigator && location.protocol === 'https:' || location.hostname === 'localhost') navigator.serviceWorker?.register('sw.js');

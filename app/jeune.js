@@ -1,4 +1,4 @@
-// Mode « moins de 12 ans » : formulations reprises telles quelles du guide officiel
+// Mode « moins de 10 ans » : formulations reprises telles quelles du guide officiel
 // « Apprendre à porter secours » (APS) de l'Éducation nationale. Aucune phrase réécrite.
 window.APS = {
   source: '« Quelques repères pour apprendre à porter secours », tome 01, ministère de l’Éducation nationale (DGESCO), juillet 2022, version 12',

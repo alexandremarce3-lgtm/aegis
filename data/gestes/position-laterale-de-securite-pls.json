@@ -1,0 +1,210 @@
+{
+ "id": "position-laterale-de-securite-pls",
+ "titre": "Position latérale de sécurité - PLS",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02FT10",
+  "titre_fiche": "Position latérale de sécurité - PLS",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "quand",
+   "titre_rtn": "Indication"
+  },
+  {
+   "cle": "pourquoi",
+   "titre_rtn": "Justification"
+  },
+  {
+   "cle": "comment",
+   "titre_rtn": "Réalisation"
+  },
+  {
+   "cle": "points_cles",
+   "titre_rtn": "Points clés"
+  }
+ ],
+ "quand": [
+  {
+   "type": "paragraphe",
+   "texte": "Cette technique est indiquée chez toute victime qui ne répond pas, ne réagit pas, mais respire (perte de connaissance) à la suite d’un évènement non traumatique ou à la demande du service de secours alerté."
+  }
+ ],
+ "comment": [
+  {
+   "type": "cas",
+   "texte": "Chez l’adulte ou l’enfant"
+  },
+  {
+   "type": "cas",
+   "texte": "1er temps : Préparer le retournement de la victime"
+  },
+  {
+   "type": "puce",
+   "texte": "retirer les lunettes de la victime si elle en porte ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "rapprocher délicatement les membres inférieurs de l'axe du corps ;",
+   "niveau": 1,
+   "notes": [
+    "L’alignement des jambes et la position du membre supérieur anticipent la position finale."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "placer le bras de la victime, situé du côté secouriste, à angle droit de son corps ;",
+   "niveau": 1,
+   "notes": [
+    "Il s’agit du bras au sens du langage courant et non anatomique."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "plier le coude de ce même bras en gardant la paume de la main de la victime tournée vers le haut ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "se placer à genoux ou en trépied à côté de la victime, au niveau de son thorax ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "saisir le bras opposé de la victime et amener le dos de la main de la victime sur son oreille, côté secouriste ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "maintenir le dos de la main de la victime pressée contre son oreille, paume contre paume ;",
+   "niveau": 1,
+   "notes": [
+    "Lors du retournement, le maintien de la main de la victime contre son oreille permet d’accompagner le mouvement de la tête et de diminuer la flexion de la colonne cervicale qui pourrait aggraver un traumatisme éventuel."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "attraper la jambe opposée de la victime, avec l'autre main, juste derrière le genou ;",
+   "niveau": 1,
+   "notes": [
+    "La saisie de la jambe de la victime au niveau du genou permet de l’utiliser comme « bras de levier » pour le retournement."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "relever la jambe de la victime, tout en gardant le pied au sol ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "s'éloigner du thorax de la victime afin de pouvoir la retourner sans avoir à reculer.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "2ème temps : Retourner la victime"
+  },
+  {
+   "type": "puce",
+   "texte": "tirer sur la jambe relevée de la victime afin de la faire pivoter vers le secouriste, jusqu'à ce que le genou touche le sol, sans brusquerie et en un seul temps ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "dégager doucement la main du secouriste située sous la tête de la victime, tout en préservant la bascule de la tête en arrière, en maintenant le coude de la victime à l'aide de la main du secouriste précédemment située au genou.",
+   "niveau": 1,
+   "notes": [
+    "Le maintien de la main sous la tête de la victime limite les mouvements de la colonne cervicale."
+   ]
+  },
+  {
+   "type": "cas",
+   "texte": "3ème temps : Stabiliser la victime"
+  },
+  {
+   "type": "puce",
+   "texte": "ajuster la jambe de la victime située au-dessus :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "en maintenant d’une main le bassin ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "et de telle sorte que la hanche et le genou soient à angle droit ;",
+   "niveau": 2,
+   "notes": [
+    "La position de la jambe permet de stabiliser la PLS."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "ouvrir la bouche de la victime sans mobiliser la tête et sans rabattre le menton sur le sternum ;",
+   "niveau": 1,
+   "notes": [
+    "L’ouverture de la bouche de la victime facilite l’écoulement des liquides vers l’extérieur"
+   ]
+  },
+  {
+   "type": "cas",
+   "texte": "Chez le nourrisson"
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Placer le nourrisson sur le côté, le plus souvent dans les bras du secouriste, dos du nourrisson contre lui."
+  }
+ ],
+ "pourquoi": [
+  {
+   "type": "paragraphe",
+   "texte": "La position latérale de sécurité (PLS) maintient libres les voies aériennes supérieures de la victime en permettant l’écoulement des liquides vers l’extérieur et évite que la langue ne chute dans le fond de la gorge."
+  }
+ ],
+ "materiel": [],
+ "risques": [],
+ "remarque_risques": "Pas de section « Risques » dans cette fiche RTN.",
+ "points_cles": [
+  {
+   "type": "paragraphe",
+   "texte": "La mise en position latérale de sécurité doit :"
+  },
+  {
+   "type": "puce",
+   "texte": "limiter au maximum les mouvements de la colonne vertébrale ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "aboutir à une position stable, la plus latérale possible ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "permettre un contrôle permanent de la respiration de la victime ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "permettre l’écoulement des liquides vers l’extérieur (bouche ouverte).",
+   "niveau": 1
+  }
+ ],
+ "conduites": [
+  "perte-de-connaissance"
+ ],
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

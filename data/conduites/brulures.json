@@ -1,0 +1,608 @@
+{
+ "id": "brulures",
+ "titre": "Brûlures",
+ "type": "procédure",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02PR07",
+  "titre_fiche": "Brûlures",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "definition_signes",
+   "titre_rtn": "Définition - Signes"
+  },
+  {
+   "cle": "causes",
+   "titre_rtn": "Causes"
+  },
+  {
+   "cle": "risques",
+   "titre_rtn": "Risques"
+  },
+  {
+   "cle": "principes_action",
+   "titre_rtn": "Principes d’action"
+  }
+ ],
+ "situation": [
+  {
+   "type": "paragraphe",
+   "texte": "La brûlure est une lésion de la peau, des voies aériennes ou digestives. Elle est qualifiée de :"
+  },
+  {
+   "type": "puce",
+   "texte": "brûlure simple, lorsqu’il s’agit de rougeurs de la peau chez l’adulte ou d’une cloque dont la surface est inférieure à celle de la moitié de la paume de la main de la victime ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "brûlure grave, dès lors que l’on est en présence :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "d’une ou plusieurs cloques dont la surface totale est supérieure à celle de la moitié de la paume de la main de la victime ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’une destruction plus profonde (aspect blanchâtre ou noirâtre parfois indolore) associée souvent à des cloques et à une rougeur plus ou moins étendue ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’un aspect circulaire (qui fait le tour du cou ou d’un membre) ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’une brûlure dont la localisation est sur le visage ou le cou, les mains, les articulations ou au voisinage des orifices naturels ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’une rougeur étendue (un coup de soleil généralisé par exemple) de la peau chez l’enfant ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’une brûlure d’origine chimique, électrique ou radiologique.",
+   "niveau": 2
+  }
+ ],
+ "signes": [
+  {
+   "type": "paragraphe",
+   "texte": "La brûlure est une lésion de la peau, des voies aériennes ou digestives. Elle est qualifiée de :"
+  },
+  {
+   "type": "puce",
+   "texte": "brûlure simple, lorsqu’il s’agit de rougeurs de la peau chez l’adulte ou d’une cloque dont la surface est inférieure à celle de la moitié de la paume de la main de la victime ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "brûlure grave, dès lors que l’on est en présence :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "d’une ou plusieurs cloques dont la surface totale est supérieure à celle de la moitié de la paume de la main de la victime ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’une destruction plus profonde (aspect blanchâtre ou noirâtre parfois indolore) associée souvent à des cloques et à une rougeur plus ou moins étendue ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’un aspect circulaire (qui fait le tour du cou ou d’un membre) ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’une brûlure dont la localisation est sur le visage ou le cou, les mains, les articulations ou au voisinage des orifices naturels ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’une rougeur étendue (un coup de soleil généralisé par exemple) de la peau chez l’enfant ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’une brûlure d’origine chimique, électrique ou radiologique.",
+   "niveau": 2
+  }
+ ],
+ "causes": [
+  {
+   "type": "paragraphe",
+   "texte": "La brûlure peut être provoquée par la chaleur, des substances chimiques, l’électricité, le frottement ou des radiations."
+  }
+ ],
+ "risques": [
+  {
+   "type": "paragraphe",
+   "texte": "Suivant l’étendue, la profondeur et la localisation, la brûlure peut entraîner :"
+  },
+  {
+   "type": "puce",
+   "texte": "un danger immédiat comme une défaillance circulatoire (en cas de brûlure étendue) ou respiratoire (lors d’une brûlure au visage, au cou ou consécutive à l'inhalation de fumée) ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "une douleur sévère ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "des conséquences retardées comme l’infection, les séquelles fonctionnelles ou esthétiques.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "La brûlure est évolutive, sans action immédiate, elle peut continuer de s’étendre en profondeur et en surface."
+  }
+ ],
+ "principes_action": [
+  {
+   "type": "paragraphe",
+   "texte": "Le secouriste doit identifier la gravité et la nature de la brûlure afin d’adopter la conduite à tenir adaptée."
+  },
+  {
+   "type": "cas",
+   "texte": "En présence d’une brûlure thermique"
+  },
+  {
+   "type": "puce",
+   "texte": "refroidir immédiatement la surface brûlée tout en retirant les vêtements, et les bijoux.",
+   "niveau": 1,
+   "notes": [
+    "Avec de l'eau courante tempérée et à faible pression. Pendant au moins 10 minutes, idéalement 20 minutes. Débuter l’arrosage après 30 minutes n’a pas d’intérêt.",
+    "Sur ou près de la peau brûlée, s'ils n'adhèrent pas à la peau.",
+    "Sur ou près de la peau brûlée."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "adapter la conduite à tenir selon la gravité de la brûlure :",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Si la brûlure est grave"
+  },
+  {
+   "type": "puce",
+   "texte": "dès le début de l’arrosage, faire alerter ou alerter les secours et appliquer les consignes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "poursuivre le refroidissement, selon les consignes données ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "après refroidissement, installer la victime en position d'attente, confortablement et sans délai :",
+   "niveau": 1,
+   "notes": [
+    "Par exemple sur un lit, une chaise, ou un canapé, ou à défaut sur le sol."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "allongée confortablement ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "assise en cas de gêne respiratoire.",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "laisser si possible la partie brûlée visible ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "protéger la victime de la chaleur, du froid ou des intempéries ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la victime et lui parler régulièrement ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’aggravation, alerter de nouveau les secours et pratiquer les gestes qui s’imposent.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Aucun produit ne doit être appliqué sur une brûlure grave sans avis médical."
+  },
+  {
+   "type": "cas",
+   "texte": "Si la brûlure est simple"
+  },
+  {
+   "type": "puce",
+   "texte": "poursuivre le refroidissement jusqu'à disparition de la douleur ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "ne jamais percer les cloques ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "protéger la brûlure par un pansement stérile ou un film plastique non adhésif ;",
+   "niveau": 1,
+   "notes": [
+    "Type film alimentaire. Il maintient l'humidité et épouse facilement la zone brûlée."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "conseiller à la victime de consulter un médecin :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "si elle n’est pas à jour de sa vaccination antitétanique ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "s'il s'agit d'un enfant ou d'un nourrisson ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "si des signes d’une infection apparaissent dans les jours qui suivent.",
+   "niveau": 2,
+   "notes": [
+    "Apparition de fièvre, de suintements, d'une zone chaude, rouge, gonflée ou douloureuse, notamment dans les 24 heures."
+   ]
+  },
+  {
+   "type": "cas",
+   "texte": "En présence d’une brûlure électrique"
+  },
+  {
+   "type": "puce",
+   "texte": "appliquer la conduite à tenir face à une brûlure thermique grave, en adaptant comme suit :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "ne jamais toucher la victime avant la suppression du risque électrique ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "arroser les zones visiblement brûlées à l’eau courante tempérée ;",
+   "niveau": 2
+  },
+  {
+   "type": "cas",
+   "texte": "En présence d’une brûlure par produit chimique ou interne par inhalation",
+   "notes": [
+    "Fumée, vapeurs chaudes ou caustiques, etc."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "se protéger pour éviter tout contact avec l’origine de la brûlure ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "demander à la victime de se rincer immédiatement et abondamment à l’eau courante tempérée :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "en cas de projection sur les vêtements ou la peau : rincer l’ensemble du corps de la victime et ôter sous l’eau ses vêtements imbibés de produit ;",
+   "niveau": 2,
+   "notes": [
+    "Veiller à ce que la substance diluée par l’eau de rinçage ne nuise pas au secouriste ou aux tissus sains de la personne (en entrant en contact avec la peau non affectée ou l'œil non blessé, par accumulation de produit dilué dans les chaussures, etc)."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "en cas de projection dans l’œil : rincer l’œil atteint et faire retirer les lentilles de contact pendant le rinçage ;",
+   "niveau": 2,
+   "notes": [
+    "Veiller à ce que la substance diluée par l’eau de rinçage ne nuise pas au secouriste ou aux tissus sains de la personne (en entrant en contact avec la peau non affectée ou l'œil non blessé, par accumulation de produit dilué dans les chaussures, etc)."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’ingestion : ne jamais faire vomir ou boire, et conserver les informations du produit ;",
+   "niveau": 1,
+   "notes": [
+    "Conditionnement, emballage, fiche de donnée sécurité, etc."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’inhalation : en présence de difficultés respiratoires, placer la victime en position assise ;",
+   "niveau": 1,
+   "notes": [
+    "Ce type de brûlure doit être suspecté chez une personne qui a respiré des fumées d’incendie ou inhalé des produits chimiques."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "faire alerter ou alerter les secours et appliquer les consignes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "protéger la victime de la chaleur, du froid ou des intempéries ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la victime et lui parler régulièrement ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’aggravation, alerter de nouveau les secours et pratiquer les gestes qui s’imposent.",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "se laver les mains après avoir réalisé les gestes de secours.",
+   "niveau": 1
+  }
+ ],
+ "etapes": [
+  {
+   "type": "paragraphe",
+   "texte": "Le secouriste doit identifier la gravité et la nature de la brûlure afin d’adopter la conduite à tenir adaptée."
+  },
+  {
+   "type": "cas",
+   "texte": "En présence d’une brûlure thermique"
+  },
+  {
+   "type": "puce",
+   "texte": "refroidir immédiatement la surface brûlée tout en retirant les vêtements, et les bijoux.",
+   "niveau": 1,
+   "notes": [
+    "Avec de l'eau courante tempérée et à faible pression. Pendant au moins 10 minutes, idéalement 20 minutes. Débuter l’arrosage après 30 minutes n’a pas d’intérêt.",
+    "Sur ou près de la peau brûlée, s'ils n'adhèrent pas à la peau.",
+    "Sur ou près de la peau brûlée."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "adapter la conduite à tenir selon la gravité de la brûlure :",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Si la brûlure est grave"
+  },
+  {
+   "type": "puce",
+   "texte": "dès le début de l’arrosage, faire alerter ou alerter les secours et appliquer les consignes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "poursuivre le refroidissement, selon les consignes données ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "après refroidissement, installer la victime en position d'attente, confortablement et sans délai :",
+   "niveau": 1,
+   "notes": [
+    "Par exemple sur un lit, une chaise, ou un canapé, ou à défaut sur le sol."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "allongée confortablement ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "assise en cas de gêne respiratoire.",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "laisser si possible la partie brûlée visible ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "protéger la victime de la chaleur, du froid ou des intempéries ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la victime et lui parler régulièrement ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’aggravation, alerter de nouveau les secours et pratiquer les gestes qui s’imposent.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Aucun produit ne doit être appliqué sur une brûlure grave sans avis médical."
+  },
+  {
+   "type": "cas",
+   "texte": "Si la brûlure est simple"
+  },
+  {
+   "type": "puce",
+   "texte": "poursuivre le refroidissement jusqu'à disparition de la douleur ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "ne jamais percer les cloques ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "protéger la brûlure par un pansement stérile ou un film plastique non adhésif ;",
+   "niveau": 1,
+   "notes": [
+    "Type film alimentaire. Il maintient l'humidité et épouse facilement la zone brûlée."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "conseiller à la victime de consulter un médecin :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "si elle n’est pas à jour de sa vaccination antitétanique ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "s'il s'agit d'un enfant ou d'un nourrisson ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "si des signes d’une infection apparaissent dans les jours qui suivent.",
+   "niveau": 2,
+   "notes": [
+    "Apparition de fièvre, de suintements, d'une zone chaude, rouge, gonflée ou douloureuse, notamment dans les 24 heures."
+   ]
+  },
+  {
+   "type": "cas",
+   "texte": "En présence d’une brûlure électrique"
+  },
+  {
+   "type": "puce",
+   "texte": "appliquer la conduite à tenir face à une brûlure thermique grave, en adaptant comme suit :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "ne jamais toucher la victime avant la suppression du risque électrique ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "arroser les zones visiblement brûlées à l’eau courante tempérée ;",
+   "niveau": 2
+  },
+  {
+   "type": "cas",
+   "texte": "En présence d’une brûlure par produit chimique ou interne par inhalation",
+   "notes": [
+    "Fumée, vapeurs chaudes ou caustiques, etc."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "se protéger pour éviter tout contact avec l’origine de la brûlure ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "demander à la victime de se rincer immédiatement et abondamment à l’eau courante tempérée :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "en cas de projection sur les vêtements ou la peau : rincer l’ensemble du corps de la victime et ôter sous l’eau ses vêtements imbibés de produit ;",
+   "niveau": 2,
+   "notes": [
+    "Veiller à ce que la substance diluée par l’eau de rinçage ne nuise pas au secouriste ou aux tissus sains de la personne (en entrant en contact avec la peau non affectée ou l'œil non blessé, par accumulation de produit dilué dans les chaussures, etc)."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "en cas de projection dans l’œil : rincer l’œil atteint et faire retirer les lentilles de contact pendant le rinçage ;",
+   "niveau": 2,
+   "notes": [
+    "Veiller à ce que la substance diluée par l’eau de rinçage ne nuise pas au secouriste ou aux tissus sains de la personne (en entrant en contact avec la peau non affectée ou l'œil non blessé, par accumulation de produit dilué dans les chaussures, etc)."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’ingestion : ne jamais faire vomir ou boire, et conserver les informations du produit ;",
+   "niveau": 1,
+   "notes": [
+    "Conditionnement, emballage, fiche de donnée sécurité, etc."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’inhalation : en présence de difficultés respiratoires, placer la victime en position assise ;",
+   "niveau": 1,
+   "notes": [
+    "Ce type de brûlure doit être suspecté chez une personne qui a respiré des fumées d’incendie ou inhalé des produits chimiques."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "faire alerter ou alerter les secours et appliquer les consignes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "protéger la victime de la chaleur, du froid ou des intempéries ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la victime et lui parler régulièrement ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’aggravation, alerter de nouveau les secours et pratiquer les gestes qui s’imposent.",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "se laver les mains après avoir réalisé les gestes de secours.",
+   "niveau": 1
+  }
+ ],
+ "remarque_etapes": "Les RTN décrivent la conduite à tenir dans la section « Principes d’action » : etapes reprend cette section.",
+ "cas_particuliers": [],
+ "gestes": [],
+ "points_cles": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

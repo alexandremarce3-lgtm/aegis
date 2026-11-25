@@ -1,0 +1,142 @@
+{
+ "id": "traumatismes",
+ "titre": "Traumatismes",
+ "type": "procédure",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02PR08",
+  "titre_fiche": "Traumatismes",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "definition_signes",
+   "titre_rtn": "Définition - Signes"
+  },
+  {
+   "cle": "causes",
+   "titre_rtn": "Causes"
+  },
+  {
+   "cle": "risques",
+   "titre_rtn": "Risques"
+  },
+  {
+   "cle": "principes_action",
+   "titre_rtn": "Principes d’action"
+  },
+  {
+   "cle": "etapes",
+   "titre_rtn": "Conduite à tenir"
+  }
+ ],
+ "situation": [
+  {
+   "type": "paragraphe",
+   "texte": "Les atteintes traumatiques sont des lésions des os (fractures), des articulations (entorses ou luxations), des organes ou de la peau. Pour une meilleure compréhension, ce dernier type d’atteinte fait l’objet d’un traitement spécifique (cf. Brûlures et plaies)."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Elles peuvent provoquer immédiatement une douleur vive, une difficulté ou une impossibilité de bouger, éventuellement accompagnées d’un gonflement ou d’une déformation de la zone atteinte."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Lorsque le choc se situe au niveau de la tête, du thorax ou de l’abdomen, une atteinte des organes sous- jacents est toujours possible et peut se révéler secondairement par d’autres signes (perte de connaissance, maux de tête persistants, vomissements, agitation, somnolence, douleur abdominale, etc.)."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Lorsque le traumatisme se situe au niveau de la colonne vertébrale (douleur du dos ou de la nuque), une atteinte de la moelle épinière est possible."
+  }
+ ],
+ "signes": [
+  {
+   "type": "paragraphe",
+   "texte": "Les atteintes traumatiques sont des lésions des os (fractures), des articulations (entorses ou luxations), des organes ou de la peau. Pour une meilleure compréhension, ce dernier type d’atteinte fait l’objet d’un traitement spécifique (cf. Brûlures et plaies)."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Elles peuvent provoquer immédiatement une douleur vive, une difficulté ou une impossibilité de bouger, éventuellement accompagnées d’un gonflement ou d’une déformation de la zone atteinte."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Lorsque le choc se situe au niveau de la tête, du thorax ou de l’abdomen, une atteinte des organes sous- jacents est toujours possible et peut se révéler secondairement par d’autres signes (perte de connaissance, maux de tête persistants, vomissements, agitation, somnolence, douleur abdominale, etc.)."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Lorsque le traumatisme se situe au niveau de la colonne vertébrale (douleur du dos ou de la nuque), une atteinte de la moelle épinière est possible."
+  }
+ ],
+ "causes": [
+  {
+   "type": "paragraphe",
+   "texte": "Les traumatismes peuvent être le résultat d’un choc, d’un coup, d’une chute ou d’un faux mouvement et peuvent atteindre toutes les parties du corps."
+  }
+ ],
+ "risques": [
+  {
+   "type": "paragraphe",
+   "texte": "Les risques, lors d’une atteinte traumatique, sont d’entraîner des complications neurologiques (paralysie, trouble de la conscience ou perte de connaissance), respiratoires (gêne ou détresse) ou circulatoires (détresse)."
+  }
+ ],
+ "principes_action": [
+  {
+   "type": "paragraphe",
+   "texte": "Le secouriste ne doit pas mobiliser la victime."
+  }
+ ],
+ "etapes": [
+  {
+   "type": "paragraphe",
+   "texte": "Si la victime a perdu connaissance, adopter la conduite à tenir face à une perte de connaissance dont l’origine est traumatique."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Sinon :  conseiller fermement de ne pas mobiliser la partie atteinte ;",
+   "notes": [
+    "Exemple, si la douleur siège au cou, demander de ne pas bouger la tête."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "si la victime présente une fracture de membre déplacée, ne pas tenter de le réaligner ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "protéger la victime de la chaleur, du froid ou des intempéries ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "faire alerter ou alerter les secours et appliquer les consignes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la victime et lui parler régulièrement ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’aggravation, alerter de nouveau les secours et pratiquer les gestes qui s’imposent.",
+   "niveau": 1
+  }
+ ],
+ "cas_particuliers": [],
+ "gestes": [],
+ "points_cles": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

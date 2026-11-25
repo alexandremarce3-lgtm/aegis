@@ -1,0 +1,250 @@
+{
+ "id": "obstruction-des-voies-aeriennes",
+ "titre": "Obstruction des voies aériennes",
+ "type": "procédure",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02PR02",
+  "titre_fiche": "Obstruction des voies aériennes",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "definition",
+   "titre_rtn": "Définition"
+  },
+  {
+   "cle": "causes",
+   "titre_rtn": "Causes"
+  },
+  {
+   "cle": "risques",
+   "titre_rtn": "Risques"
+  },
+  {
+   "cle": "signes",
+   "titre_rtn": "Signes"
+  },
+  {
+   "cle": "principes_action",
+   "titre_rtn": "Principes d’action"
+  },
+  {
+   "cle": "etapes",
+   "titre_rtn": "Conduite à tenir"
+  }
+ ],
+ "situation": [
+  {
+   "type": "paragraphe",
+   "texte": "L’obstruction des voies aériennes (OVA) est la gêne ou l'empêchement brutal des mouvements de l’air entre l’extérieur et les poumons, par un corps étranger."
+  }
+ ],
+ "signes": [
+  {
+   "type": "paragraphe",
+   "texte": "Si la victime peut parler, crier (notamment enfant ou nourrisson), tousser et respirer, parfois avec un bruit surajouté, l’obstruction n’est pas totale. Elle peut durer plusieurs minutes après l’accident, car la respiration n’est pas complètement interrompue. Si la victime ne peut plus parler, crier, tousser ou émettre un son, garde la bouche ouverte, s'agite, devient rapidement bleue, alors l’obstruction est totale."
+  }
+ ],
+ "causes": [
+  {
+   "type": "paragraphe",
+   "texte": "Les corps étrangers qui sont le plus souvent à l’origine d’une obstruction des voies aériennes sont les aliments (noix, cacahuètes, carottes) ou des objets (aimants de magnets, jouets). L’OVA peut survenir à tout âge, mais elle est plus fréquente chez l’enfant et chez la personne âgée. L’obstruction se produit le plus souvent lorsque la personne est en train de manger, de boire ou de porter un objet à la bouche. Des facteurs de risques exposent au risque de survenue d’une OVA par corps étranger comme la prise de médicaments, d’alcool, les maladies neurologiques qui diminuent ou altèrent la déglutition ou la toux, la démence, mais aussi une mauvaise dentition."
+  }
+ ],
+ "risques": [
+  {
+   "type": "paragraphe",
+   "texte": "Si après inhalation d’un corps étranger, le passage de l’air dans les voies aériennes est menacé ou interrompu, l’arrivée de l’oxygène jusqu’aux poumons peut être réduite ou stoppée, pouvant compromettre rapidement la vie de la victime. Sans une intervention rapide, elle entraîne : une hypoxie, une perte de connaissance, puis un arrêt cardiaque en quelques minutes."
+  }
+ ],
+ "principes_action": [
+  {
+   "type": "paragraphe",
+   "texte": "L’action du secouriste doit permettre :"
+  },
+  {
+   "type": "puce",
+   "texte": "de désobstruer les voies aériennes en cas d’obstruction totale ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "d’empêcher toute aggravation.",
+   "niveau": 1
+  }
+ ],
+ "etapes": [
+  {
+   "type": "cas",
+   "texte": "Dans tous les cas"
+  },
+  {
+   "type": "puce",
+   "texte": "demander à la victime si elle s’étouffe, ainsi que de tousser.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Si la victime peut parler, crier, tousser",
+   "notes": [
+    "Confère les signes de l’obstruction."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "continuer d’encourager la victime à tousser ;",
+   "niveau": 1,
+   "notes": [
+    "Une victime qui est éveillée, réactive et capable de tousser doit être encouragée à le faire, car la toux génère une pression élevée et soutenue dans les voies respiratoires et peut expulser le corps étranger."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller l’efficacité de la toux ou l’apparition de signes de fatigue.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Si la victime ne peut plus parler, crier, tousser",
+   "notes": [
+    "Confère les signes de l’obstruction."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "laisser la victime dans la position où elle se trouve, généralement debout ou assise ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "donner de 1 à 5 « claques dans le dos » ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "réaliser de 1 à 5 « compressions » en cas d’inefficacité ou d’impossibilité de pratiquer des « claques»",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "au niveau abdominal, s’il s’agit d’un adulte ou d’un enfant ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "au niveau thoracique, s’il s’agit :",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "d’un nourrisson ;",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "d’un personne obèse ou d’une femme enceinte, s’il est impossible d’encercler l’abdomen ;",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "d’une personne alitée ou allongée, difficilement mobilisable.",
+   "niveau": 3
+  },
+  {
+   "type": "puce",
+   "texte": "répéter le cycle « claques dans le dos » et « compressions » ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "interrompre les manœuvres dès :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "l’apparition d’une toux efficace, de cris ou de pleurs ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "la reprise de la respiration ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "le rejet du corps étranger.",
+   "niveau": 2
+  },
+  {
+   "type": "cas",
+   "texte": "Si la victime respire (toux efficace) ou après le succès des manœuvres"
+  },
+  {
+   "type": "puce",
+   "texte": "installer la victime en position d'attente, confortablement et sans délai ;",
+   "niveau": 1,
+   "notes": [
+    "Par exemple sur un lit, une chaise, ou un canapé, ou à défaut sur le sol."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "desserrer les vêtements ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "faire alerter ou alerter les secours et appliquer leurs consignes ;",
+   "niveau": 1,
+   "notes": [
+    "Même si la désobstruction est efficace de petits corps peuvent passer dans les voies aériennes et dans les poumons et provoquer des complications secondaires. Les manœuvres de compressions, même réalisées correctement, peuvent provoquer des lésions internes."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "protéger contre la chaleur, le froid ou les intempéries ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la victime et lui parler régulièrement.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Si la victime perd connaissance"
+  },
+  {
+   "type": "puce",
+   "texte": "l’accompagner au sol ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "réaliser une réanimation cardio-pulmonaire.",
+   "niveau": 1
+  }
+ ],
+ "cas_particuliers": [],
+ "gestes": [
+  "desobstruction-par-des-claques-dans-le-dos",
+  "desobstruction-par-des-compressions-abdominales",
+  "desobstruction-par-des-compressions-thoraciques"
+ ],
+ "points_cles": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

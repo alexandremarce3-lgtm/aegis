@@ -1,0 +1,9 @@
+{
+  "name": "aegis",
+  "private": true,
+  "description": "PWA d'aide aux premiers secours - aucune dépendance",
+  "scripts": {
+    "test": "node --test",
+    "donnees": "node outils/construire-donnees.mjs"
+  }
+}

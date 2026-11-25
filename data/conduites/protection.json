@@ -1,0 +1,124 @@
+{
+ "id": "protection",
+ "titre": "Protection",
+ "type": "apport de connaissances",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": null,
+  "titre_fiche": "Protection",
+  "mise_a_jour": "12-2023"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "introduction",
+   "titre_rtn": null
+  }
+ ],
+ "situation": [
+  {
+   "type": "cas",
+   "texte": "Protection d’une personne exposée à un danger"
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Une victime ou toute autre personne menacée par un danger doit en être protégée, notamment du suraccident. Pour cela, le secouriste, lorsqu’il peut agir sans risque pour sa propre sécurité, doit immédiatement supprimer ou écarter le danger de façon permanente."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Si nécessaire, cette première mesure est complétée en délimitant clairement et largement la zone de danger, de façon visible, afin d’éviter toute intrusion dans la zone. Cette délimitation se fait en utilisant tous les moyens matériels à disposition ainsi que le concours des personnes aptes aux alentours."
+  },
+  {
+   "type": "cas",
+   "texte": "Dégagement d’urgence d’une victime"
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Lorsque la victime ne peut se soustraire d’elle-même à un danger réel, immédiat et non contrôlable, un dégagement d’urgence peut être alors réalisé par le secouriste. Cette manœuvre peut être dangereuse pour la victime ou lui-même. Elle doit donc rester exceptionnelle."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Le dégagement d’urgence de la victime doit alors permettre de placer celle-ci dans un endroit suffisamment éloigné du danger et de ses conséquences."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Aucune technique n’est imposée lors de la réalisation d’un dégagement d’urgence. Toutefois, lors de sa réalisation, le secouriste s’engage par le cheminement le plus sûr et le plus rapide seulement si la victime est visible, facile à atteindre et que rien ne gêne son dégagement. Il assure son extraction en fonction de ses capacités."
+  },
+  {
+   "type": "cas",
+   "texte": "Devant une attaque terroriste ou une situation de violence"
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Devant une attaque terroriste ou une situation de violence, le secouriste tentera d’appliquer les consignes nationales édictées par le ministère de l’Intérieur et disponibles en ligne «réagir en cas d’attaque terroriste»."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Ainsi, la conduite à tenir (CAT) pour le secouriste avant l’arrivée des forces de l’ordre pourrait être la suivante : s’échapper sans risque si, c’est impossible s’enfermer et se barricader, une fois caché ou en sécurité, alerter (où, qui, quoi), si se cacher ou évacuer est impossible et si votre vie est en danger, résister."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "En période épidémique de maladie à transmission respiratoire (covid-19, grippe, etc.)"
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Le secouriste doit appliquer les mesures barrières, de distance physique et d'isolement pour se protéger et protéger l'entourage :"
+  },
+  {
+   "type": "puce",
+   "texte": "demander aux proches et aux témoins de respecter les mesures barrières et de distance physique ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "demander à la victime de s'isoler si possible dans une pièce séparée, et de porter un masque. Si ce dernier gêne la ventilation de la victime, il doit être retiré ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "garder ses distances avec la ou les personnes malades, ne pas les toucher surtout si elles ne portent pas de masque ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "faire réaliser les gestes de secours par la victime sur elle-même si elle le peut ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "s'il faut s'approcher de la victime, se protéger avec un masque ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "ne pas se toucher les yeux, le nez, la bouche et le visage ;",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "À la fin de l'intervention, se laver les mains avec de l'eau et du savon et les sécher avec une serviette ou un essuie-main, à défaut utiliser une solution hydroalcoolique."
+  }
+ ],
+ "signes": [],
+ "causes": [],
+ "risques": [],
+ "principes_action": [],
+ "etapes": [],
+ "remarque_etapes": "Conduite décrite dans le texte de la fiche (situation), sans section « Conduite à tenir ».",
+ "cas_particuliers": [],
+ "gestes": [],
+ "points_cles": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

@@ -1,0 +1,134 @@
+{
+ "id": "manoeuvres-physiques",
+ "titre": "Manœuvres physiques",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02FT11",
+  "titre_fiche": "Manœuvres physiques",
+  "mise_a_jour": "07-2023"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "quand",
+   "titre_rtn": "Indication"
+  },
+  {
+   "cle": "pourquoi",
+   "titre_rtn": "Justification"
+  },
+  {
+   "cle": "comment",
+   "titre_rtn": "Réalisation"
+  },
+  {
+   "cle": "points_cles",
+   "titre_rtn": "Points clés"
+  }
+ ],
+ "quand": [
+  {
+   "type": "paragraphe",
+   "texte": "Les manœuvres physiques sont réalisées dès que la victime reconnait des signes annonciateurs d’une perte de connaissance imminente."
+  }
+ ],
+ "comment": [
+  {
+   "type": "paragraphe",
+   "texte": "Les manœuvres physiques doivent être réalisées par la victime elle-même. Si la victime ne connaît pas ces manœuvres, le secouriste lui expliquera comment les réaliser si possible. Les manœuvres ne remplacent pas la mise en position de confort de la victime notamment la position allongée. Cependant, si le secouriste (ou la victime elle-même) est dans l'impossibilité immédiate d'allonger la victime (malaise dans un bus, un avion, le train), les manœuvres physiques peuvent précéder la mise en position allongée."
+  },
+  {
+   "type": "cas",
+   "texte": "L'accroupissement (peut être un préalable à la mise en position allongée)"
+  },
+  {
+   "type": "puce",
+   "texte": "se placer en position accroupie ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "baisser la tête comme pour la mettre entre les deux genoux.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Croisement des membres inférieurs"
+  },
+  {
+   "type": "paragraphe",
+   "texte": "La victime peut être en position allongée ou debout en prenant appui contre un mur :"
+  },
+  {
+   "type": "puce",
+   "texte": "croiser les membres inférieurs ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "contracter les muscles en essayant de tendre les jambes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "serrer les fesses ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "contracter la ceinture abdominale.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Crochetage des doigts et tension des bras"
+  },
+  {
+   "type": "puce",
+   "texte": "agripper les deux mains par les doigts en crochet ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "écarter les coudes de la poitrine au maximum ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "contracter les deux membres supérieurs en tirant comme pour essayer de séparer les deux mains.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "N. B. Le croisement des membres inférieurs a une efficacité supérieure aux deux autres techniques."
+  }
+ ],
+ "pourquoi": [
+  {
+   "type": "paragraphe",
+   "texte": "En agissant sur la circulation, les manœuvres physiques ont pour but d’éviter la survenue d’une perte de connaissance et les lésions traumatiques secondaires à une chute."
+  }
+ ],
+ "materiel": [],
+ "risques": [],
+ "remarque_risques": "Pas de section « Risques » dans cette fiche RTN.",
+ "points_cles": [
+  {
+   "type": "paragraphe",
+   "texte": "Les manœuvres physiques sont réalisées par la victime dès l’apparition des premiers signes de malaise et poursuivies après la mise en position allongée."
+  }
+ ],
+ "conduites": [
+  "malaises"
+ ],
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

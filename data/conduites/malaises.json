@@ -1,0 +1,347 @@
+{
+ "id": "malaises",
+ "titre": "Malaises",
+ "type": "procédure",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02PR05",
+  "titre_fiche": "Malaises",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "definition",
+   "titre_rtn": "Définition"
+  },
+  {
+   "cle": "signes",
+   "titre_rtn": "Signes"
+  },
+  {
+   "cle": "causes",
+   "titre_rtn": "Causes"
+  },
+  {
+   "cle": "risques",
+   "titre_rtn": "Risques"
+  },
+  {
+   "cle": "principes_action",
+   "titre_rtn": "Principes d’action"
+  },
+  {
+   "cle": "etapes",
+   "titre_rtn": "Conduite à tenir en toute circonstance"
+  },
+  {
+   "cle": "cas_particuliers",
+   "titre_rtn": "Cas particuliers"
+  }
+ ],
+ "situation": [
+  {
+   "type": "paragraphe",
+   "texte": "Le malaise est une sensation pénible traduisant un trouble du fonctionnement de l’organisme, sans pouvoir en identifier obligatoirement l’origine. Cette sensation, parfois répétitive, peut être fugace ou durable, de survenue brutale ou progressive."
+  }
+ ],
+ "signes": [
+  {
+   "type": "paragraphe",
+   "texte": "La victime, consciente, ne se sent pas bien et présente des signes inhabituels. Les signes qui doivent alerter le secouriste sont :"
+  },
+  {
+   "type": "puce",
+   "texte": "douleur dans la poitrine ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "faiblesse ou paralysie d'un bras ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "déformation de la face ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "perte de la vision d'un œil ou des deux ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "difficulté de langage (incohérence de la parole) ou de compréhension ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "mal de tête sévère, inhabituel ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "perte d'équilibre, instabilité de la marche ou chute inexpliquée ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "une fièvre (>37,8°C), une sensation de fièvre et des frissons ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "des sueurs abondantes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "des courbatures, une sensation de fatigue intense ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "d'une douleur abdominale intense et de troubles digestifs (diarrhée) ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "d'une difficulté à respirer ou à parler ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "d'une sensation de froid, associé à des sueurs abondantes ou une pâleur intense.",
+   "niveau": 1
+  }
+ ],
+ "causes": [
+  {
+   "type": "paragraphe",
+   "texte": "Le malaise peut avoir diverses origines : maladies, intoxications, allergies, etc."
+  }
+ ],
+ "risques": [
+  {
+   "type": "paragraphe",
+   "texte": "Certains signes doivent être rapidement reconnus, car la prise en charge de la victime est urgente en service spécialisé pour éviter des séquelles définitives ou une évolution fatale."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Certains signes, apparemment sans gravité, peuvent être révélateurs d’une situation pouvant à tout moment entraîner une détresse vitale, exemples :"
+  },
+  {
+   "type": "puce",
+   "texte": "un accident cardiaque ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "un accident vasculaire cérébral (AVC) ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "une maladie infectieuse qui peut être contagieuse ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "un malaise lié : au diabète, l’asthme, etc.",
+   "niveau": 1
+  }
+ ],
+ "principes_action": [
+  {
+   "type": "paragraphe",
+   "texte": "Le secouriste, après avoir mis la victime au repos, doit recueillir en écoutant et en observant, les informations à transmettre pour obtenir un avis médical."
+  }
+ ],
+ "etapes": [
+  {
+   "type": "puce",
+   "texte": "installer la victime en position d'attente, confortablement et sans délai :",
+   "niveau": 1,
+   "notes": [
+    "Par exemple sur un lit, une chaise, ou un canapé, ou à défaut sur le sol."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "allongée ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "assise en cas de difficultés à respirer ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "sinon, dans la position où elle se sent le mieux.",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "observer les signes, d'apparition soudaine, isolés ou associés, même de très courte durée.",
+   "niveau": 1,
+   "notes": [
+    "Le médecin ne pouvant pas avoir un visuel sur la victime, l’observation des signes par le secouriste doit être qualitative, ainsi que leur transmission."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "se renseigner auprès de la victime ou de son entourage sur :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "son âge ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "la durée du malaise ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "des antécédents de malaises identiques et son état de santé actuel;",
+   "niveau": 2,
+   "notes": [
+    "Maladies, hospitalisations ou traumatisme récents."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "les traitements médicamenteux qu'elle prend ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "aider la victime à sa demande ou à la demande des secours, à prendre :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "son traitement prescrit ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "du sucre en morceaux.",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "en présence de signes qui doivent alerter le secouriste, ou de doute, demander un avis médical :",
+   "niveau": 1,
+   "notes": [
+    "Souvent le médecin régulateur demande à parler directement à la victime."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "transmettre fidèlement les informations recueillies ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "appliquer les consignes.",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "protéger la victime de la chaleur, du froid ou des intempéries ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la victime et lui parler régulièrement ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’aggravation, alerter de nouveau les secours et pratiquer les gestes qui s’imposent.",
+   "niveau": 1
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Devant des signes de maladie infectieuse, appliquer les mesures barrières, de distance physique et d'isolement.",
+   "notes": [
+    "Et plus particulièrement en période épidémique.",
+    "Exemple : demander à la victime de porter un masque, toutefois, lui proposer de le retirer si cela gêne sa respiration."
+   ]
+  }
+ ],
+ "cas_particuliers": [
+  {
+   "type": "cas",
+   "texte": "Prévention des malaises vagaux"
+  },
+  {
+   "type": "puce",
+   "texte": "appliquer la conduite à tenir face à toute victime d’un malaise ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "inviter la victime à réaliser des manœuvres physiques si elle déclare faire régulièrement des malaises « vagaux » et présente des signes tels que : étourdissement, nausées, sueurs, sensation de chaleur, points noirs devant les yeux ou sentiment de perte de conscience imminente.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "Malaise provoqué par la chaleur"
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Des malaises peuvent survenir lorsqu’une personne est exposée à une ambiance chaude (exemples : été, période de canicule, travail en ambiance chaude, etc.) ou à la suite d’un effort prolongé. Dans ce cas, il faut :"
+  },
+  {
+   "type": "puce",
+   "texte": "appliquer la conduite à tenir face à toute victime d’un malaise ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "installer la victime dans un endroit frais et bien aéré ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "si possible mesurer la température de la victime pour la transmettre au secours ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "rafraîchir la victime ;",
+   "niveau": 1,
+   "notes": [
+    "La déshabiller ou desserrer ses vêtements, l’asperger d’eau froide (utiliser un brumisateur ou l’envelopper de linges imbibés d’eau froide), la placer sous le courant d’air d’un ventilateur, lui placer des sacs de glaces recouverts d’un linge sous les aisselles, à l’aine ou au cou."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "lui faire boire de l’eau fraîche par petites quantités si elle est consciente et capable d’avaler.",
+   "niveau": 1
+  }
+ ],
+ "gestes": [
+  "manoeuvres-physiques"
+ ],
+ "points_cles": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

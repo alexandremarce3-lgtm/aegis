@@ -1,0 +1,334 @@
+{
+ "id": "hemorragies",
+ "titre": "Hémorragies",
+ "type": "procédure",
+ "source": {
+  "document": "Références techniques nationales « Premiers Secours Citoyen » (RTN PSC)",
+  "editeur": "DGSCGC, ministère de l’Intérieur",
+  "edition": "juillet 2026",
+  "fiche": "02PR01",
+  "titre_fiche": "Hémorragies",
+  "mise_a_jour": "07-2026"
+ },
+ "statut": "à valider par un formateur",
+ "sections_rtn": [
+  {
+   "cle": "definition_signes",
+   "titre_rtn": "Définition - Signes"
+  },
+  {
+   "cle": "causes",
+   "titre_rtn": "Causes"
+  },
+  {
+   "cle": "risques",
+   "titre_rtn": "Risques"
+  },
+  {
+   "cle": "principes_action",
+   "titre_rtn": "Principes d’action"
+  },
+  {
+   "cle": "etapes",
+   "titre_rtn": "Conduite à tenir"
+  },
+  {
+   "cle": "cas_particuliers",
+   "titre_rtn": "Conduites à tenir particulières"
+  }
+ ],
+ "situation": [
+  {
+   "type": "paragraphe",
+   "texte": "Une hémorragie est une perte de sang qui provient d'une plaie ou d'un orifice naturel et qui ne s'arrête pas spontanément. Elle imbibe de sang un mouchoir de tissu ou de papier en quelques secondes."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Un saignement dû à une écorchure, une éraflure ou une abrasion cutanée, qui s'arrête spontanément n'est pas une hémorragie."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Le plus souvent, il est facile de constater une hémorragie. Toutefois, celle-ci peut temporairement être masquée par la position de la victime ou un vêtement particulièrement absorbant (manteau, blouson, etc.)."
+  }
+ ],
+ "signes": [
+  {
+   "type": "paragraphe",
+   "texte": "Une hémorragie est une perte de sang qui provient d'une plaie ou d'un orifice naturel et qui ne s'arrête pas spontanément. Elle imbibe de sang un mouchoir de tissu ou de papier en quelques secondes."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Un saignement dû à une écorchure, une éraflure ou une abrasion cutanée, qui s'arrête spontanément n'est pas une hémorragie."
+  },
+  {
+   "type": "paragraphe",
+   "texte": "Le plus souvent, il est facile de constater une hémorragie. Toutefois, celle-ci peut temporairement être masquée par la position de la victime ou un vêtement particulièrement absorbant (manteau, blouson, etc.)."
+  }
+ ],
+ "causes": [
+  {
+   "type": "paragraphe",
+   "texte": "L'hémorragie est généralement secondaire à un traumatisme comme un coup, une chute, une plaie par un objet tranchant (couteau), un projectile (une balle) ou une maladie comme la rupture de varice chez la personne âgée."
+  }
+ ],
+ "risques": [
+  {
+   "type": "paragraphe",
+   "texte": "Les risques d'une perte abondante ou prolongée de sang sont :"
+  },
+  {
+   "type": "puce",
+   "texte": "pour la victime : d'entraîner une détresse circulatoire ou un arrêt cardiaque par une diminution importante de la quantité de sang dans l'organisme ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "pour le secouriste : d'être infecté par une maladie transmissible s'il présente des effractions cutanées (plaies, piqûres) ou en cas de projection sur les muqueuses (bouche, yeux).",
+   "niveau": 1
+  }
+ ],
+ "principes_action": [
+  {
+   "type": "paragraphe",
+   "texte": "Le secouriste doit arrêter ou limiter la perte de sang de la victime et retarder l'installation d'une détresse qui peut entraîner la mort."
+  }
+ ],
+ "etapes": [
+  {
+   "type": "puce",
+   "texte": "constater l’hémorragie, si nécessaire en écartant les vêtements ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "arrêter immédiatement l’hémorragie :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "en demandant à la victime de comprimer immédiatement l’endroit qui saigne ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "ou à défaut, le faire à sa place ;",
+   "niveau": 2,
+   "notes": [
+    "Sans retarder l’action de secours, le secouriste peut se protéger avec des gants ou à défaut en glissant sa main dans un sac plastique, il veillera également à ne porter aucun élément souillé par le sang à la bouche, au nez, ou aux yeux."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "maintenir la compression (par la victime ou le secouriste) ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "allonger confortablement la victime, par exemple sur un lit, un canapé ou à défaut sur le sol ;",
+   "niveau": 1,
+   "notes": [
+    "La position allongée retarde ou empêche l’installation d’une détresse liée à la perte importante de sang."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "faire alerter ou alerter les secours et appliquer leurs consignes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "mettre en place :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "un pansement compressif si l’hémorragie est contrôlée manuellement et pour se libérer ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "un garrot si la compression d’une hémorragie d’un membre est inefficace ou impossible.",
+   "niveau": 2,
+   "notes": [
+    "Le saignement persiste malgré tout.",
+    "Nombreuses victimes, catastrophes, situations de violence collective ou de guerre, nombreuses lésions, plaie inaccessible, corps étranger."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "rassurer la victime, en lui parlant régulièrement et en lui expliquant ce qui se passe ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "réchauffer la victime, car l’hypothermie aggrave l’état de la victime ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "protéger la victime contre le froid, les intempéries ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller attentivement :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "l’efficacité des gestes réalisés ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "l’apparition de signes d’aggravation, notamment : sueurs abondantes, sensation de froid, pâleur intense, perte de connaissance ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "en cas d’aggravation, alerter de nouveau les secours et pratiquer les gestes qui s’imposent.",
+   "niveau": 1
+  }
+ ],
+ "cas_particuliers": [
+  {
+   "type": "cas",
+   "texte": "La victime saigne du nez"
+  },
+  {
+   "type": "puce",
+   "texte": "l’asseoir, tête penchée en avant (ne jamais l’allonger) ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "lui demander de se moucher vigoureusement ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "lui demander de comprimer les deux narines avec les doigts, durant 10 minutes sans relâcher ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "demander un avis médical si :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "le saignement ne s’arrête pas ou se reproduit ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "le saignement survient après une chute ou un coup ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "la victime prend des médicaments, en particulier ceux qui augmentent les saignements.",
+   "niveau": 2
+  },
+  {
+   "type": "cas",
+   "texte": "La victime perd du sang par un orifice naturel",
+   "notes": [
+    "Sauf le nez, et de façon inhabituelle"
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "Si la victime vomit ou crache du sang , installer la victime dans la position :",
+   "niveau": 1,
+   "notes": [
+    "Il s’agit d’un signe pouvant traduire une maladie grave nécessitant une prise en charge médicale."
+   ]
+  },
+  {
+   "type": "puce",
+   "texte": "où elle se sent le mieux si elle est consciente ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "allongée, sur le côté, en position stable si elle a perdu connaissance.",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "Dans les autres cas, allonger la victime ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "protéger la victime de la chaleur, du froid ou des intempéries ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "faire alerter ou alerter les secours et appliquer les consignes ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "surveiller en permanence la victime et lui parler régulièrement ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "En cas d’aggravation, alerter de nouveau les secours et pratiquer les gestes qui s’imposent.",
+   "niveau": 1
+  },
+  {
+   "type": "cas",
+   "texte": "En cas de contact du secouriste avec le sang de la victime"
+  },
+  {
+   "type": "puce",
+   "texte": "Ne rien porter à la bouche (mains, objets, nourritures, etc.), au nez ou aux yeux ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "retirer les vêtements souillés de sang le plus tôt possible après la fin de l’action de secours ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "se laver les mains ou toute zone souillée par le sang de la victime, appliquer éventuellement un gel hydroalcoolique ;",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "demander un avis médical, sans délai si le secouriste :",
+   "niveau": 1
+  },
+  {
+   "type": "puce",
+   "texte": "présente une plaie, même minime, ayant été souillée ;",
+   "niveau": 2
+  },
+  {
+   "type": "puce",
+   "texte": "a subi une projection sur le visage.",
+   "niveau": 2
+  }
+ ],
+ "gestes": [
+  "compression",
+  "garrot"
+ ],
+ "points_cles": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "erreurs_frequentes": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ },
+ "critere_efficacite": {
+  "statut": "à compléter par un formateur - non fourni par les RTN",
+  "contenu": []
+ }
+}

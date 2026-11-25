@@ -118,7 +118,7 @@
     brulure: { fiche: 'brulures', etapes: [
       { choix: [
         { t: 'En présence d’une brûlure thermique', etapes: [
-          { a: 'refroidir immédiatement la surface brûlée', minuteur: 600 },
+          { a: 'refroidir immédiatement la surface brûlée', minuteur: 600, relance: true },
           { info: ['brûlure simple, lorsqu’il s’agit', 'brûlure grave, dès lors'], choix: [
             { t: 'Si la brûlure est grave', etapes: [
               { a: 'dès le début de l’arrosage', appel: true },
@@ -190,7 +190,7 @@
         const i = trouver(fid, spec.a, cur[fid] || 0);
         if (i < 0) { erreurs.push(`${id} : phrase introuvable « ${spec.a} » dans ${fid}`); return null; }
         cur[fid] = i + 1;
-        return { type: 'a', fiche: fid, blocs: avecEnfants(fid, i), gestes: (spec.gestes || []).map(geste).filter(Boolean), info: (spec.info || []).map((x) => info(x, fid)).filter(Boolean), metronome: !!spec.metronome, minuteur: spec.minuteur || 0, appel: !!spec.appel, lien: spec.lien || null };
+        return { type: 'a', fiche: fid, blocs: avecEnfants(fid, i), gestes: (spec.gestes || []).map(geste).filter(Boolean), info: (spec.info || []).map((x) => info(x, fid)).filter(Boolean), metronome: !!spec.metronome, minuteur: spec.minuteur || 0, relance: !!spec.relance, appel: !!spec.appel, lien: spec.lien || null };
       };
       const etapes = (liste, fdef) => liste.map((s) => {
         if (s.groupe) return { type: 'groupe', titre: s.titre, items: s.groupe.map((x) => action(x, s.fiche || fdef)).filter(Boolean) };

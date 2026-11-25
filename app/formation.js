@@ -16,13 +16,13 @@
   const propre = (t) => { const r = t.trim().replace(/\s*[;:.,]+$/, ''); return r.charAt(0).toUpperCase() + r.slice(1); };
   const autres = (obj, sauf, n) => melanger(Object.entries(obj).filter(([k]) => !sauf.includes(k)).flatMap(([, v]) => v)).slice(0, n);
 
-  // 12 ans et plus : questions rédigées dans questions.js ; la bonne réponse est un extrait de la fiche officielle.
+  // 10 ans et plus : questions rédigées dans questions.js ; la bonne réponse est un extrait de la fiche officielle.
   function questionsAdulte(theme) {
     return melanger(QUESTIONS.filter((x) => theme === 'tout' || x.theme === theme)).slice(0, 8)
       .map((x) => ({ fiche: x.fiche, texte: x.q, bon: x.bon, choix: melanger([x.bon, ...x.faux]) }));
   }
 
-  // Moins de 12 ans : une question simple par geste du guide APS (la réponse reste la phrase du guide).
+  // Moins de 10 ans : une question simple par geste du guide APS (la réponse reste la phrase du guide).
   const QUESTIONS_JEUNE = {
     saignement: 'Quelqu’un saigne beaucoup. Que fais-tu ?',
     nez: 'Quelqu’un saigne du nez. Que fais-tu ?',
@@ -76,6 +76,9 @@
       ${jeune()
         ? `<div class="grille">${themes().map((t) => `<a class="tuile mission" href="#/quiz/${t.id}"><i>${t.icon}</i>${esc(t.label)}${etoiles(p.meilleurs[t.id])}</a>`).join('')}</div>`
         : `<ul class="liste">${themes().map((t) => { const m = p.meilleurs[t.id]; return `<li><a href="#/quiz/${t.id}"><span>${esc(t.label)}</span><small>${m ? `${m[0]}/${m[1]} ` : ''}${etoiles(m)}</small></a></li>`; }).join('')}</ul>`}
+      ${jeune() ? '' : `<h2 class="section">Fiche relais</h2>
+      <ul class="liste"><li><a href="#/relais/guide"><span>📝 Bien remplir la fiche relais</span><small>guide et exemple</small></a></li>
+        <li><a href="#/relais/essai"><span>✍️ S’entraîner sur une fiche d’essai</span><small>sans toucher à une vraie fiche</small></a></li></ul>`}
       <p class="source">Les bonnes réponses reprennent les textes officiels. Réviser ici ne remplace pas une formation avec un formateur.</p>`;
     scrollTo(0, 0);
   };

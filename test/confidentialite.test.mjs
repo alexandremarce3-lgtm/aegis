@@ -23,7 +23,7 @@ test('aucun contenu SauveTaGe (Gendarmerie) dans les fichiers publics', () => {
 });
 
 test('aucun tiret long dans les textes', () => {
-  for (const p of textes) assert.ok(!lire(p).includes('—'), 'tiret long dans ' + p);
+  for (const p of textes) assert.ok(!lire(p).includes(String.fromCharCode(0x2014)), 'tiret long dans ' + p);
 });
 
 test('l’appli affiche les numéros d’urgence et le rappel « ne remplace pas une formation »', () => {

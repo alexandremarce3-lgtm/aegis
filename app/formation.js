@@ -76,6 +76,9 @@
       ${jeune()
         ? `<div class="grille">${themes().map((t) => `<a class="tuile mission" href="#/quiz/${t.id}"><i>${t.icon}</i>${esc(t.label)}${etoiles(p.meilleurs[t.id])}</a>`).join('')}</div>`
         : `<ul class="liste">${themes().map((t) => { const m = p.meilleurs[t.id]; return `<li><a href="#/quiz/${t.id}"><span>${esc(t.label)}</span><small>${m ? `${m[0]}/${m[1]} ` : ''}${etoiles(m)}</small></a></li>`; }).join('')}</ul>`}
+      ${jeune() ? '' : `<h2 class="section">Fiche relais</h2>
+      <ul class="liste"><li><a href="#/relais/guide"><span>📝 Bien remplir la fiche relais</span><small>guide et exemple</small></a></li>
+        <li><a href="#/relais/essai"><span>✍️ S’entraîner sur une fiche d’essai</span><small>sans toucher à une vraie fiche</small></a></li></ul>`}
       <p class="source">Les bonnes réponses reprennent les textes officiels. Réviser ici ne remplace pas une formation avec un formateur.</p>`;
     scrollTo(0, 0);
   };

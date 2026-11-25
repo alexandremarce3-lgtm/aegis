@@ -59,7 +59,7 @@
 
   // Texte de la fiche : affiché aux secours et contenu du QR code. Les rubriques vides sont omises.
   R.texte = (d, { journalMax = 40 } = {}) => {
-    const l = ['AEGIS - FICHE RELAIS', 'Informations notées par un témoin, non vérifiées.', `Créée le ${jour(d.cree)} à ${hm(d.cree)}`];
+    const l = [...(d.essai ? ['EXERCICE - FICHE D’ENTRAÎNEMENT, PAS UNE VRAIE VICTIME'] : []), 'AEGIS - FICHE RELAIS', 'Informations notées par un témoin, non vérifiées.', `Créée le ${jour(d.cree)} à ${hm(d.cree)}`];
     const champs = (o) => o.filter(([, v]) => v !== undefined && v !== null && String(v).trim() !== '').map(([k, v]) => (k ? `${k} : ${v}` : v)).join(' ; ');
     const ligne = (titre, contenu) => { if (contenu) l.push(`${titre} : ${contenu}`); };
     const a = d.alerte || {};

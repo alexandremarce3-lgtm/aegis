@@ -55,3 +55,9 @@ test('la fiche est périmée 24 heures après sa création', () => {
   assert.equal(R.perimee(d, t0 + R.DUREE), true);
   assert.equal(R.perimee(null, t0), true);
 });
+
+test('une fiche d’entraînement est marquée « EXERCICE » en tête du texte', () => {
+  const d = R.nouvelle(t0); d.essai = true;
+  assert.match(R.texte(d).split('\n')[0], /^EXERCICE/);
+  assert.ok(!R.texte(R.nouvelle(t0)).includes('EXERCICE'));
+});

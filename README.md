@@ -15,7 +15,7 @@ Application : https://alexandremarce3-lgtm.github.io/aegis/app/
 - Mode **pas à pas** pour 8 situations : une étape par écran, avec les choix à faire (par exemple « répond-il ? », « respire-t-il ? ») et le détail du geste au moment où il sert. Chaque étape est une phrase des fiches RTN, sans réécriture.
 - **Rythme des compressions** : signal sonore et visuel à 110 par minute (la fiche demande entre 100 et 120). Pas de minuteur de relais : quand un DAE est posé, c'est lui qui rythme les analyses.
 - **Bilan** : un écran « que vérifier, dans quel ordre ? » (danger, saignement, étouffement, répond-elle, puis malaise, plaie, brûlure, chute), dans l'ordre des fiches RTN, avec renvoi au pas à pas ou à la fiche.
-- **Fiche relais pour les secours** : le témoin note l'alerte, l'identité de la victime (nom, prénom, âge ou allure nourrisson / enfant / adulte, sexe), ce qu'il a constaté, les zones blessées sur un schéma du corps, les gestes faits avec leur heure, et les observations. Les étapes validées en pas à pas et les appels passés depuis l'appli s'ajoutent seuls au déroulé. La fiche s'affiche en texte et en QR code lisible par l'appareil photo des secours, sans réseau. Elle reste sur le téléphone et s'efface automatiquement après 24 heures.
+- **Fiche relais pour les secours** : le témoin note l'alerte, l'identité de la victime (nom, prénom, âge ou allure nourrisson / enfant / adulte, sexe), ce qu'il a constaté, les zones blessées sur un schéma du corps, les gestes faits avec leur heure, et les observations. Les étapes validées en pas à pas et les appels passés depuis l'appli s'ajoutent seuls au déroulé. La fiche s'affiche en texte et en QR code lisible par l'appareil photo des secours, sans réseau. Elle reste sur le téléphone et s'efface automatiquement après 24 heures. Elle peut aussi être remplie à la main depuis l'accueil (bouton « Nouvelle fiche » pour repartir de zéro).
 - **Minuteurs** : saignement de nez (10 minutes) ; brûlure (10 minutes, relançable une fois pour atteindre 20 minutes, comme le précise la fiche).
 - Lecture à voix haute des consignes : voix enregistrée (Piper, fr_FR-siwis-medium), sinon voix de l'appareil.
 
@@ -24,6 +24,7 @@ Application : https://alexandremarce3-lgtm.github.io/aegis/app/
 - **Nouveautés 2026** : les passages modifiés dans l'édition de juillet 2026 (surlignés dans le document officiel) sont surlignés dans les fiches, signalés dans la liste et regroupés sur une page « Nouveautés 2026 ».
 
 **Se former**
+- Guide « Bien remplir la fiche relais » (rubrique par rubrique, erreurs fréquentes, exemple inventé) et fiche d'entraînement marquée « EXERCICE », rangée à part de la vraie fiche.
 - Quiz de 63 questions sur 9 thèmes. La bonne réponse est toujours un extrait exact de la fiche citée ; les mauvaises réponses sont rédigées pour l'appli. Points, niveaux et étoiles enregistrés sur le téléphone.
 
 **Mode moins de 10 ans**

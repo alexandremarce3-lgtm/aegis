@@ -53,6 +53,15 @@
       ${champ('a-nature', 'Nature du problème (maladie, accident...)', a.nature)}
       ${champ('a-victimes', 'Nombre de victimes', a.victimes, 'type="number" min="1" inputmode="numeric"')}
       ${champ('a-lieu', 'Lieu le plus précis possible', a.lieu)}
+      <div class="gps">
+        <p id="gps-valeur" class="gps-valeur" ${a.gps ? '' : 'hidden'}>📍 Position GPS : <b>${esc(R.gps(a.gps))}</b> <button type="button" class="lienbtn" id="gps-retirer">Retirer</button></p>
+        <button type="button" class="btn clair" id="gps-ajouter">📍 ${a.gps ? 'Mettre à jour ma position' : 'Ajouter ma position'}</button>
+        <div id="gps-accord" class="gps-accord" hidden>
+          <p>Aegis va demander votre position à votre téléphone, qui vous demandera votre autorisation. Les coordonnées GPS seront ajoutées à la fiche : elles restent sur ce téléphone, et ne sont transmises aux secours que si vous leur montrez la fiche ou le QR code.</p>
+          <p class="relais-actions"><button type="button" class="btn" id="gps-oui">Autoriser et ajouter</button> <button type="button" class="btn clair" id="gps-non">Annuler</button></p>
+        </div>
+        <p id="gps-etat" class="meta" role="status"></p>
+      </div>
 
       <h2>Victime</h2>
       <p class="meta">Si la victime ne peut pas répondre, laissez vide ou indiquez ce que l’entourage sait.</p>
@@ -98,7 +107,7 @@
     const enregistrer = () => {
       const val = (id) => $('#' + id).value.trim();
       const coche = (n) => (vue.querySelector(`input[name="${n}"]:checked`) || {}).value || '';
-      d.alerte = { heure: val('a-heure'), numero: coche('a-numero'), nature: val('a-nature'), victimes: val('a-victimes'), lieu: val('a-lieu') };
+      d.alerte = { heure: val('a-heure'), numero: coche('a-numero'), nature: val('a-nature'), victimes: val('a-victimes'), lieu: val('a-lieu'), gps: d.alerte.gps };
       d.victime = { nom: val('v-nom'), prenom: val('v-prenom'), age: val('v-age'), morpho: coche('v-morpho'), sexe: coche('v-sexe') };
       d.constat = Object.fromEntries(R.CONSTAT.map((c) => [c.id, coche('c-' + c.id)]));
       d.malaise = { duree: val('m-duree'), connu: coche('m-connu'), traitements: val('m-traitements') };
@@ -119,6 +128,26 @@
       R.ecrire(d);
     }));
     vue.querySelectorAll('[data-heure]').forEach((h) => h.addEventListener('change', () => { if (h.value) d.gestes[h.dataset.heure] = h.value; R.ecrire(d); }));
+    // Position GPS : explication et accord dans l'appli, puis demande d'autorisation du téléphone.
+    const gpsEtat = $('#gps-etat'), accord = $('#gps-accord');
+    $('#gps-ajouter').addEventListener('click', () => {
+      if (!navigator.geolocation) { gpsEtat.textContent = 'Ce téléphone ne permet pas de donner la position. Décrivez le lieu dans le champ ci-dessus.'; return; }
+      accord.hidden = false; $('#gps-oui').focus();
+    });
+    $('#gps-non').addEventListener('click', () => { accord.hidden = true; gpsEtat.textContent = 'Aucune position ajoutée.'; });
+    $('#gps-oui').addEventListener('click', () => {
+      accord.hidden = true; gpsEtat.textContent = 'Recherche de la position…';
+      navigator.geolocation.getCurrentPosition((p) => {
+        d.alerte.gps = { lat: p.coords.latitude, lon: p.coords.longitude, precision: p.coords.accuracy, h: maintenant() };
+        R.ecrire(d);
+        $('#gps-valeur').hidden = false; $('#gps-valeur b').textContent = R.gps(d.alerte.gps);
+        $('#gps-ajouter').textContent = '📍 Mettre à jour ma position';
+        gpsEtat.textContent = d.alerte.gps.precision > 100 ? 'Position ajoutée, mais peu précise : complétez la description du lieu.' : 'Position ajoutée à la fiche.';
+      }, (e) => {
+        gpsEtat.textContent = e.code === 1 ? 'Position refusée. Vous pouvez l’autoriser dans les réglages du navigateur, ou décrire le lieu dans le champ ci-dessus.' : 'Position introuvable pour le moment. Réessayez à l’extérieur, ou décrivez le lieu.';
+      }, { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 });
+    });
+    $('#gps-retirer').addEventListener('click', () => { delete d.alerte.gps; R.ecrire(d); $('#gps-valeur').hidden = true; $('#gps-ajouter').textContent = '📍 Ajouter ma position'; gpsEtat.textContent = 'Position retirée de la fiche.'; });
     $('#effacer').addEventListener('click', () => { if (confirm('Effacer toute la fiche ?')) { R.effacer(cle); location.hash = essai ? '#/relais/guide' : '#/'; } });
   };
 

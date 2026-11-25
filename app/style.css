@@ -241,3 +241,8 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 .choix-qr { display: flex; gap: 6px; margin: 0 0 12px; }
 .choix-qr button { flex: 1; font: inherit; font-size: 15px; font-weight: 650; padding: 10px 8px; border-radius: 10px; border: 2px solid var(--trait); background: var(--carte); color: var(--texte); cursor: pointer; }
 .choix-qr button.actif { background: var(--texte); color: var(--fond); border-color: var(--texte); }
+
+.gps { margin: -4px 0 14px; }
+.gps .btn { font-size: 15px; padding: 10px 14px; }
+.gps-valeur { margin: 0 0 8px; }
+.gps-accord { background: var(--note); border-left: 4px solid var(--lien); border-radius: 8px; padding: 4px 12px; margin-top: 10px; font-size: 15px; }

@@ -78,3 +78,9 @@ test('la page de lecture n’injecte jamais le contenu du lien comme du HTML', (
   const page = readFileSync(new URL('../app/recu.html', import.meta.url), 'utf8');
   assert.ok(!/innerHTML|outerHTML|insertAdjacentHTML|document\.write/.test(page));
 });
+
+test('la position GPS ajoutée apparaît dans l’alerte, avec sa précision', () => {
+  const d = exemple(); d.alerte.gps = { lat: 48.539123, lon: 2.655114, precision: 12.4 };
+  assert.ok(R.texte(d).includes('position GPS : 48.53912, 2.65511 (± 12 m)'));
+  assert.equal(R.gps(undefined), '');
+});

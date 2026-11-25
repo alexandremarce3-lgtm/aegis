@@ -50,6 +50,8 @@
     ],
   };
 
+  // Position GPS ajoutée par le témoin : « 48.53912, 2.65511 (± 12 m) ».
+  R.gps = (g) => (g && Number.isFinite(g.lat) && Number.isFinite(g.lon) ? `${g.lat.toFixed(5)}, ${g.lon.toFixed(5)}${g.precision ? ` (± ${Math.round(g.precision)} m)` : ''}` : '');
   R.nouvelle = (now) => ({ cree: now, alerte: {}, victime: {}, constat: {}, zones: [], gestes: {}, malaise: {}, observations: '', journal: [], dae: {} });
   R.perimee = (d, now) => !d || !d.cree || now - d.cree >= DUREE;
   R.finDeVie = (d) => new Date(d.cree + DUREE);
@@ -63,7 +65,7 @@
     const champs = (o) => o.filter(([, v]) => v !== undefined && v !== null && String(v).trim() !== '').map(([k, v]) => (k ? `${k} : ${v}` : v)).join(' ; ');
     const ligne = (titre, contenu) => { if (contenu) l.push(`${titre} : ${contenu}`); };
     const a = d.alerte || {};
-    ligne('ALERTE', champs([['heure', a.heure], ['numéro', a.numero], ['nature', a.nature], ['victimes', a.victimes], ['lieu', a.lieu]]));
+    ligne('ALERTE', champs([['heure', a.heure], ['numéro', a.numero], ['nature', a.nature], ['victimes', a.victimes], ['lieu', a.lieu], ['position GPS', R.gps(a.gps)]]));
     const v = d.victime || {};
     const ident = [v.nom && v.nom.toUpperCase(), v.prenom].filter(Boolean).join(' ');
     ligne('VICTIME', champs([['', ident], ['âge', v.age ? v.age + ' ans' : v.morpho], ['sexe', v.sexe]]));

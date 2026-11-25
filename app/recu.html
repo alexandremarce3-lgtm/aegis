@@ -45,7 +45,7 @@
   <p id="etat" role="status"></p>
   <p class="meta">Les informations de cette fiche sont contenues dans le lien scanné : elles ne sont enregistrées sur aucun serveur. Aegis ne remplace pas une formation.</p>
 </main>
-<script src="relais.js?v=21"></script>
+<script src="relais.js?v=22"></script>
 <script>
 (() => {
   const fiche = document.getElementById('fiche'), etat = document.getElementById('etat');
@@ -73,7 +73,11 @@
       if (m) {
         section = el('section'); section.append(el('h2', m[1].charAt(0) + m[1].slice(1).toLowerCase()));
         const ul = el('ul'); section.append(ul);
-        for (const partie of m[2].split(' ; ').filter(Boolean)) ul.append(el('li', partie));
+        for (const partie of m[2].split(' ; ').filter(Boolean)) {
+          const li = el('li', partie), g = partie.match(/^position GPS : (-?\d+\.\d+), (-?\d+\.\d+)/);
+          if (g) { const a = el('a', 'Voir sur une carte'); a.href = `https://www.openstreetmap.org/?mlat=${g[1]}&mlon=${g[2]}#map=18/${g[1]}/${g[2]}`; a.rel = 'noopener noreferrer'; a.target = '_blank'; li.append(document.createTextNode(' - '), a); }
+          ul.append(li);
+        }
         bloc.append(section);
       } else if (section) {
         const h = lignes[i].match(/^(\d\d:\d\d) (.*)$/), li = el('li');

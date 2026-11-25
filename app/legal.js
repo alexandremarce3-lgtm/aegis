@@ -26,6 +26,7 @@
         <li><b>Progression du quiz</b> (points, meilleurs scores) : même durée.</li>
         <li><b>Fiche relais</b> (voir ci-dessous) : <b>24 heures au plus</b>, puis effacement automatique ; bouton « Effacer la fiche » à tout moment.</li>
         <li><b>Dernière position</b> utilisée pour la carte des défibrillateurs : le temps de l’onglet ouvert seulement (effacée à la fermeture).</li>
+        <li><b>Position GPS de la fiche relais</b>, seulement si vous touchez « Ajouter ma position » et l’autorisez : dans la fiche, donc 24 heures au plus. Aucune adresse n’est recherchée en ligne.</li>
       </ul>
       <p>Ce stockage est strictement nécessaire aux fonctions que vous utilisez ; il ne sert à aucun suivi.</p>
       <h2>Fiche relais : données d’une autre personne</h2>

@@ -29,6 +29,13 @@ test('aucun tiret long dans les textes', () => {
 test('l’appli affiche les numéros d’urgence et le rappel « ne remplace pas une formation »', () => {
   const html = lire('app/index.html'), app = lire('app/app.js');
   for (const n of ['tel:15', 'tel:18', 'tel:112']) assert.ok(html.includes(n), n);
-  assert.match(html, /Appelez le 15, le 18 ou le 112 - Aegis ne remplace pas une formation/);
+  assert.match(html.replace(/<[^>]+>/g, ''), /Appelez le 15, le 18 ou le 112 - Aegis ne remplace pas une formation/);
   assert.match(app, /ne remplace ni une formation/);
+});
+
+test('chaque fichier chargé par l’appli porte le numéro de version du cache (mise à jour d’un seul bloc)', () => {
+  const html = lire('app/index.html'), v = lire('app/sw.js').match(/aegis-v(\d+)/)[1];
+  const refs = [...html.matchAll(/(?:src|href)="([^"]+\.(?:js|css)[^"]*)"/g)].map((m) => m[1]);
+  assert.ok(refs.length > 10);
+  for (const r of refs) assert.ok(r.endsWith('?v=' + v), r + ' devrait finir par ?v=' + v);
 });

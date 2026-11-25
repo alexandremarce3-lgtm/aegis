@@ -8,8 +8,8 @@
   const PAGES = {
     mentions: { titre: 'Mentions légales', html: `
       <h2>Éditeur</h2>
-      <p>Aegis est un projet personnel, bénévole et non commercial, édité par un particulier, formateur en premiers secours. Conformément à l’article 6, III, 2 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, l’éditeur, agissant à titre non professionnel, ne publie pas son identité ; les éléments permettant de l’identifier ont été communiqués à l’hébergeur.</p>
-      <p>Directeur de la publication : l’éditeur. Contact : ${mail}.</p>
+      <p>Aegis est un projet personnel, bénévole et non commercial, édité par Alexandre Marcé, formateur en premiers secours, à titre de particulier.</p>
+      <p>Directeur de la publication : Alexandre Marcé. Contact : ${mail}.</p>
       <h2>Hébergeur</h2>
       <p>GitHub, Inc. (service GitHub Pages), 88 Colin P Kelly Jr Street, San Francisco, CA 94107, États-Unis - <a href="https://github.com">github.com</a>.</p>
       <h2>Nature du service</h2>

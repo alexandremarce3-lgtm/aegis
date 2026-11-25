@@ -2,3 +2,8 @@ sources/
 .claude/
 CARTE-PROJET-*.md
 courriels-*.md
+
+# Sources privees (documents CNFS / Gendarmerie) - ne jamais publier
+sources-privees/
+# Contenu tire de documents internes Gendarmerie - non publie
+contenu-interne/

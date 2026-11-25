@@ -156,7 +156,7 @@
       </dl>
       <h2>À l’arrivée des secours</h2>
       <ul>
-        <li>Montrez l’écran ou le QR code : leur téléphone l’affiche en texte, sans application ni réseau.</li>
+        <li>Montrez l’écran ou le QR code. Scanné avec l’appareil photo, le QR code ouvre la fiche mise en forme sur leur téléphone (avec du réseau) ; sinon, choisissez « Texte sans réseau ».</li>
         <li>Répondez à leurs questions : la fiche aide, elle ne remplace pas ce que vous leur dites.</li>
         <li>Après la prise en charge, effacez la fiche. Sinon, elle s’efface seule au bout de 24 heures.</li>
       </ul>
@@ -180,18 +180,35 @@
     titre(cle === ESSAI ? 'Fiche d’entraînement' : 'Pour les secours', true);
     const d = R.lire(cle);
     if (!d) { vue.innerHTML = '<p>Aucune fiche relais en cours.</p><p><a class="btn lien" href="#/relais">Remplir une fiche</a></p>'; return; }
-    let texte = '', svg = '', coupe = false;
-    for (const max of [40, 15, 5, 0]) {
-      texte = R.texte(d, { journalMax: max });
-      try { qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8']; const q = qrcode(0, 'M'); q.addData(texte, 'Byte'); q.make(); svg = q.createSvgTag({ cellSize: 4, margin: 2, scalable: true }); break; } catch { coupe = true; }
-    }
-    vue.innerHTML = `<article class="fiche relais-qr">
-      <p class="avant">Montrez cet écran aux secours. Ils peuvent scanner le code avec l’appareil photo de leur téléphone : le texte s’affiche, sans application ni réseau.</p>
-      ${svg ? `<div class="qr" role="img" aria-label="QR code de la fiche relais">${svg}</div>` : '<p><b>Fiche trop longue pour un QR code :</b> montrez le texte ci-dessous.</p>'}
-      ${coupe && svg ? '<p class="meta">Le déroulé a été raccourci dans le QR code ; il est complet ci-dessous.</p>' : ''}
-      <pre class="texte-relais">${esc(R.texte(d))}</pre>
-      <p class="relais-actions"><a class="btn clair lien" href="${cle === ESSAI ? '#/relais/essai' : '#/relais'}">Modifier la fiche</a></p>
-    </article>`;
+    // Deux formes de QR code : un lien qui ouvre la fiche mise en forme (réseau nécessaire chez les secours),
+    // ou le texte brut (lisible sans réseau, à copier). Le lien est proposé d'abord.
+    const mode = memo.lire('relais-qr', 'lien');
+    const base = new URL('recu.html', location.href.split('#')[0]).href;
+    const qrDe = (contenu) => { qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8']; const q = qrcode(0, 'M'); q.addData(contenu, 'Byte'); q.make(); return q.createSvgTag({ cellSize: 4, margin: 2, scalable: true }); };
+    const afficher = (svg, coupe) => {
+      vue.innerHTML = `<article class="fiche relais-qr">
+        <div class="choix-qr" role="group" aria-label="Forme du QR code">
+          <button class="${mode === 'lien' ? 'actif' : ''}" data-mode="lien" aria-pressed="${mode === 'lien'}">Ouvre la fiche</button>
+          <button class="${mode === 'texte' ? 'actif' : ''}" data-mode="texte" aria-pressed="${mode === 'texte'}">Texte sans réseau</button>
+        </div>
+        ${svg ? `<div class="qr" role="img" aria-label="QR code de la fiche relais">${svg}</div>` : '<p><b>Fiche trop longue pour un QR code :</b> montrez le texte ci-dessous.</p>'}
+        ${coupe && svg ? '<p class="meta">Le déroulé a été raccourci dans le QR code ; il est complet ci-dessous.</p>' : ''}
+        <p class="avant">${mode === 'lien'
+          ? 'Les secours scannent le code avec l’appareil photo de leur téléphone : la fiche s’ouvre, mise en forme, avec les boutons Copier, PDF et Partager. Leur téléphone doit avoir du réseau ; la fiche n’est enregistrée sur aucun serveur.'
+          : 'Les secours scannent le code avec l’appareil photo de leur téléphone : le texte de la fiche s’affiche, même sans réseau, et peut être copié.'}</p>
+        <pre class="texte-relais">${esc(R.texte(d))}</pre>
+        <p class="relais-actions"><a class="btn clair lien" href="${cle === ESSAI ? '#/relais/essai' : '#/relais'}">Modifier la fiche</a></p>
+      </article>`;
+      vue.querySelectorAll('[data-mode]').forEach((b) => b.addEventListener('click', () => { memo.ecrire('relais-qr', b.dataset.mode); vueQr(cle); }));
+    };
+    (async () => {
+      let svg = '', coupe = false;
+      for (const max of [40, 15, 5, 0]) {
+        const texte = R.texte(d, { journalMax: max });
+        try { svg = qrDe(mode === 'lien' ? base + '#' + await R.encoder(texte) : texte); break; } catch { coupe = true; }
+      }
+      afficher(svg, coupe);
+    })();
     scrollTo(0, 0);
   }
 })();

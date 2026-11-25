@@ -83,6 +83,24 @@
     return l.join('\n');
   };
 
+  // Lien du QR code : le texte de la fiche est compressé et placé après le « # » de l'adresse.
+  // Cette partie n'est jamais envoyée au serveur par le navigateur : la page recu.html la décode sur le téléphone des secours.
+  // Format : « 1. » + texte compressé (deflate-raw) en base64url, ou « 0. » + texte non compressé si le navigateur ne sait pas compresser.
+  const b64 = (u8) => { let s = ''; for (const c of u8) s += String.fromCharCode(c); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
+  const deb64 = (t) => { const s = atob(t.replace(/-/g, '+').replace(/_/g, '/')); return Uint8Array.from(s, (c) => c.charCodeAt(0)); };
+  const flux = async (u8, Flux) => new Uint8Array(await new Response(new Blob([u8]).stream().pipeThrough(new Flux('deflate-raw'))).arrayBuffer());
+  R.encoder = async (texte) => {
+    const u8 = new TextEncoder().encode(texte);
+    if (typeof CompressionStream === 'undefined') return '0.' + b64(u8);
+    return '1.' + b64(await flux(u8, CompressionStream));
+  };
+  R.decoder = async (code) => {
+    const [v, donnees] = [code.slice(0, 2), code.slice(2)];
+    if (v === '0.') return new TextDecoder().decode(deb64(donnees));
+    if (v === '1.') return new TextDecoder().decode(await flux(deb64(donnees), DecompressionStream));
+    throw new Error('format inconnu');
+  };
+
   // Ajoute une ligne au déroulé (étape validée en pas à pas, appel, minuteur...).
   R.noter = (d, t, now) => {
     const court = t.length > 90 ? t.slice(0, 87).trimEnd() + '…' : t;

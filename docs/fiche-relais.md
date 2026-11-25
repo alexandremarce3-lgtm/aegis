@@ -26,7 +26,7 @@ Message permanent en haut de la fiche : « Appelez le 15, le 18 ou le 112 » et 
 | Bloc | Champs | Saisie | Fiche RTN |
 |---|---|---|---|
 | Alerte | heure de l'appel, numéro appelé (15, 18, 112, 114), nature du problème, nombre de victimes, lieu | boutons + texte court | Alerte (07-2026) |
-| Victime | âge approximatif (nourrisson, enfant, adulte, ou âge), nom et prénom **facultatifs** | boutons + texte | Malaises 02PR05 (âge) |
+| Victime | nom et prénom (si la victime ou l'entourage peut les donner, sinon « inconnu ») ; âge, ou à défaut catégorie selon la morphologie (nourrisson, enfant, adulte) ; sexe : homme, femme, autre, non renseigné | texte + boutons | Malaises 02PR05 (âge), Informations générales (morphologie) |
 | Constat | répond ou réagit : oui / non ; respire : oui / non / respiration anormale ; saigne abondamment : oui / non ; s'étouffe : oui / non | oui / non | 02PR04, 02PR03, 02PR01, 02PR02 |
 | Zones atteintes | schéma du corps face et dos, zones à toucher (tête, cou, thorax, abdomen, dos, bras gauche, bras droit, jambe gauche, jambe droite) | toucher | Plaies 02PR06, Brûlures 02PR07, Traumatismes 02PR08 |
 | Gestes faits | chacun avec son heure : compression, garrot (heure de pose), claques dans le dos, compressions abdominales ou thoraciques, PLS, laissée sur le dos (traumatisme), début de RCP, DAE posé, nombre de chocs, arrosage d'une brûlure (heure de début) | case + heure automatique, modifiable | fiches PR et FT correspondantes |
@@ -55,7 +55,7 @@ Les libellés exacts seront tirés des phrases des fiches, comme pour le mode pa
 - Contenu du QR code : texte brut en français, lisible par l'appareil photo de n'importe quel téléphone, sans application, sans serveur, sans réseau.
 - En tête du texte : « Informations notées par un témoin - non vérifiées - Aegis ».
 - Même contenu affiché en gros caractères à l'écran (lecture directe ou à voix haute).
-- Données stockées uniquement sur le téléphone. Bouton « Effacer » toujours visible. Effacement automatique après un délai à fixer (proposition : 24 h).
+- Données stockées uniquement sur le téléphone. Bouton « Effacer » toujours visible. Effacement automatique 24 heures après la création de la fiche.
 - Rien n'est envoyé. Mise à jour de la page Vie privée. Avis juridique conseillé avant mise en ligne (données de santé d'un tiers).
 
 ## 6. Accessibilité
@@ -67,10 +67,10 @@ Zones du schéma avec un nom lisible par un lecteur d'écran, grandes cibles tac
 - 25/11/2026 - Ordre des RTN, sans sortir du protocole.
 - 25/11/2026 - Informations d'alerte : les 4 informations minimales des RTN, sans formule mnémotechnique hors RTN.
 - 25/11/2026 - Schéma du corps à zones, dessin original (pas de reprise d'un document interne).
+- 25/11/2026 - Identité : nom, prénom, âge (ou âge approximatif / morphologie si la victime ne peut pas répondre) ; sexe avec les choix homme, femme, autre, non renseigné (le choix « autre » n'est pas dans les RTN, ajouté par décision du formateur).
+- 25/11/2026 - Effacement automatique après 24 heures, bouton « Effacer » toujours visible.
 
 ## 8. À valider
 
-- [ ] Nom et prénom facultatifs ou supprimés.
-- [ ] Délai d'effacement automatique.
 - [ ] Liste des gestes du bloc « Gestes faits » complète et conforme aux RTN.
 - [ ] Test d'une maquette par un contact SDIS ou SAMU.

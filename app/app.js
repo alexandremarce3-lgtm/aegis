@@ -159,7 +159,7 @@ function vueAccueil() {
   const Reco = window.SpeechRecognition || window.webkitSpeechRecognition;
   vue.innerHTML = `
     <p class="avant"><b>Urgence ?</b> Alertez d’abord les secours avec les boutons rouges en bas de l’écran.</p>
-    ${profil === 'jeune' ? '' : '<p class="vers-bilan"><a class="btn clair" href="#/bilan">🧭 Bilan : que vérifier, dans quel ordre ?</a></p>'}
+    ${profil === 'jeune' ? '' : '<p class="vers-bilan"><a class="btn clair" href="#/bilan">🧭 Bilan : que vérifier, dans quel ordre ?</a><a class="btn clair" href="#/relais">📝 Fiche relais pour les secours</a></p>'}
     <div class="recherche">
       <input id="q" type="search" placeholder="Que se passe-t-il ?" autocomplete="off" aria-label="Décrire la situation">
       ${Reco ? '<button id="micro" class="micro" aria-label="Décrire la situation à la voix">🎤</button>' : ''}
@@ -349,8 +349,18 @@ function route() {
   else if (page === 'apropos') vueApropos();
   else if (page === 'bilan') vueBilan();
   else if (page === 'nouveautes') vueNouveautes();
+  else if (page === 'relais') vueRelais(a);
   else vueAccueil();
 }
 addEventListener('hashchange', route);
+RELAIS.lire(); // efface la fiche relais si elle a plus de 24 heures
+// Les appels passés depuis l'appli sont notés dans le déroulé de la fiche relais.
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="tel:"]');
+  if (!a) return;
+  const num = a.getAttribute('href').slice(4), d = RELAIS.ouvrir();
+  if (!d.alerte.heure) { d.alerte.heure = RELAIS.hm(Date.now()); d.alerte.numero = num; RELAIS.ecrire(d); }
+  RELAIS.journal('Appel au ' + num);
+});
 route();
 if ('serviceWorker' in navigator && location.protocol === 'https:' || location.hostname === 'localhost') navigator.serviceWorker?.register('sw.js');

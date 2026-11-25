@@ -27,7 +27,7 @@
     titre(s.label, true);
     let h = '';
     if (!e) {
-      h = `<p class="etape">Fin des étapes.</p><p class="fin-pas"><a class="btn lien" href="#/">Retour à l’accueil</a> <button class="btn clair" id="debut">Recommencer</button></p>`;
+      h = `<p class="etape">Fin des étapes.</p><p class="fin-pas"><a class="btn lien" href="#/relais">📝 Fiche relais pour les secours</a> <a class="btn clair lien" href="#/">Retour à l’accueil</a> <button class="btn clair" id="debut">Recommencer</button></p>`;
     } else if (e.type === 'choix') {
       h = `${blocInfo(e.info)}<div class="choix-pas">${e.options.map((o, k) => `<button class="option" data-k="${k}">${esc(o.t)}${(o.notes || []).map((x) => `<small>ⓘ ${esc(x)}</small>`).join('')}</button>`).join('')}</div>`;
     } else if (e.type === 'groupe') {
@@ -60,12 +60,15 @@
     afficher();
   }
 
+  // Déroulé de la fiche relais : chaque étape validée est notée avec son heure (texte de la fiche, raccourci).
+  const noterEtape = (e) => { if (!e) return; const t = e.type === 'groupe' ? (e.items[0] && e.items[0].blocs[0].t) : e.blocs && e.blocs[0].t; if (t) RELAIS.journal(t); };
   function brancher(e) {
     $('#prec')?.addEventListener('click', () => { etat.cadres = etat.hist.pop(); afficher(); });
-    $('#suiv')?.addEventListener('click', avancer);
+    $('#suiv')?.addEventListener('click', () => { noterEtape(e); avancer(); });
     $('#debut')?.addEventListener('click', () => demarrer(etat.id));
     vue.querySelectorAll('.option').forEach((b) => b.addEventListener('click', () => {
       const o = e.options[+b.dataset.k];
+      RELAIS.journal(o.t);
       if (o.lien) { location.hash = '#/s/' + o.lien; return; }
       etat.hist.push(copie());
       if (o.etapes.length) etat.cadres.push({ etapes: o.etapes, i: 0 }); else haut(etat.cadres).i++;
@@ -98,6 +101,7 @@
         o.connect(g).connect(audio.destination); o.start(); o.stop(audio.currentTime + 0.09);
       };
       bip(); batteur = setInterval(bip, 60000 / 110);
+      RELAIS.journal('Rythme des compressions lancé');
     });
     $('#minut')?.addEventListener('click', (ev) => {
       const b = ev.currentTarget;
@@ -106,6 +110,7 @@
       let reste = +b.dataset.reste || e.minuteur;
       if (minuterie) { clearInterval(minuterie); minuterie = null; b.textContent = `⏱ Reprendre (${fmt(reste)})`; return; }
       const tours = (+b.dataset.tours || 0) + (b.dataset.reste ? 0 : 1);
+      if (!b.dataset.reste) RELAIS.journal(`Minuteur ${e.minuteur / 60} minutes lancé`);
       b.dataset.tours = tours;
       const fin = () => (e.relance && tours < 2 ? `⏱ Temps écoulé (${tours * e.minuteur / 60} min) - relancer ${e.minuteur / 60} minutes` : `⏱ Temps écoulé (${tours * e.minuteur / 60} min)`);
       const tic = () => { b.dataset.reste = reste; b.textContent = reste > 0 ? `⏱ ${fmt(reste)} (toucher pour mettre en pause)` : fin(); if (reste <= 0) { clearInterval(minuterie); minuterie = null; b.dataset.fini = '1'; navigator.vibrate?.(600); } reste--; };

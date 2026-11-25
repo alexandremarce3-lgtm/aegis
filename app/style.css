@@ -197,3 +197,33 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 .maj-2026 a { color: #0b4a8c; }
 .maj-ok { background: var(--note); color: var(--doux); }
 .badge-2026 { font-size: 12px; font-weight: 650; background: #fff3a8; color: #1b1b1f; border-radius: 6px; padding: 1px 6px; margin-left: 8px; white-space: nowrap; }
+
+/* --- Fiche relais --- */
+.vers-bilan { display: grid; gap: 8px; }
+.relais h2 { margin-top: 26px; }
+.relais-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.champ { display: block; margin: 0 0 12px; }
+.champ span { display: block; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.champ input, .champ textarea { width: 100%; font: inherit; padding: 10px 12px; border: 2px solid var(--trait); border-radius: 10px; background: var(--carte); color: var(--texte); }
+.champ input:focus, .champ textarea:focus, .gestes-faits input:focus { outline: 3px solid var(--lien); outline-offset: 1px; }
+.radios { border: 0; padding: 0; margin: 0 0 12px; }
+.radios legend { font-size: 15px; font-weight: 600; margin-bottom: 4px; padding: 0; }
+.radios label { display: inline-flex; align-items: center; gap: 6px; margin: 0 14px 6px 0; min-height: 40px; }
+.radios input, .gestes-faits input[type=checkbox] { width: 22px; height: 22px; accent-color: var(--rouge); }
+.zones { display: grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: start; }
+.corps { width: 100%; }
+.corps [data-z] { fill: var(--note); stroke: var(--doux); stroke-width: 2; cursor: pointer; }
+.corps [data-z].choisie { fill: var(--rouge); stroke: var(--rouge); }
+.corps text { fill: var(--doux); font-size: 14px; font-weight: 700; }
+.zones-boutons { display: flex; flex-wrap: wrap; gap: 6px; }
+.zone { font: inherit; font-size: 15px; min-height: 40px; padding: 6px 10px; border-radius: 10px; border: 2px solid var(--trait); background: var(--carte); color: var(--texte); cursor: pointer; }
+.zone[aria-pressed="true"] { background: var(--rouge); border-color: var(--rouge); color: #fff; font-weight: 650; }
+.gestes-faits { list-style: none; padding: 0; }
+.gestes-faits li { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--trait); }
+.gestes-faits label { flex: 1 1 220px; display: flex; align-items: center; gap: 8px; min-height: 40px; }
+.gestes-faits input[type=time] { font: inherit; padding: 6px 8px; border: 2px solid var(--trait); border-radius: 8px; background: var(--carte); color: var(--texte); }
+.journal { padding-left: 20px; font-size: 15px; }
+.rappel-liste li { margin-bottom: 6px; }
+.relais-qr .qr { background: #fff; padding: 12px; border-radius: 12px; max-width: 360px; margin: 0 auto 12px; }
+.relais-qr .qr svg { display: block; width: 100%; height: auto; }
+.texte-relais { white-space: pre-wrap; font: 15px/1.45 ui-monospace, Menlo, Consolas, monospace; background: var(--carte); border: 1px solid var(--trait); border-radius: 10px; padding: 12px; }

@@ -119,13 +119,13 @@
     etat = { id, cadres: [{ etapes: compile[id].etapes, i: 0 }], hist: [] };
     afficher();
   }
-  /* ----- Moins de 10 ans : une phrase courte tirée des fiches RTN par écran, un dessin, un gros bouton pour écouter ----- */
+  /* ----- Moins de 10 ans : une phrase du guide APS par écran, un dessin, un gros bouton pour écouter ----- */
   const GESTE_DABORD = ['saignement', 'nez', 'plaie', 'brulure', 'trauma']; // le geste se fait tout de suite
   const SANS_APPEL = ['nez', 'plaie'];                                      // un adulte suffit en général
   function etapesJeune(s) {
-    const T = JEUNE.texte, adulte = T(JEUNE.aide), [service, lieu, dire, consignes] = JEUNE.alerter.map(T);
-    const geste = (JEUNE.gestes[s.id] || []).map((g) => ({ dessin: DESSINS[s.id], texte: T(g) }));
-    const appel = SANS_APPEL.includes(s.id) ? [] : [{ dessin: DESSINS.alerter, texte: service, appel: true }, { dessin: DESSINS.lieu, texte: lieu }, { dessin: DESSINS.dire, texte: dire }, { dessin: DESSINS.dire, texte: consignes }];
+    const [adulte, service, dire, lieu] = APS.alerter;
+    const geste = (APS.gestes[s.id] || []).map((t) => ({ dessin: DESSINS[s.id], texte: t }));
+    const appel = SANS_APPEL.includes(s.id) ? [] : [{ dessin: DESSINS.alerter, texte: service, appel: true }, { dessin: DESSINS.dire, texte: dire }, { dessin: DESSINS.lieu, texte: lieu }];
     const debut = { dessin: s.id === 'etouffement' ? deuxCas(s) : DESSINS[s.id], texte: adulte, aide: true };
     return GESTE_DABORD.includes(s.id) ? [...geste, { dessin: DESSINS.aide, texte: adulte }, ...appel] : [debut, ...appel, ...geste];
   }
@@ -141,7 +141,7 @@
         ${e.appel ? '<div class="appel-etape"><a href="tel:15">📞 15</a><a href="tel:18">📞 18</a><a href="tel:112">📞 112</a></div>' : ''}
         <button class="btn ecouter-gros" id="lireJ">🔊 Écouter</button>
         <div class="nav-pas">${i > 0 ? '<button class="btn clair" id="precJ">← Retour</button>' : ''}<button class="btn" id="suiv">${i + 1 < etapes.length ? 'Suivant →' : 'Terminer'}</button></div>
-        <p class="source">Phrase tirée des ${JEUNE.source}. Aegis ne remplace pas une formation.</p>
+        <p class="source">Phrase du guide ${APS.source}. Aegis ne remplace pas une formation.</p>
       </article>` : `<article class="fiche pas pas-jeune"><p class="etape">Fin des étapes.</p>
         <p class="fin-pas"><a class="btn lien" href="#/">Retour à l’accueil</a> <button class="btn clair" id="debutJ">Recommencer</button></p>${grands}</article>`;
     scrollTo(0, 0);

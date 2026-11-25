@@ -14,6 +14,6 @@ const voir = (etapes) => { for (const e of etapes) {
   else { e.info.forEach(blocs); for (const o of e.options) { ajouter(o.t); voir(o.etapes); } }
 } };
 for (const p of Object.values(parcours)) voir(p.etapes);
-[window.JEUNE.aide, ...window.JEUNE.alerter, ...Object.values(window.JEUNE.gestes).flat()].map(window.JEUNE.texte).forEach(ajouter);
+[...window.APS.alerter, ...Object.values(window.APS.gestes).flat()].forEach(ajouter);
 console.log(JSON.stringify([...phrases].map(([id, texte]) => ({ id, texte })), null, 0));
 console.error(phrases.size + ' phrases');

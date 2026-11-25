@@ -64,4 +64,4 @@ Statut : à valider par un formateur.
 - « Aegis ne remplace pas une formation » : rappel permanent au-dessus de la barre d'appel, sous chaque fiche et dans le mode moins de 10 ans - fait.
 - README : réécrit pour décrire exactement l'appli, ses ajouts et ses manques - fait.
 - Voix : la voix de l'appareil suffit sans réseau - pas de téléchargement des voix.
-- Mode jeune : seuil à 10 ans, phrases tirées des fiches RTN au lieu du guide APS - fait. Le seuil de 10 ans n'est pas écrit dans les RTN : source publique à confirmer.
+- Mode jeune : seuil à 10 ans - fait. Les phrases restent celles du guide APS de l'Éducation nationale, écrit pour les enfants (décision du formateur, 25/11/2026) : seule exception aux RTN. Avis de la DGSCGC à demander par le formateur une fois l'appli aboutie. Le seuil de 10 ans n'est pas écrit dans les RTN : source publique à confirmer.

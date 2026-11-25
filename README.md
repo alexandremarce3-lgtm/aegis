@@ -24,7 +24,7 @@ Application : https://alexandremarce3-lgtm.github.io/aegis/app/
 - Quiz de 63 questions sur 9 thèmes. La bonne réponse est toujours un extrait exact de la fiche citée ; les mauvaises réponses sont rédigées pour l'appli. Points, niveaux et étoiles enregistrés sur le téléphone.
 
 **Mode moins de 10 ans**
-- Une phrase courte par écran, tirée des fiches RTN, avec un dessin et un gros bouton « Écouter ». Quiz adapté : reconnaître la situation, les gestes, les numéros d'urgence.
+- Une phrase par écran, avec un dessin et un gros bouton « Écouter ». Les phrases viennent du guide de l'Éducation nationale « Quelques repères pour apprendre à porter secours » (APS, 2022), écrit pour les enfants. Quiz adapté : reconnaître la situation, les gestes, les numéros d'urgence (15, 17, 18, 112).
 
 **Défibrillateurs**
 - Carte et liste des défibrillateurs proches (base nationale des défibrillateurs du ministère de la Santé, via data.gouv.fr ; fond de carte OpenStreetMap). Nécessite le réseau et la localisation.
@@ -50,7 +50,8 @@ Le détail est dans `docs/analyse-ecarts.md`.
 
 ## Sources
 
-- Fiches, pas à pas, quiz, mode moins de 10 ans : RTN PSC, DGSCGC, juillet 2026. Leur préface précise qu'elles peuvent produire des effets de droit ; Aegis suit toujours leur édition la plus récente (voir `CONTRADICTIONS.md`).
+- Fiches, pas à pas, quiz : RTN PSC, DGSCGC, juillet 2026.
+- Mode moins de 10 ans : guide APS de l'Éducation nationale (DGESCO, 2022), seule exception aux RTN, retenue car rédigée pour les enfants. Leur préface précise qu'elles peuvent produire des effets de droit ; Aegis suit toujours leur édition la plus récente (voir `CONTRADICTIONS.md`).
 - Libellés de l'accueil, mots-clés de recherche, dessins et mauvaises réponses du quiz : ajoutés pour l'appli.
 
 ## Stack technique

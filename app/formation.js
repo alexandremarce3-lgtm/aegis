@@ -1,5 +1,5 @@
 /* Module « Se former » : questions fabriquées automatiquement à partir des textes officiels.
-   Les propositions de réponse sont des phrases des fiches, jamais réécrites. */
+   Les propositions de réponse sont des phrases des fiches (ou du guide APS), jamais réécrites. */
 (() => {
   const melanger = (t) => { const a = [...t]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const cle = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
@@ -22,29 +22,27 @@
       .map((x) => ({ fiche: x.fiche, texte: x.q, bon: x.bon, choix: melanger([x.bon, ...x.faux]) }));
   }
 
-  // Moins de 10 ans : une question simple par geste (la réponse est la phrase courte tirée de la fiche, voir jeune.js).
-  const GJ = () => Object.fromEntries(Object.entries(JEUNE.gestes).map(([k, v]) => [k, v.map(JEUNE.texte)]));
+  // Moins de 10 ans : une question simple par geste du guide APS (la réponse reste la phrase du guide).
   const QUESTIONS_JEUNE = {
     saignement: 'Quelqu’un saigne beaucoup. Que fais-tu ?',
     nez: 'Quelqu’un saigne du nez. Que fais-tu ?',
     plaie: 'Un copain s’est écorché le genou. Que fais-tu ?',
     brulure: 'Quelqu’un s’est brûlé la main. Que fais-tu ?',
     trauma: 'Quelqu’un est tombé et a très mal à la jambe. Que fais-tu ?',
-    inconscient: 'Une personne ne répond plus, mais elle respire. Que peuvent te demander les secours ?',
+    inconscient: 'Une personne ne répond plus, mais elle respire. Que peux-tu faire si les secours te le demandent ?',
     arret: 'Le cœur d’une personne s’est arrêté et un adulte s’occupe d’elle. Comment peux-tu aider ?',
   };
   const GROUPE_SAIGNEMENT = ['saignement', 'plaie', 'nez'];
   function questionsJeune(theme) {
-    if (theme === 'numeros') return melanger(JEUNE.numeros.map(([n, s]) => ({ texte: `À quoi correspond le ${n} ?`, bon: s, choix: melanger(JEUNE.numeros.map((x) => x[1])) })));
+    if (theme === 'numeros') return melanger(APS.numeros.map(([n, s]) => ({ texte: `À quoi correspond le ${n} ?`, bon: s, choix: melanger(APS.numeros.map((x) => x[1])) })));
     if (theme === 'dessins') return melanger(SITUATIONS.filter((s) => DESSINS[s.id])).slice(0, 8).map((s) => {
       const exclus = GROUPE_SAIGNEMENT.includes(s.id) ? GROUPE_SAIGNEMENT : ['arret', 'inconscient'].includes(s.id) ? ['arret', 'inconscient'] : [s.id];
       return { situation: s.id, dessin: DESSINS[s.id], texte: 'Que se passe-t-il sur ce dessin ?', bon: s.label, choix: melanger([s.label, ...melanger(SITUATIONS.filter((x) => !exclus.includes(x.id)).map((x) => x.label)).slice(0, 3)]) };
     });
-    const G = GJ();
-    return melanger(Object.entries(G).map(([id, g]) => {
+    return melanger(Object.entries(APS.gestes).map(([id, g]) => {
       const s = SITUATIONS.find((x) => x.id === id);
       const exclus = GROUPE_SAIGNEMENT.includes(id) ? GROUPE_SAIGNEMENT : [id];
-      return { situation: id, dessin: DESSINS[id], texte: QUESTIONS_JEUNE[id] || `${s.label} : quel est le bon geste ?`, bon: g[0], choix: melanger([g[0], ...autres(G, exclus, 3)]) };
+      return { situation: id, dessin: DESSINS[id], texte: QUESTIONS_JEUNE[id] || `${s.label} : quel est le bon geste ?`, bon: g[0], choix: melanger([g[0], ...autres(APS.gestes, exclus, 3)]) };
     }));
   }
 

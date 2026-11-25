@@ -7,7 +7,7 @@ const vue = $('#vue');
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const norm = (s) => s.toLowerCase().replace(/œ/g, 'oe').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 const fiche = (id) => FICHES.find((f) => f.id === id);
-const JEUNE = window.JEUNE, DESSINS = window.DESSINS;
+const APS = window.APS, DESSINS = window.DESSINS;
 const memo = { lire: (k, d) => { try { return JSON.parse(localStorage.getItem('aegis.' + k)) ?? d; } catch { return d; } }, ecrire: (k, v) => { try { localStorage.setItem('aegis.' + k, JSON.stringify(v)); } catch {} } };
 /* ---------- Lecture à voix haute ----------
    On prend la meilleure voix française installée sur l'appareil plutôt que la voix par défaut :
@@ -282,7 +282,7 @@ function vueApropos() {
     <h3>D’où vient le contenu</h3>
     <p>Les ${FICHES.length} fiches reproduisent, sans réécriture, le texte des ${SOURCE}. Chaque fiche affiche sa référence et sa date de mise à jour. Les notes « ⓘ » sont les notes de bas de page du document officiel.</p>
     <p>Les noms des situations sur l’écran d’accueil, les mots-clés de recherche et les dessins ont été ajoutés pour retrouver vite la bonne fiche. En mode pas à pas, chaque étape est une phrase de la fiche, affichée seule.</p>
-    <p>En mode « moins de 10 ans », chaque écran affiche une phrase courte tirée des fiches des ${JEUNE.source}, avec un dessin.</p>
+    <p>En mode « moins de 10 ans », les gestes proposés reprennent les formulations du guide ${APS.source}. Ce texte de l’Éducation nationale est écrit pour les enfants ; c’est la seule exception aux RTN dans Aegis.</p>
     <h3>Mon profil</h3>
     <p>Profil actuel : <b>${profil === 'jeune' ? 'moins de 10 ans' : '10 ans et plus'}</b>. <button class="btn" id="changer">Changer</button></p>
     <h3>Numéros d’urgence</h3>

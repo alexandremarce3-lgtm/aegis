@@ -1,31 +1,22 @@
-// Mode « moins de 10 ans » : une phrase courte par écran, tirée des fiches des RTN PSC (aucune phrase rédigée ici).
-// Chaque texte est un extrait exact de la fiche indiquée (contrôle : node --test).
-// Affichage : majuscule au début, sans ponctuation finale. Sélection à valider par un formateur.
-(() => {
-  const x = (fiche, t) => ({ fiche, t });
-  window.JEUNE = {
-    source: 'Références techniques nationales PSC (DGSCGC, juillet 2026)',
-    // Demander de l'aide, puis alerter (fiches Perte de connaissance et Alerte).
-    aide: x('perte-de-connaissance', 'demander de l’aide, si vous êtes seul'),
-    alerter: [
-      x('alerte', 'transmettre les informations'),
-      x('alerte', 'la localisation la plus précise possible de l’évènement'),
-      x('alerte', 'répondre aux questions posées par les services de secours'),
-      x('alerte', 'appliquer les consignes données'),
-    ],
-    // Numéros de la fiche Alerte (libellés courts pour l'écran).
-    numeros: [['15', 'SAMU'], ['18', 'sapeurs-pompiers'], ['112', 'appel d’urgence dans toute l’Union européenne'], ['114', 'urgence par SMS, tchat ou visio']],
-    // Premier geste par situation de l'écran d'accueil.
-    gestes: {
-      saignement: [x('hemorragies', 'comprimer immédiatement l’endroit qui saigne')],
-      nez: [x('hemorragies', 'comprimer les deux narines avec les doigts, durant 10 minutes sans relâcher')],
-      plaie: [x('plaies', 'se laver les mains avec de l’eau et du savon'), x('plaies', 'nettoyer la plaie')],
-      brulure: [x('brulures', 'refroidir immédiatement la surface brûlée')],
-      trauma: [x('traumatismes', 'conseiller fermement de ne pas mobiliser la partie atteinte')],
-      inconscient: [x('perte-de-connaissance', 'Il est possible que les services de secours demandent de mettre la victime en position latérale de sécurité')],
-      arret: [x('arret-cardiaque', 'ramener et installer un DAE')],
-    },
-  };
-  const propre = (t) => { const r = t.trim().replace(/\s*[;:.,]+$/, ''); return r.charAt(0).toUpperCase() + r.slice(1); };
-  window.JEUNE.texte = (e) => propre(e.t);
-})();
+// Mode « moins de 10 ans » : formulations reprises telles quelles du guide officiel
+// « Apprendre à porter secours » (APS) de l'Éducation nationale. Aucune phrase réécrite.
+window.APS = {
+  source: '« Quelques repères pour apprendre à porter secours », tome 01, ministère de l’Éducation nationale (DGESCO), juillet 2022, version 12',
+  alerter: [
+    'Demander de l’aide en sollicitant un adulte',
+    'Appeler le service le mieux adapté à la situation : 15 (SAMU), 17 (police), 18 (pompiers), 112 (numéro européen)',
+    'Appeler le service en disant son nom et en décrivant ce qu’il se passe',
+    'Téléphoner pour alerter, en se situant',
+  ],
+  numeros: [['15', 'SAMU'], ['17', 'police'], ['18', 'pompiers'], ['112', 'numéro européen']],
+  // Gestes « Savoir intervenir » du guide, rangés par situation de l'écran d'accueil.
+  gestes: {
+    saignement: ['Appuyer en se protégeant sur la plaie qui saigne.'],
+    nez: ['Appuyer ou faire appuyer sur les narines en cas de saignement de nez.'],
+    plaie: ['Nettoyer ou faire nettoyer une plaie simple avec de l’eau et du savon.'],
+    brulure: ['Mettre la partie brûlée sous l’eau.'],
+    trauma: ['Éviter toute mobilisation de la partie du corps traumatisée.'],
+    inconscient: ['À la demande des services de secours contactés (suite à l’alerte) mettre sur le côté la personne qui a perdu connaissance.'],
+    arret: ['Apporter un DAE si quelqu’un lui demande'],
+  },
+};

@@ -20,4 +20,6 @@ Sources comparées :
 Points vérifiés sans contradiction :
 - Brûlure : arrosage d'au moins 10 minutes, idéalement 20, inutile après 30 minutes - identique dans les deux éditions (note de la fiche 02PR07 en 2026).
 
+Exception décidée le 25/11/2026 : le mode moins de 10 ans garde le guide APS de l'Éducation nationale (DGESCO, 2022), rédigé pour les enfants. Avis de la DGSCGC à demander.
+
 Statut : tranché - les futures différences entre une édition ancienne et les RTN se règlent de la même façon. Seules les contradictions internes aux RTN, ou entre les RTN et une source plus récente, restent à soumettre au formateur.

@@ -64,18 +64,19 @@ function rendre(blocs) {
   let h = '', niveau = 0, dl = false;
   const fermer = (n) => { while (niveau > n) { h += '</li></ul>'; niveau--; } };
   const note = (b) => (b.n || []).map((n) => `<span class="note">ⓘ ${esc(n)}</span>`).join('');
+  const txt = (b) => (b.nouveau ? `<span class="nouveau">${esc(b.t)}<span class="sr"> (modifié en 2026)</span></span>` : esc(b.t));
   for (const b of blocs) {
     if (b.k !== 'def' && dl) { h += '</dl>'; dl = false; }
     if (b.k === 'li') {
       if (b.l > niveau) { while (niveau < b.l) { h += '<ul><li>'; niveau++; } h = h.replace(/<li>$/, ''); h += '<li>'; }
       else { fermer(b.l); h += '</li><li>'; }
-      h += esc(b.t) + note(b);
+      h += txt(b) + note(b);
     } else {
       fermer(0);
       if (b.k === 'h2') h += `<h2>${esc(b.t)}</h2>${note(b)}`;
-      else if (b.k === 'h3') h += `<h3 id="${norm(b.t).replace(/ /g, '-')}">${esc(b.t)}</h3>${note(b)}`;
+      else if (b.k === 'h3') h += `<h3 id="${norm(b.t).replace(/ /g, '-')}">${txt(b)}</h3>${note(b)}`;
       else if (b.k === 'def') { if (!dl) { h += '<dl>'; dl = true; } h += `<dt>${esc(b.t)}</dt><dd>${esc(b.d)}</dd>`; }
-      else h += `<p>${esc(b.t)}${note(b)}</p>`;
+      else h += `<p>${txt(b)}${note(b)}</p>`;
     }
   }
   fermer(0); if (dl) h += '</dl>';
@@ -92,9 +93,17 @@ function debutAction(f) {
   return i >= 0 ? i : 0;
 }
 
+// Passages modifiés en 2026 : blocs surlignés dans le PDF officiel (voir nouveautes.js).
+const modifies = (f) => new Set((window.NOUVEAUTES || {})[f.id] || []);
+function avecNouveautes(f) { const m = modifies(f); return { ...f, blocks: f.blocks.map((b) => (m.has(b.t) ? { ...b, nouveau: true } : b)) }; }
+const bandeauVersion = (f) => (modifies(f).size
+  ? `<p class="maj-2026">Mise à jour juillet 2026 : ${modifies(f).size} passage${modifies(f).size > 1 ? 's contiennent' : ' contient'} une modification (surligné${modifies(f).size > 1 ? 's' : ''} ci-dessous, note comprise). <a href="#/nouveautes">Toutes les nouveautés</a></p>`
+  : `<p class="maj-ok">Fiche à jour des RTN de juillet 2026 (dernière modification : ${f.maj}).</p>`);
+
 function vueFiche(id, ancre, opt = {}) {
-  const f = fiche(id);
-  if (!f) return vueAccueil();
+  const f0 = fiche(id);
+  if (!f0) return vueAccueil();
+  const f = avecNouveautes(f0);
   titre(f.title, true);
   const d = debutAction(f);
   const lies = (LIES[id] || []).map((x) => `<a href="#/fiche/${x}">${esc(fiche(x).title)}</a>`).join('');
@@ -102,6 +111,7 @@ function vueFiche(id, ancre, opt = {}) {
     ${opt.avant || ''}
     ${f.type === 'PR' && !opt.avant ? '<p class="avant">Mettez-vous en sécurité, puis alertez ou faites alerter les secours : <b>15</b>, <b>18</b> ou <b>112</b>.</p>' : ''}
     ${opt.replie ? '<details class="comprendre"><summary>La conduite à tenir complète (texte pour les plus grands, à lire avec un adulte)</summary>' : ''}
+    ${bandeauVersion(f)}
     <div class="agir">${rendre(f.blocks.slice(d))}</div>
     ${opt.replie ? '</details>' : ''}
     ${lies ? `<h2>Les gestes</h2><div class="gestes">${lies}</div>` : ''}
@@ -184,12 +194,26 @@ function vueAccueil() {
 /* ---------- Toutes les fiches ---------- */
 function vueFiches() {
   titre('Toutes les fiches', false);
-  const bloc = (t, l) => `<h2 class="section">${t}</h2><ul class="liste">${l.map((f) => `<li><a href="#/fiche/${f.id}"><span>${esc(f.title)}</span></a></li>`).join('')}</ul>`;
+  const badge = (f) => (modifies(f).size ? '<small class="badge-2026">modifiée en 2026</small>' : '');
+  const bloc = (t, l) => `<h2 class="section">${t}</h2><ul class="liste">${l.map((f) => `<li><a href="#/fiche/${f.id}"><span>${esc(f.title)}</span>${badge(f)}</a></li>`).join('')}</ul>`;
   const i = FICHES.findIndex((f) => f.code);
   vue.innerHTML = bloc('Secourir une personne', FICHES.filter((f) => f.type === 'PR'))
     + bloc('Les gestes', FICHES.filter((f) => f.type === 'FT'))
     + bloc('Informations générales', FICHES.filter((f, k) => f.type === 'AC' && (k < i || true)))
-    + `<p class="source">Source : ${SOURCE}.</p>`;
+    + `<p class="source">Source : ${SOURCE}. <a href="#/nouveautes">Ce qui a changé en 2026</a></p>`;
+  scrollTo(0, 0);
+}
+
+/* ---------- Nouveautés des RTN de juillet 2026 ---------- */
+function vueNouveautes() {
+  titre('Nouveautés 2026', true);
+  const liste = FICHES.filter((f) => modifies(f).size);
+  vue.innerHTML = `<article class="fiche">
+    <p>Passages de l’édition de juillet 2026 des références techniques nationales PSC qui contiennent une modification (le document officiel la surligne en jaune ; elle peut ne porter que sur quelques mots ou sur une note). Les passages supprimés ne sont pas signalés par le document.</p>
+    ${liste.map((f) => `<h2><a href="#/fiche/${f.id}">${esc(f.title)}</a> <small class="meta">${f.code || ''} · ${f.maj}</small></h2>
+      <ul>${f.blocks.filter((b) => modifies(f).has(b.t)).map((b) => `<li>${esc(b.t)}</li>`).join('')}</ul>`).join('')}
+    <p class="source">Source : ${SOURCE}. Repérage automatique des surlignages du PDF officiel, à valider par un formateur.</p>
+  </article>`;
   scrollTo(0, 0);
 }
 
@@ -324,6 +348,7 @@ function route() {
   else if (page === 'dae') vueDae();
   else if (page === 'apropos') vueApropos();
   else if (page === 'bilan') vueBilan();
+  else if (page === 'nouveautes') vueNouveautes();
   else vueAccueil();
 }
 addEventListener('hashchange', route);

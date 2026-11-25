@@ -187,3 +187,13 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 .bilan-rep .btn, .vers-bilan .btn { text-decoration: none; display: inline-block; }
 .bilan-rep .btn { font-size: 15px; }
 .bilan-suite { font-size: 14px; color: var(--doux); }
+
+/* --- Passages modifiés en 2026 --- */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.nouveau { background: #fff3a8; color: #1b1b1f; box-decoration-break: clone; -webkit-box-decoration-break: clone; padding: 0 2px; border-radius: 3px; }
+@media (prefers-color-scheme: dark) { .nouveau { background: #5a4d00; color: #fff8d6; } }
+.maj-2026, .maj-ok { font-size: 14px; border-radius: 8px; padding: 8px 10px; margin: 0 0 14px; }
+.maj-2026 { background: #fff3a8; color: #1b1b1f; }
+.maj-2026 a { color: #0b4a8c; }
+.maj-ok { background: var(--note); color: var(--doux); }
+.badge-2026 { font-size: 12px; font-weight: 650; background: #fff3a8; color: #1b1b1f; border-radius: 6px; padding: 1px 6px; margin-left: 8px; white-space: nowrap; }

@@ -26,10 +26,12 @@
         <li><b>Progression du quiz</b> (points, meilleurs scores) : même durée.</li>
         <li><b>Fiche relais</b> (voir ci-dessous) : <b>24 heures au plus</b>, puis effacement automatique ; bouton « Effacer la fiche » à tout moment.</li>
         <li><b>Dernière position</b> utilisée pour la carte des défibrillateurs : le temps de l’onglet ouvert seulement (effacée à la fermeture).</li>
+        <li><b>Position GPS de la fiche relais</b>, seulement si vous touchez « Ajouter ma position » et l’autorisez : dans la fiche, donc 24 heures au plus. Aucune adresse n’est recherchée en ligne.</li>
       </ul>
       <p>Ce stockage est strictement nécessaire aux fonctions que vous utilisez ; il ne sert à aucun suivi.</p>
       <h2>Fiche relais : données d’une autre personne</h2>
       <p>La fiche relais peut contenir l’identité de la victime (nom, prénom, âge, sexe) et des informations sur son état de santé. Ce sont des données personnelles sensibles. Aegis les garde uniquement sur votre téléphone, ne les envoie nulle part et les efface automatiquement 24 heures après la création de la fiche. Elles ne sortent de votre téléphone que si vous montrez l’écran ou le QR code aux secours.</p>
+      <p>Le QR code « Ouvre la fiche » contient un lien vers la page de lecture d’Aegis ; la fiche y est placée après le signe « # », une partie de l’adresse que les navigateurs n’envoient jamais au serveur. Le téléphone qui scanne charge la page depuis GitHub Pages, puis affiche la fiche sans l’enregistrer en ligne. La fiche peut rester dans l’historique de son navigateur. Le QR code « Texte sans réseau » contient seulement le texte.</p>
       <p>Bonnes pratiques : ne notez que ce qui est utile aux secours ; si la victime peut répondre, dites-lui ce que vous notez et pourquoi ; ne photographiez pas et ne partagez pas la fiche en dehors des secours ; effacez-la après la prise en charge.</p>
       <h2>Services extérieurs, seulement si vous les utilisez</h2>
       <ul>

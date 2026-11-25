@@ -50,6 +50,8 @@
     ],
   };
 
+  // Position GPS ajoutée par le témoin : « 48.53912, 2.65511 (± 12 m) ».
+  R.gps = (g) => (g && Number.isFinite(g.lat) && Number.isFinite(g.lon) ? `${g.lat.toFixed(5)}, ${g.lon.toFixed(5)}${g.precision ? ` (± ${Math.round(g.precision)} m)` : ''}` : '');
   R.nouvelle = (now) => ({ cree: now, alerte: {}, victime: {}, constat: {}, zones: [], gestes: {}, malaise: {}, observations: '', journal: [], dae: {} });
   R.perimee = (d, now) => !d || !d.cree || now - d.cree >= DUREE;
   R.finDeVie = (d) => new Date(d.cree + DUREE);
@@ -63,7 +65,7 @@
     const champs = (o) => o.filter(([, v]) => v !== undefined && v !== null && String(v).trim() !== '').map(([k, v]) => (k ? `${k} : ${v}` : v)).join(' ; ');
     const ligne = (titre, contenu) => { if (contenu) l.push(`${titre} : ${contenu}`); };
     const a = d.alerte || {};
-    ligne('ALERTE', champs([['heure', a.heure], ['numéro', a.numero], ['nature', a.nature], ['victimes', a.victimes], ['lieu', a.lieu]]));
+    ligne('ALERTE', champs([['heure', a.heure], ['numéro', a.numero], ['nature', a.nature], ['victimes', a.victimes], ['lieu', a.lieu], ['position GPS', R.gps(a.gps)]]));
     const v = d.victime || {};
     const ident = [v.nom && v.nom.toUpperCase(), v.prenom].filter(Boolean).join(' ');
     ligne('VICTIME', champs([['', ident], ['âge', v.age ? v.age + ' ans' : v.morpho], ['sexe', v.sexe]]));
@@ -81,6 +83,24 @@
       for (const e of j) l.push(`${hm(e.h)} ${e.t}`);
     }
     return l.join('\n');
+  };
+
+  // Lien du QR code : le texte de la fiche est compressé et placé après le « # » de l'adresse.
+  // Cette partie n'est jamais envoyée au serveur par le navigateur : la page recu.html la décode sur le téléphone des secours.
+  // Format : « 1. » + texte compressé (deflate-raw) en base64url, ou « 0. » + texte non compressé si le navigateur ne sait pas compresser.
+  const b64 = (u8) => { let s = ''; for (const c of u8) s += String.fromCharCode(c); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
+  const deb64 = (t) => { const s = atob(t.replace(/-/g, '+').replace(/_/g, '/')); return Uint8Array.from(s, (c) => c.charCodeAt(0)); };
+  const flux = async (u8, Flux) => new Uint8Array(await new Response(new Blob([u8]).stream().pipeThrough(new Flux('deflate-raw'))).arrayBuffer());
+  R.encoder = async (texte) => {
+    const u8 = new TextEncoder().encode(texte);
+    if (typeof CompressionStream === 'undefined') return '0.' + b64(u8);
+    return '1.' + b64(await flux(u8, CompressionStream));
+  };
+  R.decoder = async (code) => {
+    const [v, donnees] = [code.slice(0, 2), code.slice(2)];
+    if (v === '0.') return new TextDecoder().decode(deb64(donnees));
+    if (v === '1.') return new TextDecoder().decode(await flux(deb64(donnees), DecompressionStream));
+    throw new Error('format inconnu');
   };
 
   // Ajoute une ligne au déroulé (étape validée en pas à pas, appel, minuteur...).

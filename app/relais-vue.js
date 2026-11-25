@@ -53,6 +53,15 @@
       ${champ('a-nature', 'Nature du problème (maladie, accident...)', a.nature)}
       ${champ('a-victimes', 'Nombre de victimes', a.victimes, 'type="number" min="1" inputmode="numeric"')}
       ${champ('a-lieu', 'Lieu le plus précis possible', a.lieu)}
+      <div class="gps">
+        <p id="gps-valeur" class="gps-valeur" ${a.gps ? '' : 'hidden'}>📍 Position GPS : <b>${esc(R.gps(a.gps))}</b> <button type="button" class="lienbtn" id="gps-retirer">Retirer</button></p>
+        <button type="button" class="btn clair" id="gps-ajouter">📍 ${a.gps ? 'Mettre à jour ma position' : 'Ajouter ma position'}</button>
+        <div id="gps-accord" class="gps-accord" hidden>
+          <p>Aegis va demander votre position à votre téléphone, qui vous demandera votre autorisation. Les coordonnées GPS seront ajoutées à la fiche : elles restent sur ce téléphone, et ne sont transmises aux secours que si vous leur montrez la fiche ou le QR code.</p>
+          <p class="relais-actions"><button type="button" class="btn" id="gps-oui">Autoriser et ajouter</button> <button type="button" class="btn clair" id="gps-non">Annuler</button></p>
+        </div>
+        <p id="gps-etat" class="meta" role="status"></p>
+      </div>
 
       <h2>Victime</h2>
       <p class="meta">Si la victime ne peut pas répondre, laissez vide ou indiquez ce que l’entourage sait.</p>
@@ -98,7 +107,7 @@
     const enregistrer = () => {
       const val = (id) => $('#' + id).value.trim();
       const coche = (n) => (vue.querySelector(`input[name="${n}"]:checked`) || {}).value || '';
-      d.alerte = { heure: val('a-heure'), numero: coche('a-numero'), nature: val('a-nature'), victimes: val('a-victimes'), lieu: val('a-lieu') };
+      d.alerte = { heure: val('a-heure'), numero: coche('a-numero'), nature: val('a-nature'), victimes: val('a-victimes'), lieu: val('a-lieu'), gps: d.alerte.gps };
       d.victime = { nom: val('v-nom'), prenom: val('v-prenom'), age: val('v-age'), morpho: coche('v-morpho'), sexe: coche('v-sexe') };
       d.constat = Object.fromEntries(R.CONSTAT.map((c) => [c.id, coche('c-' + c.id)]));
       d.malaise = { duree: val('m-duree'), connu: coche('m-connu'), traitements: val('m-traitements') };
@@ -119,6 +128,26 @@
       R.ecrire(d);
     }));
     vue.querySelectorAll('[data-heure]').forEach((h) => h.addEventListener('change', () => { if (h.value) d.gestes[h.dataset.heure] = h.value; R.ecrire(d); }));
+    // Position GPS : explication et accord dans l'appli, puis demande d'autorisation du téléphone.
+    const gpsEtat = $('#gps-etat'), accord = $('#gps-accord');
+    $('#gps-ajouter').addEventListener('click', () => {
+      if (!navigator.geolocation) { gpsEtat.textContent = 'Ce téléphone ne permet pas de donner la position. Décrivez le lieu dans le champ ci-dessus.'; return; }
+      accord.hidden = false; $('#gps-oui').focus();
+    });
+    $('#gps-non').addEventListener('click', () => { accord.hidden = true; gpsEtat.textContent = 'Aucune position ajoutée.'; });
+    $('#gps-oui').addEventListener('click', () => {
+      accord.hidden = true; gpsEtat.textContent = 'Recherche de la position…';
+      navigator.geolocation.getCurrentPosition((p) => {
+        d.alerte.gps = { lat: p.coords.latitude, lon: p.coords.longitude, precision: p.coords.accuracy, h: maintenant() };
+        R.ecrire(d);
+        $('#gps-valeur').hidden = false; $('#gps-valeur b').textContent = R.gps(d.alerte.gps);
+        $('#gps-ajouter').textContent = '📍 Mettre à jour ma position';
+        gpsEtat.textContent = d.alerte.gps.precision > 100 ? 'Position ajoutée, mais peu précise : complétez la description du lieu.' : 'Position ajoutée à la fiche.';
+      }, (e) => {
+        gpsEtat.textContent = e.code === 1 ? 'Position refusée. Vous pouvez l’autoriser dans les réglages du navigateur, ou décrire le lieu dans le champ ci-dessus.' : 'Position introuvable pour le moment. Réessayez à l’extérieur, ou décrivez le lieu.';
+      }, { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 });
+    });
+    $('#gps-retirer').addEventListener('click', () => { delete d.alerte.gps; R.ecrire(d); $('#gps-valeur').hidden = true; $('#gps-ajouter').textContent = '📍 Ajouter ma position'; gpsEtat.textContent = 'Position retirée de la fiche.'; });
     $('#effacer').addEventListener('click', () => { if (confirm('Effacer toute la fiche ?')) { R.effacer(cle); location.hash = essai ? '#/relais/guide' : '#/'; } });
   };
 
@@ -156,7 +185,7 @@
       </dl>
       <h2>À l’arrivée des secours</h2>
       <ul>
-        <li>Montrez l’écran ou le QR code : leur téléphone l’affiche en texte, sans application ni réseau.</li>
+        <li>Montrez l’écran ou le QR code. Scanné avec l’appareil photo, le QR code ouvre la fiche mise en forme sur leur téléphone (avec du réseau) ; sinon, choisissez « Texte sans réseau ».</li>
         <li>Répondez à leurs questions : la fiche aide, elle ne remplace pas ce que vous leur dites.</li>
         <li>Après la prise en charge, effacez la fiche. Sinon, elle s’efface seule au bout de 24 heures.</li>
       </ul>
@@ -180,18 +209,35 @@
     titre(cle === ESSAI ? 'Fiche d’entraînement' : 'Pour les secours', true);
     const d = R.lire(cle);
     if (!d) { vue.innerHTML = '<p>Aucune fiche relais en cours.</p><p><a class="btn lien" href="#/relais">Remplir une fiche</a></p>'; return; }
-    let texte = '', svg = '', coupe = false;
-    for (const max of [40, 15, 5, 0]) {
-      texte = R.texte(d, { journalMax: max });
-      try { qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8']; const q = qrcode(0, 'M'); q.addData(texte, 'Byte'); q.make(); svg = q.createSvgTag({ cellSize: 4, margin: 2, scalable: true }); break; } catch { coupe = true; }
-    }
-    vue.innerHTML = `<article class="fiche relais-qr">
-      <p class="avant">Montrez cet écran aux secours. Ils peuvent scanner le code avec l’appareil photo de leur téléphone : le texte s’affiche, sans application ni réseau.</p>
-      ${svg ? `<div class="qr" role="img" aria-label="QR code de la fiche relais">${svg}</div>` : '<p><b>Fiche trop longue pour un QR code :</b> montrez le texte ci-dessous.</p>'}
-      ${coupe && svg ? '<p class="meta">Le déroulé a été raccourci dans le QR code ; il est complet ci-dessous.</p>' : ''}
-      <pre class="texte-relais">${esc(R.texte(d))}</pre>
-      <p class="relais-actions"><a class="btn clair lien" href="${cle === ESSAI ? '#/relais/essai' : '#/relais'}">Modifier la fiche</a></p>
-    </article>`;
+    // Deux formes de QR code : un lien qui ouvre la fiche mise en forme (réseau nécessaire chez les secours),
+    // ou le texte brut (lisible sans réseau, à copier). Le lien est proposé d'abord.
+    const mode = memo.lire('relais-qr', 'lien');
+    const base = new URL('recu.html', location.href.split('#')[0]).href;
+    const qrDe = (contenu) => { qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8']; const q = qrcode(0, 'M'); q.addData(contenu, 'Byte'); q.make(); return q.createSvgTag({ cellSize: 4, margin: 2, scalable: true }); };
+    const afficher = (svg, coupe) => {
+      vue.innerHTML = `<article class="fiche relais-qr">
+        <div class="choix-qr" role="group" aria-label="Forme du QR code">
+          <button class="${mode === 'lien' ? 'actif' : ''}" data-mode="lien" aria-pressed="${mode === 'lien'}">Ouvre la fiche</button>
+          <button class="${mode === 'texte' ? 'actif' : ''}" data-mode="texte" aria-pressed="${mode === 'texte'}">Texte sans réseau</button>
+        </div>
+        ${svg ? `<div class="qr" role="img" aria-label="QR code de la fiche relais">${svg}</div>` : '<p><b>Fiche trop longue pour un QR code :</b> montrez le texte ci-dessous.</p>'}
+        ${coupe && svg ? '<p class="meta">Le déroulé a été raccourci dans le QR code ; il est complet ci-dessous.</p>' : ''}
+        <p class="avant">${mode === 'lien'
+          ? 'Les secours scannent le code avec l’appareil photo de leur téléphone : la fiche s’ouvre, mise en forme, avec les boutons Copier, PDF et Partager. Leur téléphone doit avoir du réseau ; la fiche n’est enregistrée sur aucun serveur.'
+          : 'Les secours scannent le code avec l’appareil photo de leur téléphone : le texte de la fiche s’affiche, même sans réseau, et peut être copié.'}</p>
+        <pre class="texte-relais">${esc(R.texte(d))}</pre>
+        <p class="relais-actions"><a class="btn clair lien" href="${cle === ESSAI ? '#/relais/essai' : '#/relais'}">Modifier la fiche</a></p>
+      </article>`;
+      vue.querySelectorAll('[data-mode]').forEach((b) => b.addEventListener('click', () => { memo.ecrire('relais-qr', b.dataset.mode); vueQr(cle); }));
+    };
+    (async () => {
+      let svg = '', coupe = false;
+      for (const max of [40, 15, 5, 0]) {
+        const texte = R.texte(d, { journalMax: max });
+        try { svg = qrDe(mode === 'lien' ? base + '#' + await R.encoder(texte) : texte); break; } catch { coupe = true; }
+      }
+      afficher(svg, coupe);
+    })();
     scrollTo(0, 0);
   }
 })();

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#c8102e">
+<title>Fiche relais - Aegis</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+  :root { --rouge: #c8102e; --fond: #f6f5f2; --carte: #fff; --texte: #1b1b1f; --doux: #5d5f66; --trait: #e2e0da; --note: #fff3cd; }
+  @media (prefers-color-scheme: dark) { :root { --fond: #121316; --carte: #1c1e23; --texte: #f1f1f3; --doux: #a6a9b1; --trait: #2e3138; --note: #4a3d00; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 17px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--fond); color: var(--texte); }
+  header { background: var(--rouge); color: #fff; padding: 12px 16px; padding-top: calc(12px + env(safe-area-inset-top)); }
+  header h1 { margin: 0; font-size: 20px; }
+  header p { margin: 2px 0 0; font-size: 14px; opacity: .9; }
+  main { max-width: 720px; margin: 0 auto; padding: 16px; }
+  .alerte { background: var(--note); border-left: 4px solid var(--rouge); border-radius: 8px; padding: 10px 12px; margin: 0 0 14px; font-size: 15px; }
+  .exercice { background: #1f4e9c; color: #fff; font-weight: 700; text-align: center; border-radius: 8px; padding: 10px; margin: 0 0 14px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+  .actions button { font: inherit; font-weight: 650; border: 0; border-radius: 12px; padding: 12px 16px; cursor: pointer; background: var(--texte); color: var(--fond); }
+  .actions button.clair { background: none; color: var(--texte); border: 2px solid var(--trait); }
+  .actions button:focus-visible { outline: 3px solid #0b5cad; outline-offset: 2px; }
+  section { background: var(--carte); border: 1px solid var(--trait); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; }
+  section h2 { margin: 0 0 6px; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: var(--rouge); }
+  section ul { margin: 0; padding-left: 20px; }
+  section li { margin: 2px 0; }
+  .heure { font-variant-numeric: tabular-nums; font-weight: 700; margin-right: 6px; }
+  .meta { font-size: 13px; color: var(--doux); }
+  #etat { font-size: 15px; color: var(--doux); min-height: 1.5em; }
+  @media print {
+    header, .actions, #etat { display: none; }
+    body { background: #fff; color: #000; font-size: 12pt; }
+    section { border-color: #999; break-inside: avoid; }
+    .alerte { background: none; border: 1px solid #000; }
+  }
+</style>
+</head>
+<body>
+<header><h1>Fiche relais</h1><p>Transmise par un témoin avec l’appli Aegis</p></header>
+<main>
+  <div id="fiche" aria-live="polite"><p>Lecture de la fiche…</p></div>
+  <p id="etat" role="status"></p>
+  <p class="meta">Les informations de cette fiche sont contenues dans le lien scanné : elles ne sont enregistrées sur aucun serveur. Aegis ne remplace pas une formation.</p>
+</main>
+<script src="relais.js?v=22"></script>
+<script>
+(() => {
+  const fiche = document.getElementById('fiche'), etat = document.getElementById('etat');
+  const el = (tag, texte, classe) => { const e = document.createElement(tag); if (texte !== undefined) e.textContent = texte; if (classe) e.className = classe; return e; };
+  const echec = (msg) => { fiche.replaceChildren(el('p', msg)); };
+
+  // Met en forme le texte produit par RELAIS.texte : en-tête, rubriques « TITRE : contenu », puis le déroulé.
+  function afficher(texte) {
+    const lignes = texte.split('\n');
+    const bloc = document.createDocumentFragment();
+    let i = 0, section = null;
+    if (/^EXERCICE/.test(lignes[0])) bloc.append(el('p', lignes[i++], 'exercice'));
+    if (lignes[i] === 'AEGIS - FICHE RELAIS') i++;
+    const entete = el('p', '', 'alerte');
+    while (i < lignes.length && !/^[A-ZÀ-Ý' ]+( \([^)]*\))? :/.test(lignes[i])) { entete.append(el('span', lignes[i++])); entete.append(document.createElement('br')); }
+    bloc.append(entete);
+    const actions = el('div', undefined, 'actions');
+    const bouton = (t, f, clair) => { const b = el('button', t, clair ? 'clair' : ''); b.type = 'button'; b.addEventListener('click', f); actions.append(b); };
+    bouton('Copier le texte', async () => { try { await navigator.clipboard.writeText(texte); etat.textContent = 'Texte copié.'; } catch { etat.textContent = 'Copie impossible : sélectionnez le texte à la main.'; } });
+    bouton('Enregistrer en PDF', () => window.print(), true);
+    if (navigator.share) bouton('Partager', () => navigator.share({ title: 'Fiche relais', text: texte }).catch(() => {}), true);
+    bloc.append(actions);
+    for (; i < lignes.length; i++) {
+      const m = lignes[i].match(/^([A-ZÀ-Ý' ]+(?: \([^)]*\))?) :\s?(.*)$/);
+      if (m) {
+        section = el('section'); section.append(el('h2', m[1].charAt(0) + m[1].slice(1).toLowerCase()));
+        const ul = el('ul'); section.append(ul);
+        for (const partie of m[2].split(' ; ').filter(Boolean)) {
+          const li = el('li', partie), g = partie.match(/^position GPS : (-?\d+\.\d+), (-?\d+\.\d+)/);
+          if (g) { const a = el('a', 'Voir sur une carte'); a.href = `https://www.openstreetmap.org/?mlat=${g[1]}&mlon=${g[2]}#map=18/${g[1]}/${g[2]}`; a.rel = 'noopener noreferrer'; a.target = '_blank'; li.append(document.createTextNode(' - '), a); }
+          ul.append(li);
+        }
+        bloc.append(section);
+      } else if (section) {
+        const h = lignes[i].match(/^(\d\d:\d\d) (.*)$/), li = el('li');
+        if (h) { li.append(el('span', h[1], 'heure'), document.createTextNode(h[2].replace(/\s*[;:]$/, ''))); } else li.textContent = lignes[i];
+        section.querySelector('ul').append(li);
+      }
+    }
+    fiche.replaceChildren(bloc);
+    document.title = 'Fiche relais - Aegis';
+  }
+
+  const code = decodeURIComponent(location.hash.slice(1));
+  if (!code) return echec('Aucune fiche dans ce lien. Scannez le QR code affiché par l’appli Aegis du témoin.');
+  RELAIS.decoder(code).then(afficher).catch(() => echec('Cette fiche n’a pas pu être lue. Demandez au témoin de montrer l’écran de son téléphone, ou de choisir « Texte sans réseau ».'));
+})();
+</script>
+</body>
+</html>

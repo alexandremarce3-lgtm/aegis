@@ -149,6 +149,7 @@ function vueAccueil() {
   const Reco = window.SpeechRecognition || window.webkitSpeechRecognition;
   vue.innerHTML = `
     <p class="avant"><b>Urgence ?</b> Alertez d’abord les secours avec les boutons rouges en bas de l’écran.</p>
+    ${profil === 'jeune' ? '' : '<p class="vers-bilan"><a class="btn clair" href="#/bilan">🧭 Bilan : que vérifier, dans quel ordre ?</a></p>'}
     <div class="recherche">
       <input id="q" type="search" placeholder="Que se passe-t-il ?" autocomplete="off" aria-label="Décrire la situation">
       ${Reco ? '<button id="micro" class="micro" aria-label="Décrire la situation à la voix">🎤</button>' : ''}
@@ -322,6 +323,7 @@ function route() {
   else if (page === 'fiches') vueFiches();
   else if (page === 'dae') vueDae();
   else if (page === 'apropos') vueApropos();
+  else if (page === 'bilan') vueBilan();
   else vueAccueil();
 }
 addEventListener('hashchange', route);

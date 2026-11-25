@@ -174,3 +174,16 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 .points i { width: 12px; height: 12px; border-radius: 50%; background: var(--trait); }
 .points i.fait { background: #3aa76d; }
 .points i.ici { background: var(--rouge); transform: scale(1.3); }
+
+/* --- Logigramme de bilan --- */
+.vers-bilan { margin: 0 0 14px; }
+.vers-bilan .btn { display: block; text-align: center; }
+.bilan-etapes { list-style: none; counter-reset: etape; padding: 0; margin: 0; }
+.bilan-etapes > li { counter-increment: etape; position: relative; background: var(--carte); border: 1px solid var(--trait); border-radius: 14px; padding: 12px 14px 10px 52px; margin: 0 0 18px; }
+.bilan-etapes > li::before { content: counter(etape); position: absolute; left: 12px; top: 12px; width: 28px; height: 28px; border-radius: 50%; background: var(--rouge); color: #fff; font-weight: 700; display: grid; place-items: center; }
+.bilan-etapes > li:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -19px; color: var(--doux); font-size: 16px; line-height: 1; }
+.bilan-etapes h2 { font-size: 18px; margin: 2px 0 10px; border: 0; padding: 0; }
+.bilan-rep { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bilan-rep .btn, .vers-bilan .btn { text-decoration: none; display: inline-block; }
+.bilan-rep .btn { font-size: 15px; }
+.bilan-suite { font-size: 14px; color: var(--doux); }

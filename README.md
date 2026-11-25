@@ -1,28 +1,83 @@
-# 🛡️ Aegis - Secours Protecteur
+# Aegis - premiers secours
 
-> **Soyez prêt. Sauvez des vies.**
+Application web gratuite et open source (PWA) qui rappelle les gestes de premiers secours du citoyen, à partir des **références techniques nationales « Premiers Secours Citoyen » (RTN PSC) de la DGSCGC, édition juillet 2026**.
 
-**Aegis** est une application mobile / web d'assistance et d'intervention d'urgence conçue pour guider pas à pas les citoyens face aux situations critiques (arrêts cardiaques, étouffements, hémorragies, etc.).
+**Appelez le 15, le 18 ou le 112. Aegis ne remplace pas une formation.**
 
----
-
-## 📱 Fonctionnalités clés
-
-*   **Intervention Pas à Pas** : Instructions visuelles et audio claires pour réagir rapidement face à une urgence.
-*   **Contact Urgences** : Bouton d'alerte direct vers les services compétents (15, 18, 112) avec partage de géolocalisation.
-*   **Localisation Défibrillateurs (DAE)** : Carte interactive pour trouver les défibrillateurs les plus proches en cas de besoin.
-*   **Quizz de Rappel** : Modules d'entraînement pour entretenir et tester ses connaissances régulièrement.
+Application : https://alexandremarce3-lgtm.github.io/aegis/app/
 
 ---
 
-## 🚀 Stack Technique
+## Ce que fait l'application
 
-*   
+**Intervenir**
+- Écran d'accueil avec les situations courantes (étouffement, saignement abondant, ne répond pas, malaise, plaie, brûlure, chute ou fracture, saignement de nez, alerter, protéger) et une recherche par mots ou à la voix (reconnaissance vocale du navigateur).
+- Mode **pas à pas** pour 8 situations : une étape par écran, avec les choix à faire (par exemple « répond-il ? », « respire-t-il ? ») et le détail du geste au moment où il sert. Chaque étape est une phrase des fiches RTN, sans réécriture.
+- **Rythme des compressions** : signal sonore et visuel à 110 par minute (la fiche demande entre 100 et 120). Pas de minuteur de relais : quand un DAE est posé, c'est lui qui rythme les analyses.
+- **Minuteurs** : saignement de nez (10 minutes) ; brûlure (10 minutes, relançable une fois pour atteindre 20 minutes, comme le précise la fiche).
+- Lecture à voix haute des consignes : voix enregistrée (Piper, fr_FR-siwis-medium), sinon voix de l'appareil.
 
----
+**Fiches**
+- Les 25 fiches des RTN PSC (chapitres 1 et 2) reproduites **sans modification**, avec leur numéro, leur date de mise à jour et leurs notes. Texte vérifié mot pour mot avec le PDF officiel le 25/11/2026.
 
-## 🛠️ Installation et Lancement en Local
+**Se former**
+- Quiz de 63 questions sur 9 thèmes. La bonne réponse est toujours un extrait exact de la fiche citée ; les mauvaises réponses sont rédigées pour l'appli. Points, niveaux et étoiles enregistrés sur le téléphone.
 
-1. Cloner le dépôt :
-   ```bash
-   git clone [https://github.com/alexandremarce3-lgtm/aegis.git](https://github.com/alexandremarce3-lgtm/aegis.git)
+**Mode moins de 10 ans**
+- Une phrase courte par écran, tirée des fiches RTN, avec un dessin et un gros bouton « Écouter ». Quiz adapté : reconnaître la situation, les gestes, les numéros d'urgence.
+
+**Défibrillateurs**
+- Carte et liste des défibrillateurs proches (base nationale des défibrillateurs du ministère de la Santé, via data.gouv.fr ; fond de carte OpenStreetMap). Nécessite le réseau et la localisation.
+
+**Toujours visible**
+- Barre d'appel 15, 18, 112 et 114 (liens d'appel directs, sans envoi de position) et rappel « Appelez le 15, le 18 ou le 112 - Aegis ne remplace pas une formation ».
+
+**Hors ligne et vie privée**
+- Fiches, pas à pas et quiz fonctionnent sans réseau une fois l'appli ouverte une première fois.
+- Pas de compte, pas de publicité, aucune donnée collectée. Seules la carte des défibrillateurs (zone envoyée à data.gouv.fr) et la recherche à la voix (service du navigateur) font appel à un service extérieur.
+
+## Ce qui manque encore
+
+- Fiche relais avec QR code pour les secours (conception : `docs/fiche-relais.md`).
+- Logigramme de bilan sur un seul écran.
+- Repère des fiches modifiées en 2026 et page « Nouveautés RTN 2026 ».
+- Mode Révision (fiches mémo, études de cas) et mode Formateur (déroulé, scénarios, grille d'évaluation, débriefing).
+- Audit complet d'accessibilité (contrastes, taille du texte, lecteur d'écran).
+- Voix enregistrées hors ligne : elles ne sont gardées qu'après une première écoute ; sans réseau, la voix de l'appareil prend le relais.
+- Relecture de l'ensemble du contenu par un formateur : le statut est « à valider par un formateur ».
+
+Le détail est dans `docs/analyse-ecarts.md`.
+
+## Sources
+
+- Fiches, pas à pas, quiz, mode moins de 10 ans : RTN PSC, DGSCGC, juillet 2026. Leur préface précise qu'elles peuvent produire des effets de droit ; Aegis suit toujours leur édition la plus récente (voir `CONTRADICTIONS.md`).
+- Libellés de l'accueil, mots-clés de recherche, dessins et mauvaises réponses du quiz : ajoutés pour l'appli.
+
+## Stack technique
+
+- HTML, CSS et JavaScript sans framework ni étape de compilation (`app/`).
+- Service worker pour le hors ligne (`app/sw.js`), manifeste PWA.
+- Leaflet (chargé depuis unpkg) pour la carte ; page de présentation `index.html` avec Tailwind CSS (CDN).
+- Base de connaissances `data/` : une fiche JSON par conduite à tenir et par geste, générée depuis les fiches officielles (`node outils/construire-donnees.mjs`).
+
+## Lancer en local et tester
+
+```bash
+git clone https://github.com/alexandremarce3-lgtm/aegis.git
+```
+
+```bash
+cd aegis/app && python3 -m http.server 8000
+```
+
+Puis ouvrir http://localhost:8000. Tests (Node 18 ou plus, aucune dépendance) :
+
+```bash
+npm test
+```
+
+Les tests vérifient notamment que chaque texte affiché vient mot pour mot des fiches officielles, que `data/` est à jour, et qu'aucun document privé n'est publié.
+
+## Licence
+
+MIT - voir `LICENSE`. Voix Piper : modèle fr_FR-siwis-medium, corpus SIWIS sous licence CC BY 4.0.

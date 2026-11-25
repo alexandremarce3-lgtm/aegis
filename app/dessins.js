@@ -1,4 +1,4 @@
-/* Petits dessins du mode « moins de 12 ans ». Volontairement simples et doux : ils aident à
+/* Petits dessins du mode « moins de 10 ans ». Volontairement simples et doux : ils aident à
    reconnaître la situation et le geste, sans rien montrer de choquant. */
 (() => {
   const PEAU = '#ffd7b0', T = '#3b3b46';

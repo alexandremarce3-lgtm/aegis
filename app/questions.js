@@ -1,4 +1,4 @@
-/* Questions du module « Se former » (12 ans et plus).
+/* Questions du module « Se former » (10 ans et plus).
    - « q » : la question, rédigée pour l'appli.
    - « bon » : la bonne réponse. C'est toujours un extrait exact de la fiche officielle indiquée dans « fiche »
      (texte ou note de bas de page). Contrôle : node outils/verifier-questions.mjs

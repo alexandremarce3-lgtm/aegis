@@ -7,7 +7,7 @@ const vue = $('#vue');
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const norm = (s) => s.toLowerCase().replace(/œ/g, 'oe').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 const fiche = (id) => FICHES.find((f) => f.id === id);
-const APS = window.APS, DESSINS = window.DESSINS;
+const JEUNE = window.JEUNE, DESSINS = window.DESSINS;
 const memo = { lire: (k, d) => { try { return JSON.parse(localStorage.getItem('aegis.' + k)) ?? d; } catch { return d; } }, ecrire: (k, v) => { try { localStorage.setItem('aegis.' + k, JSON.stringify(v)); } catch {} } };
 /* ---------- Lecture à voix haute ----------
    On prend la meilleure voix française installée sur l'appareil plutôt que la voix par défaut :
@@ -53,7 +53,7 @@ function suivante() {
 function parler(phrases) { taire(); aLire = phrases.filter(Boolean); suivante(); }
 addEventListener('hashchange', taire);
 
-let profil = memo.lire('profil', null); // 'jeune' (moins de 12 ans) ou 'grand'
+let profil = memo.lire('profil', null); // 'jeune' (moins de 10 ans) ou 'grand'
 
 // Gestes liés : les fiches qui suivent une procédure jusqu'à la procédure suivante.
 const LIES = {};
@@ -106,7 +106,7 @@ function vueFiche(id, ancre, opt = {}) {
     ${opt.replie ? '</details>' : ''}
     ${lies ? `<h2>Les gestes</h2><div class="gestes">${lies}</div>` : ''}
     ${d > 0 ? `<details class="comprendre"><summary>Comprendre : définition, signes, causes, risques</summary>${rendre(f.blocks.slice(0, d))}</details>` : ''}
-    <p class="source"><b>${TYPES[f.type]}${f.code ? ' ' + f.code : ''} · mise à jour ${f.maj}</b><br>Texte reproduit sans modification. Source : ${SOURCE}.</p>
+    <p class="source"><b>${TYPES[f.type]}${f.code ? ' ' + f.code : ''} · mise à jour ${f.maj}</b><br>Texte reproduit sans modification. Source : ${SOURCE}.<br>Contenu à valider par un formateur. Aegis ne remplace pas une formation.</p>
     <p class="vers-accueil"><a class="btn lien" href="#/">Retour à l’accueil</a></p>
   </article>`;
   if (opt.apres) opt.apres();
@@ -277,12 +277,14 @@ function vueApropos() {
   vue.innerHTML = `<article class="fiche">
     <h3>Un aide-mémoire, pas une formation</h3>
     <p>Cette application rappelle les conduites à tenir enseignées en formation « Premiers Secours Citoyen » (PSC, anciennement PSC1). Elle ne remplace ni une formation avec un formateur, ni l’appel aux secours.</p>
+    <h3>Portée des références techniques nationales</h3>
+    <p>Les fiches d’Aegis reprennent les références techniques nationales (RTN) « Premiers Secours Citoyen » de la DGSCGC, le texte national qui fixe les gestes enseignés au citoyen. Leur préface précise qu’elles peuvent produire des effets de droit, en particulier quand on examine la responsabilité de ceux qui ne les auraient pas respectées. C’est pourquoi Aegis les reprend mot pour mot et suit toujours leur édition la plus récente.</p>
     <h3>D’où vient le contenu</h3>
     <p>Les ${FICHES.length} fiches reproduisent, sans réécriture, le texte des ${SOURCE}. Chaque fiche affiche sa référence et sa date de mise à jour. Les notes « ⓘ » sont les notes de bas de page du document officiel.</p>
     <p>Les noms des situations sur l’écran d’accueil, les mots-clés de recherche et les dessins ont été ajoutés pour retrouver vite la bonne fiche. En mode pas à pas, chaque étape est une phrase de la fiche, affichée seule.</p>
-    <p>En mode « moins de 12 ans », les gestes proposés reprennent les formulations du guide ${APS.source}.</p>
+    <p>En mode « moins de 10 ans », chaque écran affiche une phrase courte tirée des fiches des ${JEUNE.source}, avec un dessin.</p>
     <h3>Mon profil</h3>
-    <p>Profil actuel : <b>${profil === 'jeune' ? 'moins de 12 ans' : '12 ans et plus'}</b>. <button class="btn" id="changer">Changer</button></p>
+    <p>Profil actuel : <b>${profil === 'jeune' ? 'moins de 10 ans' : '10 ans et plus'}</b>. <button class="btn" id="changer">Changer</button></p>
     <h3>Numéros d’urgence</h3>
     <p><a href="#/fiche/alerte">Voir la fiche « Alerte »</a> : 15, 18, 112 et 114.</p>
     <h3>Vie privée</h3>
@@ -299,7 +301,7 @@ function vueApropos() {
 function vueProfil() {
   titre('Aegis - premiers secours', false);
   vue.innerHTML = `<h2 class="section">Bienvenue</h2><p>Qui utilise l’appli ?</p>
-    <div class="grille"><a class="tuile" href="#" data-p="jeune"><i>🧒</i>J’ai moins de 12 ans</a><a class="tuile" href="#" data-p="grand"><i>🧑</i>J’ai 12 ans ou plus</a></div>
+    <div class="grille"><a class="tuile" href="#" data-p="jeune"><i>🧒</i>J’ai moins de 10 ans</a><a class="tuile" href="#" data-p="grand"><i>🧑</i>J’ai 10 ans ou plus</a></div>
     <p class="source">Ce choix peut être changé à tout moment avec le bouton ⓘ en haut de l’écran.</p>`;
   vue.querySelectorAll('[data-p]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); profil = a.dataset.p; memo.ecrire('profil', profil); route(); }));
 }

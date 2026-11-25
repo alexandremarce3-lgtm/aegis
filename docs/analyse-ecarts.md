@@ -54,6 +54,14 @@ Statut : à valider par un formateur.
 
 ## 6. À faire valider par le formateur
 
-- [ ] Garder le mode moins de 12 ans sur le guide APS, ou le limiter aux RTN.
-- [ ] Minuteur brûlure : proposer 20 minutes (idéal) avec repère à 10 minutes.
-- [ ] Afficher le statut « à valider par un formateur » sur chaque fiche tant que la relecture n'est pas faite.
+- [x] Statut « à valider par un formateur » affiché sous chaque fiche (fait le 25/11/2026).
+
+## 7. Décisions du 25/11/2026 et suites
+
+- Minuteur brûlure : 10 minutes, relançable une fois pour atteindre 20 minutes - fait.
+- Massage : rythme sonore seul, pas de minuteur de relais (le DAE rythme les analyses toutes les 2 minutes) - inchangé.
+- Portée juridique des RTN : ajoutée dans la page À propos - fait.
+- « Aegis ne remplace pas une formation » : rappel permanent au-dessus de la barre d'appel, sous chaque fiche et dans le mode moins de 10 ans - fait.
+- README : réécrit pour décrire exactement l'appli, ses ajouts et ses manques - fait.
+- Voix : la voix de l'appareil suffit sans réseau - pas de téléchargement des voix.
+- Mode jeune : seuil à 10 ans, phrases tirées des fiches RTN au lieu du guide APS - fait. Le seuil de 10 ans n'est pas écrit dans les RTN : source publique à confirmer.

@@ -7,7 +7,7 @@
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; font: 17px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--fond); color: var(--texte); padding-bottom: calc(132px + env(safe-area-inset-bottom)); }
+body { margin: 0; font: 17px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--fond); color: var(--texte); padding-bottom: calc(156px + env(safe-area-inset-bottom)); }
 a { color: var(--lien); }
 .top { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 8px; background: var(--rouge); color: #fff; padding: 10px 16px; padding-top: calc(10px + env(safe-area-inset-top)); }
 .top h1 { font-size: 18px; margin: 0; line-height: 1.25; }
@@ -15,7 +15,8 @@ a { color: var(--lien); }
 main { max-width: 720px; margin: 0 auto; padding: 16px; outline: none; }
 
 .appels, .onglets { position: fixed; left: 0; right: 0; z-index: 6; display: flex; background: var(--carte); border-top: 1px solid var(--trait); }
-.appels { bottom: calc(52px + env(safe-area-inset-bottom)); gap: 8px; padding: 8px 12px; }
+.appels { bottom: calc(52px + env(safe-area-inset-bottom)); gap: 6px 8px; padding: 6px 12px 8px; flex-wrap: wrap; }
+.appels .rappel { flex-basis: 100%; margin: 0; font-size: 13px; line-height: 1.3; text-align: center; color: var(--texte); font-weight: 600; }
 .appels a { flex: 1; text-decoration: none; background: var(--rouge); color: #fff; border-radius: 12px; text-align: center; padding: 6px 2px; line-height: 1.15; }
 .appels a b { display: block; font-size: 22px; }
 .appels a span { font-size: 11px; }
@@ -114,7 +115,7 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 .confettis { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .confettis i { position: absolute; top: -20px; width: 10px; height: 16px; border-radius: 3px; animation: tombe linear forwards; }
 @keyframes tombe { to { transform: translateY(110vh) rotate(720deg); } }
-/* --- Habillage « jeu » du mode moins de 12 ans --- */
+/* --- Habillage « jeu » du mode moins de 10 ans --- */
 .mode-jeune { --fond: #fff6ea; }
 @media (prefers-color-scheme: dark) { .mode-jeune { --fond: #17151c; } }
 .mode-jeune .tuile { border-width: 2px; border-radius: 18px; box-shadow: 0 4px 0 var(--trait); font-size: 16px; }
@@ -164,7 +165,7 @@ svg.dessin { display: block; width: 100%; height: auto; border-radius: 14px; }
 
 .ecoute-geste { font-size: 14px; font-weight: 400; margin-left: 6px; }
 
-/* --- Pas à pas des moins de 12 ans --- */
+/* --- Pas à pas des moins de 10 ans --- */
 .pas-jeune svg.dessin { margin: 6px 0 12px; }
 .pas-jeune .deuxcas { margin-bottom: 12px; }
 .pas-jeune .etape { font-size: 27px; }

@@ -65,3 +65,5 @@ Statut : à valider par un formateur.
 - README : réécrit pour décrire exactement l'appli, ses ajouts et ses manques - fait.
 - Voix : la voix de l'appareil suffit sans réseau - pas de téléchargement des voix.
 - Mode jeune : seuil à 10 ans - fait. Les phrases restent celles du guide APS de l'Éducation nationale, écrit pour les enfants (décision du formateur, 25/11/2026) : seule exception aux RTN. Avis de la DGSCGC à demander par le formateur une fois l'appli aboutie. Le seuil de 10 ans n'est pas écrit dans les RTN : source publique à confirmer.
+- Fiche relais : le QR code ouvre la fiche mise en forme sur le téléphone des secours (Copier, PDF, Partager), QR code texte sans réseau en secours - fait.
+- Fiche relais : bouton « Ajouter ma position » (GPS) après explication et accord - fait.

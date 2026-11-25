@@ -74,3 +74,7 @@ Zones du schéma avec un nom lisible par un lecteur d'écran, grandes cibles tac
 
 - [ ] Liste des gestes du bloc « Gestes faits » complète et conforme aux RTN.
 - [ ] Test d'une maquette par un contact SDIS ou SAMU.
+
+## 9. Réalisation
+
+- 25/11/2026 - Fiche relais réalisée dans l’appli (`app/relais.js`, `app/relais-vue.js`), QR code vérifié par un décodeur indépendant. Reste : test par un contact SDIS ou SAMU, relecture juridique.

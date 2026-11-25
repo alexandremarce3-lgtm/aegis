@@ -14,11 +14,14 @@ Application : https://alexandremarce3-lgtm.github.io/aegis/app/
 - Écran d'accueil avec les situations courantes (étouffement, saignement abondant, ne répond pas, malaise, plaie, brûlure, chute ou fracture, saignement de nez, alerter, protéger) et une recherche par mots ou à la voix (reconnaissance vocale du navigateur).
 - Mode **pas à pas** pour 8 situations : une étape par écran, avec les choix à faire (par exemple « répond-il ? », « respire-t-il ? ») et le détail du geste au moment où il sert. Chaque étape est une phrase des fiches RTN, sans réécriture.
 - **Rythme des compressions** : signal sonore et visuel à 110 par minute (la fiche demande entre 100 et 120). Pas de minuteur de relais : quand un DAE est posé, c'est lui qui rythme les analyses.
+- **Bilan** : un écran « que vérifier, dans quel ordre ? » (danger, saignement, étouffement, répond-elle, puis malaise, plaie, brûlure, chute), dans l'ordre des fiches RTN, avec renvoi au pas à pas ou à la fiche.
+- **Fiche relais pour les secours** : le témoin note l'alerte, l'identité de la victime (nom, prénom, âge ou allure nourrisson / enfant / adulte, sexe), ce qu'il a constaté, les zones blessées sur un schéma du corps, les gestes faits avec leur heure, et les observations. Les étapes validées en pas à pas et les appels passés depuis l'appli s'ajoutent seuls au déroulé. La fiche s'affiche en texte et en QR code lisible par l'appareil photo des secours, sans réseau. Elle reste sur le téléphone et s'efface automatiquement après 24 heures.
 - **Minuteurs** : saignement de nez (10 minutes) ; brûlure (10 minutes, relançable une fois pour atteindre 20 minutes, comme le précise la fiche).
 - Lecture à voix haute des consignes : voix enregistrée (Piper, fr_FR-siwis-medium), sinon voix de l'appareil.
 
 **Fiches**
 - Les 25 fiches des RTN PSC (chapitres 1 et 2) reproduites **sans modification**, avec leur numéro, leur date de mise à jour et leurs notes. Texte vérifié mot pour mot avec le PDF officiel le 25/11/2026.
+- **Nouveautés 2026** : les passages modifiés dans l'édition de juillet 2026 (surlignés dans le document officiel) sont surlignés dans les fiches, signalés dans la liste et regroupés sur une page « Nouveautés 2026 ».
 
 **Se former**
 - Quiz de 63 questions sur 9 thèmes. La bonne réponse est toujours un extrait exact de la fiche citée ; les mauvaises réponses sont rédigées pour l'appli. Points, niveaux et étoiles enregistrés sur le téléphone.
@@ -34,13 +37,13 @@ Application : https://alexandremarce3-lgtm.github.io/aegis/app/
 
 **Hors ligne et vie privée**
 - Fiches, pas à pas et quiz fonctionnent sans réseau une fois l'appli ouverte une première fois.
-- Pas de compte, pas de publicité, aucune donnée collectée. Seules la carte des défibrillateurs (zone envoyée à data.gouv.fr) et la recherche à la voix (service du navigateur) font appel à un service extérieur.
+- Pas de compte, pas de publicité, aucune donnée collectée par l'éditeur. Seules la carte des défibrillateurs (zone envoyée à data.gouv.fr) et la recherche à la voix (service du navigateur) font appel à un service extérieur.
+- Pages légales dans l'appli, disponibles hors ligne : mentions légales, confidentialité (RGPD), conditions d'utilisation, accessibilité, licences et sources.
 
 ## Ce qui manque encore
 
-- Fiche relais avec QR code pour les secours (conception : `docs/fiche-relais.md`).
-- Logigramme de bilan sur un seul écran.
-- Repère des fiches modifiées en 2026 et page « Nouveautés RTN 2026 ».
+- Test de la fiche relais par des secouristes professionnels (SDIS, SAMU).
+- Relecture juridique des pages légales.
 - Mode Révision (fiches mémo, études de cas) et mode Formateur (déroulé, scénarios, grille d'évaluation, débriefing).
 - Audit complet d'accessibilité (contrastes, taille du texte, lecteur d'écran).
 - Voix enregistrées hors ligne : elles ne sont gardées qu'après une première écoute ; sans réseau, la voix de l'appareil prend le relais.
@@ -58,7 +61,8 @@ Le détail est dans `docs/analyse-ecarts.md`.
 
 - HTML, CSS et JavaScript sans framework ni étape de compilation (`app/`).
 - Service worker pour le hors ligne (`app/sw.js`), manifeste PWA.
-- Leaflet (chargé depuis unpkg) pour la carte ; page de présentation `index.html` avec Tailwind CSS (CDN).
+- Leaflet (chargé depuis unpkg) pour la carte ; QR code généré dans l'appli par qrcode-generator (MIT, `app/lib/`) ; page de présentation `index.html` avec Tailwind CSS (CDN).
+- Outils : `outils/construire-donnees.mjs` (base `data/`), `outils/extraire-nouveautes.py` (passages surlignés des RTN, nécessite le PDF officiel et pdfplumber).
 - Base de connaissances `data/` : une fiche JSON par conduite à tenir et par geste, générée depuis les fiches officielles (`node outils/construire-donnees.mjs`).
 
 ## Lancer en local et tester
